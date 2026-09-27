@@ -4,7 +4,7 @@
 
 <br />
 <div align="center">
-  <a href="https://github.com/mediaflows-tech/app">
+  <a href="https://github.com/M1KUAPP/MediaFlows">
     <img src="frontend/public/mediaflows-light.png" alt="Logo" width="200" height="200">
   </a>
 
@@ -13,9 +13,9 @@
   <p align="center">
     A cloud-native Digital Asset Management platform for the media industry.
     <br />
-    <a href="https://github.com/mediaflows-tech/app/issues/new?labels=bug">Bug Report</a>
+    <a href="https://github.com/M1KUAPP/MediaFlows/issues/new?labels=bug">Bug Report</a>
     &middot;
-    <a href="https://github.com/mediaflows-tech/app/issues/new?labels=enhancement">Feature Request</a>
+    <a href="https://github.com/M1KUAPP/MediaFlows/issues/new?labels=enhancement">Feature Request</a>
     <br />
   </p>
 
@@ -132,7 +132,7 @@ Built as coursework, where it earned an A+.
 
 ## Getting Started
 
-The repo runs three loosely-coupled workloads. Each has its own README with the deep details; this section gets you to the point where you can build any of them locally.
+The repository contains four workloads. This section shows the starting commands for the frontend, backend, and infrastructure from the repository root.
 
 ### Prerequisites
 
@@ -147,25 +147,30 @@ The repo runs three loosely-coupled workloads. Each has its own README with the 
 Clone the repo:
 
 ```bash
-git clone https://github.com/mediaflows-tech/app.git
-cd app
+git clone https://github.com/M1KUAPP/MediaFlows.git
+cd MediaFlows
 ```
 
-Then bring up whichever workload you need:
+Start the frontend from the repository root:
 
 ```bash
-# Frontend
 cd frontend
 pnpm install
 cp .env.production.example .env.local    # fill in Cognito + API values
 pnpm dev                                 # http://localhost:3000
+```
 
-# Backend
+In another terminal, start the backend from the repository root:
+
+```bash
 dotnet restore MediaFlows.slnx
-dotnet run --project src/MediaFlows.Web  # http://localhost:5000
+dotnet run --project src/MediaFlows.Web --launch-profile http  # http://localhost:5140
+```
 
-# Infrastructure (first-time deploy)
-make deploy                              # see infrastructure/README.md
+Provision AWS separately from the repository root when needed:
+
+```bash
+make deploy  # see infrastructure/README.md
 ```
 
 Workload-specific instructions live in [`frontend/README.md`](frontend/README.md) and [`infrastructure/README.md`](infrastructure/README.md).
@@ -193,7 +198,7 @@ The frontend talks to the API over HTTPS and SignalR (realtime hub), assets are 
 
 ## Roadmap
 
-See the [open issues](https://github.com/mediaflows-tech/app/issues) for a full list of proposed features (and known issues).
+See the [open issues](https://github.com/M1KUAPP/MediaFlows/issues) for a full list of proposed features (and known issues).
 
 <p align="right"><a href="#readme-top">&uarr;</a></p>
 
@@ -242,7 +247,7 @@ No license has been declared. All rights reserved by the project authors. Contac
 
 MediaFlows — [@mediaflows-tech](https://github.com/mediaflows-tech)
 
-Project Link: [https://github.com/mediaflows-tech/app](https://github.com/mediaflows-tech/app)
+Project Link: [https://github.com/M1KUAPP/MediaFlows](https://github.com/M1KUAPP/MediaFlows)
 
 <p align="right"><a href="#readme-top">&uarr;</a></p>
 
