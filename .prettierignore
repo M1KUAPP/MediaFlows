@@ -2,9 +2,6 @@
 .claude/
 
 # Repo-specific
-.next/
-bin/
-obj/
 apps/web/
 graphify-out/
 infra/
