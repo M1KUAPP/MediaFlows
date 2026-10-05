@@ -89,43 +89,43 @@ The repository is split into four top-level workloads:
 <table>
   <tr>
     <td width="50%" valign="top" align="left">
-      <img src="docs/screenshots/landing-hero.png" alt="MediaFlows landing page" width="100%">
+      <img src="docs/readme/screenshots/landing-hero.png" alt="MediaFlows landing page" width="100%">
       <br />
       <strong>Landing Page</strong> · A cinematic entry point into the workspace.
     </td>
     <td width="50%" valign="top" align="left">
-      <img src="docs/screenshots/dashboard.png" alt="User dashboard" width="100%">
+      <img src="docs/readme/screenshots/dashboard.png" alt="User dashboard" width="100%">
       <br />
       <strong>Dashboard</strong> · Personalized greeting, role-based quick actions, and a recent-assets carousel.
     </td>
   </tr>
   <tr>
     <td width="50%" valign="top" align="left">
-      <img src="docs/screenshots/catalog.png" alt="Media catalog" width="100%">
+      <img src="docs/readme/screenshots/catalog.png" alt="Media catalog" width="100%">
       <br />
       <strong>Catalog</strong> · Browse published media with content-type filters and trending sort.
     </td>
     <td width="50%" valign="top" align="left">
-      <img src="docs/screenshots/admin-monitoring.png" alt="Real-time monitoring" width="100%">
+      <img src="docs/readme/screenshots/admin-monitoring.png" alt="Real-time monitoring" width="100%">
       <br />
       <strong>Live Monitoring</strong> · Real-time CPU, latency, error-rate, and cost metrics with streaming charts.
     </td>
   </tr>
   <tr>
     <td width="50%" valign="top" align="left">
-      <img src="docs/screenshots/admin-dashboard.png" alt="Admin summary" width="100%">
+      <img src="docs/readme/screenshots/admin-dashboard.png" alt="Admin summary" width="100%">
       <br />
       <strong>Admin Summary</strong> · Platform KPIs, upload-activity trends, storage breakdown, and CloudWatch alarms.
     </td>
     <td width="50%" valign="top" align="left">
-      <img src="docs/screenshots/review-workflow-1.png" alt="Review queue" width="100%">
+      <img src="docs/readme/screenshots/review-workflow-1.png" alt="Review queue" width="100%">
       <br />
       <strong>Review Queue</strong> · Triage submissions with status filters and batch approve / reject / schedule.
     </td>
   </tr>
   <tr>
     <td width="50%" valign="top" align="left">
-      <img src="docs/screenshots/review-workflow-2.png" alt="Review and approve an asset" width="100%">
+      <img src="docs/readme/screenshots/review-workflow-2.png" alt="Review and approve an asset" width="100%">
       <br />
       <strong>Review &amp; Decide</strong> · Inspect an asset, leave comments, and approve, schedule, or reject.
     </td>
@@ -139,30 +139,30 @@ The repository is split into four top-level workloads:
 
 1. **Enter the workspace.** The landing page at `/` links to sign-in. New users register at `/register`, enter the six-digit code that Cognito emails them at `/confirm`, and sign in at `/login`. A post-confirmation Lambda adds every new account to the `Viewer` group.
 
-   ![Landing page](docs/screenshots/landing-hero.png)
+   ![Landing page](docs/readme/screenshots/landing-hero.png)
 
 2. **Start from the dashboard.** `/dashboard` greets you and shows a carousel of recent assets. The sidebar lists only the pages your role (`SystemAdmin`, `ContentCreator`, `Editor` or `Viewer`) can open.
 
-   ![Dashboard](docs/screenshots/dashboard.png)
+   ![Dashboard](docs/readme/screenshots/dashboard.png)
 
 3. **Upload media.** Content creators drop files on `/creator/upload`. The browser sends each file straight to S3 through a presigned URL, then confirms the upload with the API. For images, Lambda functions then generate WebP thumbnails and Rekognition auto-tags in the background.
 4. **Prepare assets for review.** `/creator/assets` lists the creator's asset library. On an asset's page, creators edit tags, read comments, and open the version history to upload, compare or revert versions. They then submit one asset or a batch for review.
 5. **Review submissions.** Editors triage the queue at `/review` with status filters and batch approve, reject or schedule. On an asset's review page, they leave comments, then approve, request changes, reject or schedule it.
 
-   ![Review queue](docs/screenshots/review-workflow-1.png)
+   ![Review queue](docs/readme/screenshots/review-workflow-1.png)
 
-   ![Review and approve an asset](docs/screenshots/review-workflow-2.png)
+   ![Review and approve an asset](docs/readme/screenshots/review-workflow-2.png)
 
 6. **Schedule publication.** `/schedule` shows a publishing calendar for approved assets. The API publishes each scheduled asset once its time arrives.
 7. **Browse and share.** Every role can browse published media at `/catalog` with content-type filters and a trending sort, search with autocomplete at `/search`, and save assets to `/bookmarks`. An asset's page lets them download it or copy a share link.
 
-   ![Media catalog](docs/screenshots/catalog.png)
+   ![Media catalog](docs/readme/screenshots/catalog.png)
 
 8. **Run the platform.** System admins read platform KPIs at `/admin`, manage users and their roles at `/admin/users`, filter audit logs at `/admin/audit-logs`, and watch live metrics at `/admin/monitoring`.
 
-   ![Admin summary](docs/screenshots/admin-dashboard.png)
+   ![Admin summary](docs/readme/screenshots/admin-dashboard.png)
 
-   ![Real-time monitoring](docs/screenshots/admin-monitoring.png)
+   ![Real-time monitoring](docs/readme/screenshots/admin-monitoring.png)
 
 <p align="right"><a href="#readme-top">&uarr;</a></p>
 
@@ -189,8 +189,8 @@ The repository is split into four top-level workloads:
 ### Architecture
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="docs/architecture/architecture-dark.svg">
-  <img src="docs/architecture/architecture-light.svg" alt="MediaFlows architecture">
+  <source media="(prefers-color-scheme: dark)" srcset="docs/readme/architecture-dark.svg">
+  <img src="docs/readme/architecture-light.svg" alt="MediaFlows architecture">
 </picture>
 
 Once deployed behind a custom domain, MediaFlows serves four endpoints:
