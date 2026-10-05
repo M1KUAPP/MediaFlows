@@ -11,7 +11,7 @@
   <h3>MediaFlows</h3>
 
   <p>
-    A cloud-native Digital Asset Management platform for the media industry.
+    A cloud-native digital asset management platform on AWS where media teams ingest, review, transform and publish image and video assets.
     <br />
     <a href="#screenshots"><strong>View Screenshots »</strong></a>
     &middot;
