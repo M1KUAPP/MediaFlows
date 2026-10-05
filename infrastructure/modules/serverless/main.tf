@@ -115,10 +115,10 @@ resource "aws_iam_role_policy" "lambda_app_policy" {
 }
 
 # ──────────────────────────────────────────────────
-# Lambda Functions (placeholder — zip deployed via CI/CD)
+# Lambda Functions (placeholder zip; Terraform does not deploy function code)
 # ──────────────────────────────────────────────────
 
-# Placeholder zip for initial terraform apply (before first CI/CD deploy)
+# Placeholder zip for initial terraform apply (before function code is uploaded)
 data "archive_file" "lambda_placeholder" {
   type        = "zip"
   output_path = "${path.module}/placeholder.zip"

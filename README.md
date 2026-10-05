@@ -33,7 +33,6 @@
 [![AWS][AWS.com]][AWS-url]
 [![AWS Lambda][Lambda.com]][Lambda-url]
 [![Terraform][Terraform.io]][Terraform-url]
-[![GitHub Actions][GHA.com]][GHA-url]
 [![Playwright][Playwright.dev]][Playwright-url]
 [![pnpm][Pnpm.io]][Pnpm-url]
 
@@ -207,7 +206,6 @@ The frontend talks to the API over HTTPS and SignalR (realtime hub), assets are 
 - **Serverless:** AWS Lambda on .NET 8, ImageSharp, Amazon Rekognition, SQS, SNS, EventBridge, and API Gateway.
 - **Infrastructure:** Terraform with the AWS and TLS providers, AWS Amplify Hosting, Elastic Beanstalk, CloudFront, Cognito, Route 53, CloudWatch, and X-Ray.
 - **Testing:** xUnit, Moq, and FluentAssertions for .NET, and Playwright for end-to-end tests.
-- **CI/CD:** GitHub Actions with AWS OIDC credentials.
 - **Tooling:** pnpm and ESLint.
 
 <p align="right"><a href="#readme-top">&uarr;</a></p>
@@ -226,7 +224,6 @@ The repository contains four workloads. This section shows the starting commands
 - [.NET SDK](https://dotnet.microsoft.com/) 8 — backend
 - [AWS CLI](https://aws.amazon.com/cli/) v2 with an `mediaflows` profile — for deploys and SSM lookups
 - [Terraform](https://www.terraform.io/) 1.6+ — for `infrastructure/`
-- [GitHub CLI](https://cli.github.com/) (`gh`) — for the first-time bootstrap workflow
 
 <p align="right"><a href="#readme-top">&uarr;</a></p>
 
@@ -261,7 +258,7 @@ Provision AWS separately from the repository root when needed:
 make deploy  # see infrastructure/README.md
 ```
 
-The CI deploy workflows (`deploy.yml`, `terraform-apply.yml`) ship with their automatic push triggers disabled. Run them manually from the Actions tab (`workflow_dispatch`) once AWS credentials are configured for your account.
+The repository has no CI, and deploys are manual: `make deploy` provisions the AWS infrastructure and `make apply` applies later changes. The exception is the frontend, which Amplify Hosting builds from `main` once provisioned. No script deploys the API or Lambda code. The removed workflows are linked at their last commit for reference: [`deploy.yml`](https://github.com/M1KUAPP/MediaFlows/blob/6b2c63289af4207f6d723888810c32913e53d143/.github/workflows/deploy.yml) built and uploaded the API and Lambda code, and [`terraform-apply.yml`](https://github.com/M1KUAPP/MediaFlows/blob/6b2c63289af4207f6d723888810c32913e53d143/.github/workflows/terraform-apply.yml) ran `terraform apply`.
 
 Workload-specific instructions live in [`frontend/README.md`](frontend/README.md) and [`infrastructure/README.md`](infrastructure/README.md).
 
@@ -333,8 +330,6 @@ See [LICENSE](LICENSE) for more information.
 [DynamoDB-url]: https://aws.amazon.com/dynamodb/
 [Lambda.com]: https://img.shields.io/badge/AWS_Lambda-FF9900?style=for-the-badge&logo=data:image/svg%2Bxml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxZW0iIGhlaWdodD0iMWVtIiB2aWV3Qm94PSIwIDAgMjQgMjQiPjxwYXRoIGZpbGw9Im5vbmUiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIyIiBkPSJNNCAxNGExIDEgMCAwIDEtLjc4LTEuNjNsOS45LTEwLjJhLjUuNSAwIDAgMSAuODYuNDZsLTEuOTIgNi4wMkExIDEgMCAwIDAgMTMgMTBoN2ExIDEgMCAwIDEgLjc4IDEuNjNsLTkuOSAxMC4yYS41LjUgMCAwIDEtLjg2LS40NmwxLjkyLTYuMDJBMSAxIDAgMCAwIDExIDE0eiIvPjwvc3ZnPg%3D%3D
 [Lambda-url]: https://aws.amazon.com/lambda/
-[GHA.com]: https://img.shields.io/badge/GitHub_Actions-2088FF?style=for-the-badge&logo=githubactions&logoColor=white
-[GHA-url]: https://github.com/features/actions
 [Playwright.dev]: https://img.shields.io/badge/Playwright-2EAD33?style=for-the-badge&logo=data:image/svg%2Bxml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxZW0iIGhlaWdodD0iMWVtIiB2aWV3Qm94PSIwIDAgMjQgMjQiPjxnIGZpbGw9Im5vbmUiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIyIj48cGF0aCBkPSJNMTAgMTFoLjAxTTE0IDZoLjAxTTE4IDZoLjAxTTYuNSAxMy4xaC4wMU0yMiA1YzAgOS00IDEyLTYgMTJzLTYtMy02LTEycTAtMyA2LTNjNiAwIDYgMSA2IDMiLz48cGF0aCBkPSJNMTcuNCA5LjljLS44LjgtMiAuOC0yLjggMG0tNC41LTIuOEM5IDcuMiA3LjcgNy43IDYgOC42Yy0zLjUgMi00LjcgMy45LTMuNyA1LjZjNC41IDcuOCA5LjUgOC40IDExLjIgNy40Yy45LS41IDEuOS0yLjEgMS45LTQuNyIvPjxwYXRoIGQ9Ik05LjEgMTYuNWMuMy0xLjEgMS40LTEuNyAyLjQtMS40Ii8%2BPC9nPjwvc3ZnPg%3D%3D
 [Playwright-url]: https://playwright.dev/
 [Pnpm.io]: https://img.shields.io/badge/pnpm-F69220?style=for-the-badge&logo=pnpm&logoColor=white
