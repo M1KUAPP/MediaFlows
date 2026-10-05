@@ -44,4 +44,4 @@ cp .env.production.example .env.local
 
 ## Deployment
 
-The `.github/workflows/deploy.yml` workflow builds and deploys to AWS Amplify Hosting (served at `https://web.<domain>/`). Its automatic push trigger is disabled for the public release — dispatch it manually from the Actions tab once AWS credentials are configured.
+AWS Amplify Hosting builds and serves the frontend (at `https://web.<domain>/`). The Amplify app is created by `make deploy` (see [`../infrastructure/README.md`](../infrastructure/README.md)) and builds the `main` branch with [`amplify.yml`](amplify.yml) whenever it changes. There is no CI workflow.

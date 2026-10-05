@@ -2,7 +2,7 @@
 # Usage:
 #   make help           — list targets
 #   make deploy         — full first-time deploy from an empty AWS account
-#   make plan / apply   — routine main-stack changes (subsequent changes flow via CI)
+#   make plan / apply   — routine main-stack changes
 #
 # All targets default to the prod stack. Override TF_ENV to target another env.
 
@@ -46,13 +46,6 @@ bootstrap: ## Apply the bootstrap stack (state bucket, OIDC, GHA role, SSM)
 	@echo "✓ bootstrap applied. backend.hcl written to $(BOOTSTRAP_DIR)/backend.hcl."
 	@echo "  Keep it local — it is gitignored (the bucket name embeds your AWS account id)."
 
-.PHONY: gh-secret
-gh-secret: ## Push the GitHub Actions AWS_ROLE_ARN secret (needs gh auth)
-	@gh auth status >/dev/null 2>&1 || { echo >&2 "run 'gh auth login' first"; exit 1; }
-	$(AWS_EXPORT) && gh secret set AWS_ROLE_ARN \
-		--body "$$(terraform -chdir=$(BOOTSTRAP_DIR) output -raw github_actions_role_arn)"
-	@echo "✓ GitHub secret AWS_ROLE_ARN updated"
-
 .PHONY: init
 init: ## Initialize the main stack with the bootstrap-generated backend config
 	@test -f $(MAIN_DIR)/$(BACKEND_HCL) || { \
@@ -81,9 +74,8 @@ ns: ## Print Route53 name servers for registrar update
 		'import json, sys; ns = json.load(sys.stdin); print("\n".join(ns))'
 
 .PHONY: deploy
-deploy: ## First-time deploy: bootstrap → gh-secret → apply-dns → NS pause → apply
+deploy: ## First-time deploy: bootstrap → apply-dns → NS pause → apply
 	$(MAKE) bootstrap
-	$(MAKE) gh-secret
 	$(MAKE) apply-dns
 	@echo
 	@echo "────────────────────────────────────────────────────────────"
