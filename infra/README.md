@@ -25,11 +25,11 @@ make deploy
 
 `make deploy`:
 
-1. Applies the bootstrap stack (state bucket, OIDC, GHA role, SSM params).
-2. Writes `infra/bootstrap/backend.hcl` with the new state bucket name.
-3. Applies `module.dns[0].aws_route53_zone.main` only — creates the Route53 zone so we can hand you the NS records.
-4. Prints the four NS records and waits for you to press ENTER once your domain registrar has been updated and propagation is verified (`dig NS <domain> @8.8.8.8`).
-5. Applies the full main stack. ACM certs validate, Amplify/EB/Lambda/Cognito come up.
+1.  Applies the bootstrap stack (state bucket, OIDC, GHA role, SSM params).
+2.  Writes `infra/bootstrap/backend.hcl` with the new state bucket name.
+3.  Applies `module.dns[0].aws_route53_zone.main` only — creates the Route53 zone so we can hand you the NS records.
+4.  Prints the four NS records and waits for you to press ENTER once your domain registrar has been updated and propagation is verified (`dig NS <domain> @8.8.8.8`).
+5.  Applies the full main stack. ACM certs validate, Amplify/EB/Lambda/Cognito come up.
 
 `make deploy` writes `infra/bootstrap/backend.hcl` (the state-bucket backend config). It is **gitignored** — the bucket name embeds your AWS account id, so it is kept local rather than committed. To recreate it without a full deploy, copy `backend.hcl.example` and fill in your bucket name, or re-run `make bootstrap`.
 

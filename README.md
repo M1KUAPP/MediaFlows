@@ -142,37 +142,37 @@ Built as coursework, where it earned an A+.
 
 ### How It Works
 
-1. **Enter the workspace.** The landing page at `/` links to sign-in. New users register at `/register`, enter the six-digit code that Cognito emails them at `/confirm`, and sign in at `/login`. A post-confirmation Lambda adds every new account to the `Viewer` group.
+1.  **Enter the workspace.** The landing page at `/` links to sign-in. New users register at `/register`, enter the six-digit code that Cognito emails them at `/confirm`, and sign in at `/login`. A post-confirmation Lambda adds every new account to the `Viewer` group.
 
-   <img src="docs/readme/steps/1-register.png" alt="MediaFlows registration page" width="100%">
+    <img src="docs/readme/steps/1-register.png" alt="MediaFlows registration page" width="100%">
 
-2. **Start from the dashboard.** `/dashboard` greets you and shows a carousel of recent assets. The sidebar lists only the pages your role (`SystemAdmin`, `ContentCreator`, `Editor` or `Viewer`) can open.
+2.  **Start from the dashboard.** `/dashboard` greets you and shows a carousel of recent assets. The sidebar lists only the pages your role (`SystemAdmin`, `ContentCreator`, `Editor` or `Viewer`) can open.
 
-   <img src="docs/readme/steps/2-dashboard.png" alt="Content creator dashboard" width="100%">
+    <img src="docs/readme/steps/2-dashboard.png" alt="Content creator dashboard" width="100%">
 
-3. **Upload media.** Content creators drop files on `/creator/upload`. The browser sends each file straight to S3 through a presigned URL, then confirms the upload with the API. For images, Lambda functions then generate WebP thumbnails and Rekognition auto-tags in the background.
+3.  **Upload media.** Content creators drop files on `/creator/upload`. The browser sends each file straight to S3 through a presigned URL, then confirms the upload with the API. For images, Lambda functions then generate WebP thumbnails and Rekognition auto-tags in the background.
 
-   <img src="docs/readme/steps/3-upload.png" alt="Uploads in progress" width="100%">
+    <img src="docs/readme/steps/3-upload.png" alt="Uploads in progress" width="100%">
 
-4. **Prepare assets for review.** `/creator/assets` lists the creator's asset library. On an asset's page, creators edit tags, read comments, and open the version history to upload, compare or revert versions. They then submit one asset or a batch for review.
+4.  **Prepare assets for review.** `/creator/assets` lists the creator's asset library. On an asset's page, creators edit tags, read comments, and open the version history to upload, compare or revert versions. They then submit one asset or a batch for review.
 
-   <img src="docs/readme/steps/4-asset-details.png" alt="Draft asset with tags and versions" width="100%">
+    <img src="docs/readme/steps/4-asset-details.png" alt="Draft asset with tags and versions" width="100%">
 
-5. **Review submissions.** Editors triage the queue at `/review` with status filters and batch approve, reject or schedule. On an asset's review page, they leave comments, then approve, request changes, reject or schedule it.
+5.  **Review submissions.** Editors triage the queue at `/review` with status filters and batch approve, reject or schedule. On an asset's review page, they leave comments, then approve, request changes, reject or schedule it.
 
-   <img src="docs/readme/steps/5-review-queue.png" alt="Review queue with a batch selection" width="100%">
+    <img src="docs/readme/steps/5-review-queue.png" alt="Review queue with a batch selection" width="100%">
 
-6. **Schedule publication.** `/schedule` shows a publishing calendar for approved assets. The API publishes each scheduled asset once its time arrives.
+6.  **Schedule publication.** `/schedule` shows a publishing calendar for approved assets. The API publishes each scheduled asset once its time arrives.
 
-   <img src="docs/readme/steps/6-schedule.png" alt="Publishing calendar" width="100%">
+    <img src="docs/readme/steps/6-schedule.png" alt="Publishing calendar" width="100%">
 
-7. **Browse and share.** Every role can browse published media at `/catalog` with content-type filters and a trending sort, search with autocomplete at `/search`, and save assets to `/bookmarks`. An asset's page lets them download it or copy a share link.
+7.  **Browse and share.** Every role can browse published media at `/catalog` with content-type filters and a trending sort, search with autocomplete at `/search`, and save assets to `/bookmarks`. An asset's page lets them download it or copy a share link.
 
-   <img src="docs/readme/steps/7-asset-page.png" alt="Published asset page" width="100%">
+    <img src="docs/readme/steps/7-asset-page.png" alt="Published asset page" width="100%">
 
-8. **Run the platform.** System admins read platform KPIs at `/admin`, manage users and their roles at `/admin/users`, filter audit logs at `/admin/audit-logs`, and watch live metrics at `/admin/monitoring`.
+8.  **Run the platform.** System admins read platform KPIs at `/admin`, manage users and their roles at `/admin/users`, filter audit logs at `/admin/audit-logs`, and watch live metrics at `/admin/monitoring`.
 
-   <img src="docs/readme/steps/8-users.png" alt="User management" width="100%">
+    <img src="docs/readme/steps/8-users.png" alt="User management" width="100%">
 
 <p align="right"><a href="#readme-top">&uarr;</a></p>
 
@@ -247,42 +247,42 @@ The frontend and the backend run locally from the repository root, and the front
 
 ### Installation
 
-1. **Clone the repo.**
+1.  **Clone the repo.**
 
-   ```sh
-   git clone https://github.com/M1KUAPP/MediaFlows.git
-   cd MediaFlows
-   ```
+    ```sh
+    git clone https://github.com/M1KUAPP/MediaFlows.git
+    cd MediaFlows
+    ```
 
-2. **Start the frontend.** From the repository root:
+2.  **Start the frontend.** From the repository root:
 
-   ```sh
-   cd apps/web
-   pnpm install
-   cp .env.production.example .env.local    # fill in Cognito + API values
-   pnpm dev                                 # http://localhost:3000
-   ```
+    ```sh
+    cd apps/web
+    pnpm install
+    cp .env.production.example .env.local    # fill in Cognito + API values
+    pnpm dev                                 # http://localhost:3000
+    ```
 
-3. **Start the backend.** In another terminal, from the repository root:
+3.  **Start the backend.** In another terminal, from the repository root:
 
-   ```sh
-   dotnet restore MediaFlows.slnx
-   dotnet run --project apps/api/MediaFlows.Web --launch-profile http  # http://localhost:5140
-   ```
+    ```sh
+    dotnet restore MediaFlows.slnx
+    dotnet run --project apps/api/MediaFlows.Web --launch-profile http  # http://localhost:5140
+    ```
 
-4. **Provision AWS when needed.** Separately, from the repository root:
+4.  **Provision AWS when needed.** Separately, from the repository root:
 
-   ```sh
-   make deploy  # see infra/README.md
-   ```
+    ```sh
+    make deploy  # see infra/README.md
+    ```
 
-   The repository has no CI, and deploys are manual: `make deploy` provisions the AWS infrastructure and `make apply` applies later changes. The exception is the frontend, which Amplify Hosting builds from `main` once provisioned. No script deploys the API or Lambda code. The removed workflows are linked at their last commit for reference: [`deploy.yml`](https://github.com/M1KUAPP/MediaFlows/blob/6b2c63289af4207f6d723888810c32913e53d143/.github/workflows/deploy.yml) built and uploaded the API and Lambda code, and [`terraform-apply.yml`](https://github.com/M1KUAPP/MediaFlows/blob/6b2c63289af4207f6d723888810c32913e53d143/.github/workflows/terraform-apply.yml) ran `terraform apply`. Workload-specific instructions live in [`apps/web/README.md`](apps/web/README.md) and [`infra/README.md`](infra/README.md).
+    The repository has no CI, and deploys are manual: `make deploy` provisions the AWS infrastructure and `make apply` applies later changes. The exception is the frontend, which Amplify Hosting builds from `main` once provisioned. No script deploys the API or Lambda code. The removed workflows are linked at their last commit for reference: [`deploy.yml`](https://github.com/M1KUAPP/MediaFlows/blob/6b2c63289af4207f6d723888810c32913e53d143/.github/workflows/deploy.yml) built and uploaded the API and Lambda code, and [`terraform-apply.yml`](https://github.com/M1KUAPP/MediaFlows/blob/6b2c63289af4207f6d723888810c32913e53d143/.github/workflows/terraform-apply.yml) ran `terraform apply`. Workload-specific instructions live in [`apps/web/README.md`](apps/web/README.md) and [`infra/README.md`](infra/README.md).
 
-5. **Run the checks.** From the repository root, run `bun install` once for the root tooling and Git hooks. `bun run check` runs Prettier, the frontend typecheck, and `dotnet test MediaFlows.slnx` when `dotnet` is installed. ESLint (`pnpm lint`) and the Playwright suite (`pnpm test:e2e`, against `http://localhost:3000`) run separately in `apps/web/`.
+5.  **Run the checks.** From the repository root, run `bun install` once for the root tooling and Git hooks. `bun run check` runs editorconfig-checker, Prettier, the frontend typecheck, and `dotnet test MediaFlows.slnx` when `dotnet` is installed. ESLint (`pnpm lint`) and the Playwright suite (`pnpm test:e2e`, against `http://localhost:3000`) run separately in `apps/web/`.
 
-   ```sh
-   bun run check
-   ```
+    ```sh
+    bun run check
+    ```
 
 <p align="right"><a href="#readme-top">&uarr;</a></p>
 
