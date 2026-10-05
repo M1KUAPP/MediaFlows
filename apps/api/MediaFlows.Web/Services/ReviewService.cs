@@ -46,9 +46,9 @@ public class ReviewService : IReviewService
             query = query.Where(a => a.Status == status.Value);
         else
             query = query.Where(a => a.Status != AssetStatus.Draft &&
-                                     a.Status != AssetStatus.Archived &&
-                                     a.Status != AssetStatus.Quarantined &&
-                                     a.Status != AssetStatus.Deleted);
+                                      a.Status != AssetStatus.Archived &&
+                                      a.Status != AssetStatus.Quarantined &&
+                                      a.Status != AssetStatus.Deleted);
 
         if (!string.IsNullOrEmpty(creatorId))
             query = query.Where(a => a.CreatorId == creatorId);
@@ -455,9 +455,9 @@ public class ReviewService : IReviewService
     {
         return await _db.MediaAssets
             .Where(a => a.Status == AssetStatus.Approved
-                     && a.ScheduledPublishAt != null
-                     && a.ScheduledPublishAt >= start
-                     && a.ScheduledPublishAt <= end)
+                      && a.ScheduledPublishAt != null
+                      && a.ScheduledPublishAt >= start
+                      && a.ScheduledPublishAt <= end)
             .Select(a => new ScheduledPublishDto
             {
                 AssetId = a.Id,
@@ -704,8 +704,8 @@ public class ReviewService : IReviewService
 
         var dueAssets = await _db.MediaAssets
             .Where(a => a.Status == AssetStatus.Approved
-                     && a.ScheduledPublishAt != null
-                     && a.ScheduledPublishAt <= now)
+                      && a.ScheduledPublishAt != null
+                      && a.ScheduledPublishAt <= now)
             .Select(a => new { a.Id, a.Title, a.CreatorId })
             .ToListAsync();
 

@@ -3,8 +3,8 @@
   "packageManager": "bun@1.4.2",
   "scripts": {
     "check": "bun run lint && bun run typecheck && bun run test",
-    "graph": "graphify update .",
-    "lint": "prettier --check .",
+    "graph": "graphify update . && EC_VERSION=v4.0.2 editorconfig-checker -fix graphify-out/graph.json",
+    "lint": "EC_VERSION=v4.0.2 editorconfig-checker && EC_VERSION=v4.0.2 editorconfig-checker -config .editorconfig-checker.exceptions.json -disable-indentation Makefile && prettier --check .",
     "lint:fix": "prettier --write .",
     "prepare": "husky",
     "test": "if command -v dotnet >/dev/null 2>&1; then dotnet test MediaFlows.slnx; else echo 'dotnet not found on PATH; skipping dotnet test'; fi",
@@ -16,6 +16,7 @@
   "devDependencies": {
     "@commitlint/cli": "^21.2.3",
     "@commitlint/config-conventional": "^21.2.3",
+    "editorconfig-checker": "^7.0.0",
     "husky": "^9.1.7",
     "lint-staged": "^17.6.0",
     "prettier": "^3.9.9"

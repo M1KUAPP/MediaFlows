@@ -27,7 +27,7 @@ public class XRayInstrumentationTests
 
         referenced.Should().Contain("AWSXRayRecorder.Handlers.AwsSdk",
             because: $"{functionType.FullName} must reference the X-Ray AWS SDK handler package " +
-                     "to instrument AWS SDK calls under its Lambda invocation segment");
+                      "to instrument AWS SDK calls under its Lambda invocation segment");
     }
 
     [Fact]
@@ -46,8 +46,8 @@ public class XRayInstrumentationTests
         handlers
             .Should().Contain("XRayPipelineHandler",
                 because: "ContentModerator should register X-Ray for the AWS " +
-                         "SDK at static initialization so every subsequent " +
-                         "client construction inherits the X-Ray handler");
+                          "SDK at static initialization so every subsequent " +
+                          "client construction inherits the X-Ray handler");
     }
 
     private static IEnumerable<string> GetPipelineHandlerTypeNames(AmazonServiceClient client)

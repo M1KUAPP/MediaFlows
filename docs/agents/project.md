@@ -27,9 +27,9 @@ Contents:
 
 Run these from the repository root unless noted.
 
-- `bun install`: installs the repository tooling (Prettier, Husky, commitlint, lint-staged) and the Git hooks.
-- `bun run check`: Prettier, the frontend typecheck, and `dotnet test MediaFlows.slnx` when `dotnet` is on `PATH`. It needs `pnpm install` in `apps/web/` first.
-- `bun run lint` and `bun run lint:fix`: Prettier check and write for the files Prettier owns.
+- `bun install`: installs the repository tooling (editorconfig-checker, Prettier, Husky, commitlint, lint-staged) and the Git hooks.
+- `bun run check`: editorconfig-checker, Prettier, the frontend typecheck, and `dotnet test MediaFlows.slnx` when `dotnet` is on `PATH`. It needs `pnpm install` in `apps/web/` first.
+- `bun run lint`: editorconfig-checker over every tracked file, then Prettier's check. `bun run lint:fix` runs Prettier's write for the files Prettier owns.
 - `pnpm dev`, `pnpm build`, `pnpm lint` and `pnpm test:e2e`, in `apps/web/`: the Next.js dev server, the production build, ESLint and the Playwright suite against `http://localhost:3000`.
 - `dotnet run --project apps/api/MediaFlows.Web --launch-profile http`: the API on `http://localhost:5140`.
 - `dotnet test MediaFlows.slnx`: every .NET test project.
@@ -39,7 +39,8 @@ Run these from the repository root unless noted.
 ## Conventions
 
 - **Package managers:** bun for the root tooling, pnpm for `apps/web/`. Don't mix them: `apps/web/package-lock.json` is ignored.
-- **Formatting:** Prettier formats every file type it supports, except under `apps/web/` and `infra/`, which `.prettierignore` leaves out. It doesn't format C#; the `.editorconfig` sets 4-space indents for it.
+- **Formatting:** Prettier formats every file type it supports, except under `apps/web/` and `infra/`, which `.prettierignore` leaves out. It doesn't format C#, which keeps 4-space indents.
+- **Whitespace:** `.editorconfig` has one `[*]` section (UTF-8, LF, a final newline, space indents in multiples of 2, no trailing whitespace), and `editorconfig-checker` enforces it on every tracked file. `.editorconfig-checker.json` excludes only the `Makefile`, whose recipes need tabs; `lint` checks it in a second run with `-disable-indentation`. Number ordered Markdown lists as `1.  ` and indent the rest of each item 4 spaces.
 - **Commits:** Conventional Commits, with headers of at most 50 characters, enforced by commitlint in the `commit-msg` hook. The `pre-commit` hook runs Prettier on staged files.
 - **Secrets:** never commit them. The frontend reads `.env.local` (start from `apps/web/.env.production.example`) and loads its secrets from SSM at runtime. `infra/environments/*.tfvars` are tracked because they hold no secrets; `infra/bootstrap/terraform.tfvars` and `backend.hcl` stay ignored.
 

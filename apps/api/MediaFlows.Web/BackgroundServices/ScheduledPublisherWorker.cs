@@ -25,7 +25,7 @@ public class ScheduledPublisherWorker : BackgroundService
         using var timer = new PeriodicTimer(_pollInterval);
 
         while (!stoppingToken.IsCancellationRequested &&
-               await timer.WaitForNextTickAsync(stoppingToken))
+                await timer.WaitForNextTickAsync(stoppingToken))
         {
             try
             {
