@@ -41,7 +41,7 @@ public class DynamoDbService : IDynamoDbService
                     { "AssetId", new AttributeValue { S = assetId } }
                 },
                 UpdateExpression = "SET ViewCount = if_not_exists(ViewCount, :zero) + :incr, " +
-                                   "LastViewedAt = :now",
+                                    "LastViewedAt = :now",
                 ExpressionAttributeValues = new Dictionary<string, AttributeValue>
                 {
                     { ":incr", new AttributeValue { N = "1" } },

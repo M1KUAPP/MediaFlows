@@ -45,7 +45,7 @@ public class AnalyticsWorker : BackgroundService
         using var timer = new PeriodicTimer(TimeSpan.FromSeconds(5));
 
         while (!stoppingToken.IsCancellationRequested &&
-               await timer.WaitForNextTickAsync(stoppingToken))
+                await timer.WaitForNextTickAsync(stoppingToken))
         {
             try
             {
