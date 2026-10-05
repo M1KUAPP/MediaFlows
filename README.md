@@ -5,7 +5,10 @@
 <br />
 <div align="center">
   <a href="https://github.com/M1KUAPP/MediaFlows">
-    <img src="frontend/public/embed-banner.jpg" alt="Banner">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="docs/readme/banner-dark.png">
+      <img src="docs/readme/banner-light.png" alt="MediaFlows banner">
+    </picture>
   </a>
 
   <h3>MediaFlows</h3>
@@ -13,11 +16,11 @@
   <p>
     A cloud-native digital asset management platform on AWS where media teams ingest, review, transform and publish image and video assets.
     <br />
-    <a href="#screenshots"><strong>View Screenshots »</strong></a>
+    <a href="#getting-started"><strong>Run Locally »</strong></a>
     &middot;
-    <a href="https://github.com/M1KUAPP/MediaFlows/issues/new?labels=bug">Bug Report</a>
+    <a href="#screenshots">Screenshots</a>
     &middot;
-    <a href="https://github.com/M1KUAPP/MediaFlows/issues/new?labels=enhancement">Feature Request</a>
+    <a href="https://github.com/M1KUAPP/MediaFlows/issues/new?labels=bug">Report a Bug</a>
     <br />
   </p>
 
