@@ -110,7 +110,8 @@ const tokenCss = [
 ].join('\n')
 
 function restyle(html) {
-  if (!html.includes('id="archify-fonts"')) throw new Error('No #archify-fonts style element: is this an Archify HTML file?')
+  if (!html.includes('id="archify-fonts"'))
+    throw new Error('No #archify-fonts style element: is this an Archify HTML file?')
   return html.replace('</head>', `<style id="mediaflows-tokens">\n${tokenCss}\n</style>\n</head>`)
 }
 
@@ -123,7 +124,11 @@ async function launch() {
 }
 
 async function exportSvg(browser, pageUrl, colorScheme, outFile) {
-  const context = await browser.newContext({ colorScheme, acceptDownloads: true, viewport: { width: 1440, height: 900 } })
+  const context = await browser.newContext({
+    colorScheme,
+    acceptDownloads: true,
+    viewport: { width: 1440, height: 900 }
+  })
   const page = await context.newPage()
   await page.goto(pageUrl)
   await page.evaluate(() => document.fonts.ready)
