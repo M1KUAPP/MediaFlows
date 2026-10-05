@@ -214,13 +214,13 @@ The frontend talks to the API over HTTPS and SignalR (realtime hub), assets are 
 
 ### Tech Stack
 
-- **Frontend:** Next.js 16 (App Router), React 19, TypeScript 5, Tailwind CSS 4, shadcn/ui on Base UI, TanStack Query, NextAuth 5 beta, Recharts, FullCalendar, and the SignalR client.
-- **Backend:** ASP.NET Core 8 (C#), Entity Framework Core 8 with Npgsql, SignalR, Serilog, Swashbuckle, and the AWS SDK for .NET.
+- **Languages:** TypeScript 5 and C#.
+- **Frontend:** Next.js 16 (App Router), React 19, Tailwind CSS 4, shadcn/ui on Base UI, TanStack Query, NextAuth 5 beta, Recharts, FullCalendar, and the SignalR client.
+- **Backend:** ASP.NET Core 8, Entity Framework Core 8 with Npgsql, SignalR, Serilog, Swashbuckle, the AWS SDK for .NET, and AWS Lambda on .NET 8 with ImageSharp.
 - **Data:** PostgreSQL on Amazon RDS, Amazon DynamoDB, and Amazon S3.
-- **Serverless:** AWS Lambda on .NET 8, ImageSharp, Amazon Rekognition, SQS, SNS, EventBridge, and API Gateway.
-- **Infrastructure:** Terraform with the AWS and TLS providers, AWS Amplify Hosting, Elastic Beanstalk, CloudFront, Cognito, Route 53, CloudWatch, and X-Ray.
-- **Testing:** xUnit, Moq, and FluentAssertions for .NET, and Playwright for end-to-end tests.
-- **Tooling:** pnpm and ESLint.
+- **AI and services:** Amazon Rekognition.
+- **Infrastructure:** Terraform with the AWS and TLS providers, AWS Amplify Hosting, Elastic Beanstalk, CloudFront, Cognito, SQS, SNS, EventBridge, API Gateway, Route 53, CloudWatch, and X-Ray.
+- **Tooling:** pnpm and ESLint, plus xUnit, Moq, and FluentAssertions for .NET tests and Playwright for end-to-end tests.
 
 <p align="right"><a href="#readme-top">&uarr;</a></p>
 
