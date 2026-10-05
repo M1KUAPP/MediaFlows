@@ -236,6 +236,7 @@ The frontend and the backend run locally from the repository root, and the front
 
 ### Prerequisites
 
+- [Bun](https://bun.sh/) 1.4.2 — for the repository tooling and `bun run check`.
 - [Node.js](https://nodejs.org/) 20+ — for the frontend.
 - [pnpm](https://pnpm.io/) 9+ — for the frontend.
 - [.NET SDK](https://dotnet.microsoft.com/) 8 — for the backend.
@@ -277,14 +278,10 @@ The frontend and the backend run locally from the repository root, and the front
 
    The repository has no CI, and deploys are manual: `make deploy` provisions the AWS infrastructure and `make apply` applies later changes. The exception is the frontend, which Amplify Hosting builds from `main` once provisioned. No script deploys the API or Lambda code. The removed workflows are linked at their last commit for reference: [`deploy.yml`](https://github.com/M1KUAPP/MediaFlows/blob/6b2c63289af4207f6d723888810c32913e53d143/.github/workflows/deploy.yml) built and uploaded the API and Lambda code, and [`terraform-apply.yml`](https://github.com/M1KUAPP/MediaFlows/blob/6b2c63289af4207f6d723888810c32913e53d143/.github/workflows/terraform-apply.yml) ran `terraform apply`. Workload-specific instructions live in [`frontend/README.md`](frontend/README.md) and [`infrastructure/README.md`](infrastructure/README.md).
 
-5. **Run the checks.** From the repository root:
+5. **Run the checks.** From the repository root, run `bun install` once for the root tooling and Git hooks. `bun run check` runs Prettier, the frontend typecheck, and `dotnet test MediaFlows.slnx` when `dotnet` is installed. ESLint (`pnpm lint`) and the Playwright suite (`pnpm test:e2e`, against `http://localhost:3000`) run separately in `frontend/`.
 
    ```sh
-   cd frontend
-   pnpm lint
-   pnpm test:e2e    # Playwright, defaults to http://localhost:3000
-   cd ..
-   dotnet test MediaFlows.slnx
+   bun run check
    ```
 
 <p align="right"><a href="#readme-top">&uarr;</a></p>
