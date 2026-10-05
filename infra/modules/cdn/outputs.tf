@@ -1,4 +1,3 @@
-# infra/modules/cdn/outputs.tf
 output "cloudfront_distribution_id" {
   description = "CloudFront distribution ID"
   value       = aws_cloudfront_distribution.media.id

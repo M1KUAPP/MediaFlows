@@ -1,8 +1,3 @@
-# infra/modules/serverless/main.tf
-
-# ──────────────────────────────────────────────────
-# IAM Role for Lambda Execution
-# ──────────────────────────────────────────────────
 resource "aws_iam_role" "lambda_execution" {
   name = "${var.project_name}-lambda-exec-${var.environment}"
 
@@ -114,9 +109,7 @@ resource "aws_iam_role_policy" "lambda_app_policy" {
   })
 }
 
-# ──────────────────────────────────────────────────
 # Lambda Functions (placeholder zip; Terraform does not deploy function code)
-# ──────────────────────────────────────────────────
 
 # Placeholder zip for initial terraform apply (before function code is uploaded)
 data "archive_file" "lambda_placeholder" {
@@ -361,9 +354,6 @@ resource "aws_lambda_function" "post_confirmation_group_assigner" {
   }
 }
 
-# ──────────────────────────────────────────────────
-# API Gateway REST API
-# ──────────────────────────────────────────────────
 resource "aws_api_gateway_rest_api" "main" {
   name        = "${var.project_name}-api-${var.environment}"
   description = "MediaFlows REST API - ${var.environment}"

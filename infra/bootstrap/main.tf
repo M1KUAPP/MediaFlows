@@ -1,4 +1,3 @@
-# infra/bootstrap/main.tf
 # Bootstrap stack — creates the primitives that must exist before the main
 # infra/ stack can run: S3 state bucket, GitHub OIDC provider,
 # GitHub Actions IAM role, and SSM SecureString parameters for secrets.
@@ -12,9 +11,7 @@ locals {
   ssm_prefix        = "/${var.project_name}/${var.environment}"
 }
 
-# ──────────────────────────────────────────────────
 # S3 state bucket for the parent infra/ stack
-# ──────────────────────────────────────────────────
 resource "aws_s3_bucket" "tfstate" {
   bucket = local.state_bucket_name
 
@@ -50,9 +47,6 @@ resource "aws_s3_bucket_public_access_block" "tfstate" {
   restrict_public_buckets = true
 }
 
-# ──────────────────────────────────────────────────
-# GitHub Actions OIDC provider
-# ──────────────────────────────────────────────────
 data "tls_certificate" "github" {
   url = "https://token.actions.githubusercontent.com/.well-known/openid-configuration"
 }
@@ -67,9 +61,6 @@ resource "aws_iam_openid_connect_provider" "github" {
   }
 }
 
-# ──────────────────────────────────────────────────
-# IAM role assumed by GitHub Actions via OIDC
-# ──────────────────────────────────────────────────
 resource "aws_iam_role" "github_actions" {
   name = local.role_name
 
@@ -97,11 +88,9 @@ resource "aws_iam_role" "github_actions" {
   }
 }
 
-# ──────────────────────────────────────────────────
 # SSM SecureString parameters — operator-supplied secrets
 # `ignore_changes = [value]` means later in-place rotations done directly
 # in SSM (or via AWS CLI) are not reverted by `terraform apply`.
-# ──────────────────────────────────────────────────
 resource "aws_ssm_parameter" "db_password" {
   name        = "${local.ssm_prefix}/db-password"
   description = "RDS master password for ${var.project_name} ${var.environment}"

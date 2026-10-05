@@ -1,4 +1,3 @@
-# infra/modules/networking/outputs.tf
 output "vpc_id" {
   description = "VPC ID"
   value       = aws_vpc.main.id

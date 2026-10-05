@@ -1,4 +1,3 @@
-# infra/modules/serverless/outputs.tf
 output "thumbnail_generator_arn" {
   description = "ThumbnailGenerator Lambda function ARN"
   value       = aws_lambda_function.thumbnail_generator.arn

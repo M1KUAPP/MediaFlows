@@ -1,4 +1,3 @@
-# infra/environments/prod.tfvars.example
 # Copy to prod.tfvars (committed since secrets are externalized to SSM)
 # and adjust per-environment values. Used by MediaFlows.Web.Tests.Infrastructure
 # .StorageCorsContractTests as the contract reference.

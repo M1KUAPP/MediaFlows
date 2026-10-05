@@ -1,4 +1,3 @@
-# infra/bootstrap/providers.tf
 # Local-state stack — intentionally no backend {} block.
 # The outputs of this stack configure the S3 backend used by the parent
 # infra/ stack.

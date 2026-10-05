@@ -1,4 +1,3 @@
-# infra/environments/prod.tfvars
 environment = "prod"
 
 github_owner = "M1KUAPP"
@@ -24,13 +23,8 @@ notification_email = ""
 domain_name         = "example.com"
 manage_www_redirect = false
 
-# Amplify cutover: previously used to flip apex from EB to Amplify in a
-# multi-step process. With domain association at apex, this is no longer
-# needed; aws_route53_record.root aliases apex to EB ALB by default and
-# Amplify owns the apex serving via its registered custom_domain. Keep
-# `false` here so the Route53 root A-record still points at EB ALB
-# (legacy fallback) — the Amplify domain association handles the actual
-# routing through its CloudFront.
+# false aliases the apex A record to the EB ALB; true aliases it to
+# amplify_cloudfront_dns (aws_route53_record.root in infra/main.tf).
 amplify_cutover        = false
 amplify_cloudfront_dns = ""
 

@@ -1,5 +1,3 @@
-# infra/modules/dns/main.tf
-
 terraform {
   required_providers {
     aws = {
@@ -9,9 +7,6 @@ terraform {
   }
 }
 
-# ──────────────────────────────────────────────────
-# Route53 Hosted Zone
-# ──────────────────────────────────────────────────
 resource "aws_route53_zone" "main" {
   name = var.domain_name
 
@@ -20,9 +15,7 @@ resource "aws_route53_zone" "main" {
   }
 }
 
-# ──────────────────────────────────────────────────
 # ACM Certificate — Regional (ap-southeast-1, for ALB)
-# ──────────────────────────────────────────────────
 resource "aws_acm_certificate" "regional" {
   domain_name               = var.domain_name
   subject_alternative_names = ["*.${var.domain_name}"]
@@ -37,9 +30,7 @@ resource "aws_acm_certificate" "regional" {
   }
 }
 
-# ──────────────────────────────────────────────────
 # ACM Certificate — CloudFront (us-east-1, for CloudFront + Cognito)
-# ──────────────────────────────────────────────────
 resource "aws_acm_certificate" "cloudfront" {
   provider                  = aws.us_east_1
   domain_name               = var.domain_name
@@ -55,9 +46,7 @@ resource "aws_acm_certificate" "cloudfront" {
   }
 }
 
-# ──────────────────────────────────────────────────
 # DNS Validation Records (shared by both certs — same domain)
-# ──────────────────────────────────────────────────
 locals {
   # Both certs cover the same domains, so validation records are identical.
   # Use the regional cert's options as the canonical source.
@@ -92,9 +81,6 @@ resource "aws_acm_certificate_validation" "cloudfront" {
   validation_record_fqdns = [for record in aws_route53_record.cert_validation : record.fqdn]
 }
 
-# ──────────────────────────────────────────────────
-# www redirect: S3 bucket + CloudFront
-# ──────────────────────────────────────────────────
 data "aws_caller_identity" "current" {}
 
 locals {

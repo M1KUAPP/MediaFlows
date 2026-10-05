@@ -1,4 +1,3 @@
-# infra/modules/compute/outputs.tf
 output "eb_application_name" {
   description = "Elastic Beanstalk application name (empty when stopped)"
   value       = try(aws_elastic_beanstalk_application.main[0].name, "")

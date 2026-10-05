@@ -1,8 +1,3 @@
-# infra/modules/networking/main.tf
-
-# ──────────────────────────────────────────────────
-# VPC
-# ──────────────────────────────────────────────────
 resource "aws_vpc" "main" {
   cidr_block           = var.vpc_cidr
   enable_dns_support   = true
@@ -13,9 +8,6 @@ resource "aws_vpc" "main" {
   }
 }
 
-# ──────────────────────────────────────────────────
-# Internet Gateway
-# ──────────────────────────────────────────────────
 resource "aws_internet_gateway" "main" {
   vpc_id = aws_vpc.main.id
 
@@ -24,9 +16,7 @@ resource "aws_internet_gateway" "main" {
   }
 }
 
-# ──────────────────────────────────────────────────
 # Public Subnets (ALB, NAT Gateway)
-# ──────────────────────────────────────────────────
 resource "aws_subnet" "public" {
   count                   = 2
   vpc_id                  = aws_vpc.main.id
@@ -59,9 +49,7 @@ resource "aws_route_table_association" "public" {
   route_table_id = aws_route_table.public.id
 }
 
-# ──────────────────────────────────────────────────
 # Private App Subnets (Elastic Beanstalk EC2 instances)
-# ──────────────────────────────────────────────────
 resource "aws_subnet" "private_app" {
   count             = 2
   vpc_id            = aws_vpc.main.id
@@ -74,9 +62,7 @@ resource "aws_subnet" "private_app" {
   }
 }
 
-# ──────────────────────────────────────────────────
 # Private DB Subnets (RDS PostgreSQL)
-# ──────────────────────────────────────────────────
 resource "aws_subnet" "private_db" {
   count             = 2
   vpc_id            = aws_vpc.main.id
@@ -89,9 +75,7 @@ resource "aws_subnet" "private_db" {
   }
 }
 
-# ──────────────────────────────────────────────────
 # NAT Gateway (single NAT for cost savings in dev)
-# ──────────────────────────────────────────────────
 
 moved {
   from = aws_eip.nat
@@ -156,9 +140,7 @@ resource "aws_route_table_association" "private_db" {
   route_table_id = aws_route_table.private.id
 }
 
-# ──────────────────────────────────────────────────
 # S3 Gateway VPC Endpoint (free — avoids NAT costs for S3)
-# ──────────────────────────────────────────────────
 resource "aws_vpc_endpoint" "s3" {
   vpc_id       = aws_vpc.main.id
   service_name = "com.amazonaws.ap-southeast-1.s3"
@@ -171,10 +153,6 @@ resource "aws_vpc_endpoint" "s3" {
     Name = "${var.project_name}-s3-endpoint-${var.environment}"
   }
 }
-
-# ──────────────────────────────────────────────────
-# Security Groups
-# ──────────────────────────────────────────────────
 
 # ALB Security Group — accepts HTTPS from anywhere
 resource "aws_security_group" "alb" {

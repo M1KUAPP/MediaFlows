@@ -1,12 +1,7 @@
-# infra/modules/database/main.tf
-
 data "aws_ssm_parameter" "db_password" {
   name = "/${var.project_name}/${var.environment}/db-password"
 }
 
-# ──────────────────────────────────────────────────
-# RDS PostgreSQL
-# ──────────────────────────────────────────────────
 resource "aws_db_subnet_group" "main" {
   name       = "${var.project_name}-db-subnet-${var.environment}"
   subnet_ids = var.db_subnet_ids
@@ -71,10 +66,6 @@ resource "aws_db_instance" "postgresql" {
     prevent_destroy = false
   }
 }
-
-# ──────────────────────────────────────────────────
-# DynamoDB Tables
-# ──────────────────────────────────────────────────
 
 # Table names use project prefix only (no env suffix) to match
 # the DynamoDBContext TableNamePrefix + [DynamoDBTable] attribute pattern

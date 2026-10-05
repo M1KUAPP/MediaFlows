@@ -1,16 +1,6 @@
-# Makefile — orchestrates the two-stack Terraform deploy.
-# Usage:
-#   make help           — list targets
-#   make deploy         — full first-time deploy from an empty AWS account
-#   make plan / apply   — routine main-stack changes
-#
-# All targets default to the prod stack. Override TF_ENV to target another env.
-
 SHELL         := bash
 .SHELLFLAGS   := -eu -o pipefail -c
-.DEFAULT_GOAL := help
 
-# Config
 AWS_PROFILE   ?= mediaflows
 TF_ENV        ?= prod
 BOOTSTRAP_DIR := infra/bootstrap
@@ -26,7 +16,6 @@ export AWS_PROFILE
 # static-key and classic SSO formats.
 AWS_EXPORT := eval "$$(aws --profile $(AWS_PROFILE) configure export-credentials --format env)"
 
-# Targets
 .PHONY: help
 help: ## List targets
 	@grep -hE '^[a-zA-Z_-]+:.*?## ' $(MAKEFILE_LIST) \

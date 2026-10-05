@@ -1,5 +1,3 @@
-# infra/modules/amplify/main.tf
-
 data "aws_ssm_parameter" "nextauth_secret" {
   name = "/${var.project_name}/${var.environment}/nextauth-secret"
 }
@@ -31,9 +29,6 @@ resource "aws_ssm_parameter" "cognito_issuer" {
   }
 }
 
-# ──────────────────────────────────────────────────
-# Amplify App
-# ──────────────────────────────────────────────────
 resource "aws_amplify_app" "frontend" {
   name       = "${var.project_name}-frontend-${var.environment}"
   repository = var.repository
@@ -90,9 +85,6 @@ resource "aws_amplify_app" "frontend" {
   }
 }
 
-# ──────────────────────────────────────────────────
-# Branch (main)
-# ──────────────────────────────────────────────────
 resource "aws_amplify_branch" "main" {
   app_id      = aws_amplify_app.frontend.id
   branch_name = var.branch_name
@@ -111,9 +103,6 @@ resource "aws_amplify_branch" "main" {
   }
 }
 
-# ──────────────────────────────────────────────────
-# Custom Domain (optional)
-# ──────────────────────────────────────────────────
 # Guarded by `manage_custom_domain` because on the new account the dead
 # account still holds a global Amplify claim on example.com, which
 # makes CreateDomainAssociation fail. The cutover flow in the root main.tf
@@ -135,9 +124,7 @@ resource "aws_amplify_domain_association" "main" {
   wait_for_verification = false
 }
 
-# ──────────────────────────────────────────────────
 # IAM Role for Amplify SSR (Lambda@Edge execution)
-# ──────────────────────────────────────────────────
 resource "aws_iam_role" "amplify_ssr" {
   name = "${var.project_name}-amplify-ssr-${var.environment}"
 
