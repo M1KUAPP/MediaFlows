@@ -319,9 +319,10 @@ See [LICENSE](LICENSE) for more information.
 
 ## Acknowledgments
 
-- [shadcn/ui](https://ui.shadcn.com)
-- [Lucide](https://lucide.dev)
-- [Geist](https://vercel.com/font)
+- [shadcn/ui](https://ui.shadcn.com) — UI components.
+- [Lucide](https://lucide.dev) — icons.
+- [Geist](https://vercel.com/font) — typefaces.
+- [archify](https://github.com/tt-a1i/archify) — architecture diagrams.
 - [Shields.io](https://shields.io)
 - [contrib.rocks](https://contrib.rocks)
 
