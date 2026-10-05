@@ -35,7 +35,7 @@ make deploy
 
 ## Subsequent changes
 
-Deploys are manual. Run `make plan` and `make apply` locally. The removed [`terraform-apply.yml`](https://github.com/M1KUAPP/MediaFlows/blob/6b2c63289af4207f6d723888810c32913e53d143/.github/workflows/terraform-apply.yml) workflow is linked at its last commit for reference.
+Deploys are manual. Run `make plan` and `make apply` locally. The removed [`terraform-apply.yml`](https://github.com/M1KUAPP/MediaFlows/blob/ac0812e04dda5c561d42b0b657d334ff4e791d0b/.github/workflows/terraform-apply.yml) workflow is linked at its last commit for reference.
 
 Bootstrap stack changes are rare; when needed, run `make bootstrap` locally.
 

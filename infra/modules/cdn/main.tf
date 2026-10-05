@@ -1,8 +1,3 @@
-# infra/modules/cdn/main.tf
-
-# ──────────────────────────────────────────────────
-# CloudFront Origin Access Control (OAC)
-# ──────────────────────────────────────────────────
 resource "aws_cloudfront_origin_access_control" "s3_oac" {
   name                              = "${var.project_name}-s3-oac-${var.environment}"
   description                       = "OAC for MediaFlows S3 media assets"
@@ -11,9 +6,6 @@ resource "aws_cloudfront_origin_access_control" "s3_oac" {
   signing_protocol                  = "sigv4"
 }
 
-# ──────────────────────────────────────────────────
-# CloudFront Distribution
-# ──────────────────────────────────────────────────
 resource "aws_cloudfront_distribution" "media" {
   enabled             = true
   is_ipv6_enabled     = true
@@ -103,9 +95,6 @@ resource "aws_cloudfront_distribution" "media" {
   }
 }
 
-# ──────────────────────────────────────────────────
-# S3 Bucket Policy — Allow CloudFront OAC to read
-# ──────────────────────────────────────────────────
 data "aws_caller_identity" "current" {}
 
 resource "aws_s3_bucket_policy" "cloudfront_oac" {

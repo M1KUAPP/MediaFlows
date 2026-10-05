@@ -1,4 +1,3 @@
-# infra/modules/storage/outputs.tf
 output "bucket_name" {
   description = "S3 bucket name for media assets"
   value       = aws_s3_bucket.media_assets.bucket

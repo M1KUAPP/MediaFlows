@@ -1,4 +1,3 @@
-# infra/modules/networking/variables.tf
 variable "environment" {
   description = "Deployment environment"
   type        = string

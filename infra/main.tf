@@ -1,9 +1,3 @@
-# infra/main.tf
-# Root module — composes all infrastructure modules
-
-# ──────────────────────────────────────────────────
-# Networking (no dependencies)
-# ──────────────────────────────────────────────────
 module "networking" {
   source       = "./modules/networking"
   environment  = var.environment
@@ -12,9 +6,6 @@ module "networking" {
   nat_enabled = var.services_enabled
 }
 
-# ──────────────────────────────────────────────────
-# Storage (no dependencies)
-# ──────────────────────────────────────────────────
 module "storage" {
   source               = "./modules/storage"
   environment          = var.environment
@@ -22,9 +13,6 @@ module "storage" {
   cors_allowed_origins = var.cors_allowed_origins
 }
 
-# ──────────────────────────────────────────────────
-# Auth (no dependencies)
-# ──────────────────────────────────────────────────
 module "auth" {
   source       = "./modules/auth"
   environment  = var.environment
@@ -46,9 +34,6 @@ module "auth" {
   post_confirmation_lambda_arn = module.serverless.post_confirmation_group_assigner_arn
 }
 
-# ──────────────────────────────────────────────────
-# DNS (no dependencies on other modules)
-# ──────────────────────────────────────────────────
 module "dns" {
   source = "./modules/dns"
   count  = var.domain_name != "" ? 1 : 0
@@ -64,9 +49,6 @@ module "dns" {
   manage_www_redirect = var.manage_www_redirect
 }
 
-# ──────────────────────────────────────────────────
-# Database (depends on networking)
-# ──────────────────────────────────────────────────
 module "database" {
   source       = "./modules/database"
   environment  = var.environment
@@ -83,9 +65,6 @@ module "database" {
   db_username          = var.db_username
 }
 
-# ──────────────────────────────────────────────────
-# CDN (depends on storage)
-# ──────────────────────────────────────────────────
 module "cdn" {
   source       = "./modules/cdn"
   environment  = var.environment
@@ -101,9 +80,6 @@ module "cdn" {
   acm_certificate_arn = ""
 }
 
-# ──────────────────────────────────────────────────
-# Messaging (depends on storage only — no Lambda deps)
-# ──────────────────────────────────────────────────
 module "messaging" {
   source       = "./modules/messaging"
   environment  = var.environment
@@ -113,9 +89,6 @@ module "messaging" {
   notification_email = var.notification_email
 }
 
-# ──────────────────────────────────────────────────
-# Serverless (depends on networking, storage, database, messaging partial)
-# ──────────────────────────────────────────────────
 module "serverless" {
   source       = "./modules/serverless"
   environment  = var.environment
@@ -137,9 +110,6 @@ module "serverless" {
   content_moderation_queue_arn = module.messaging.content_moderation_queue_arn
 }
 
-# ──────────────────────────────────────────────────
-# Compute (depends on networking, database, storage, auth)
-# ──────────────────────────────────────────────────
 module "compute" {
   source       = "./modules/compute"
   environment  = var.environment
@@ -172,9 +142,6 @@ module "compute" {
   event_bus_name           = module.messaging.event_bus_name
 }
 
-# ──────────────────────────────────────────────────
-# Monitoring (depends on compute, messaging, serverless)
-# ──────────────────────────────────────────────────
 module "monitoring" {
   source       = "./modules/monitoring"
   environment  = var.environment
@@ -196,9 +163,6 @@ module "monitoring" {
   ]
 }
 
-# ──────────────────────────────────────────────────
-# Amplify (depends on auth, cdn for env vars)
-# ──────────────────────────────────────────────────
 module "amplify" {
   source       = "./modules/amplify"
   aws_region   = var.aws_region
@@ -219,9 +183,7 @@ module "amplify" {
   cdn_url              = var.domain_name != "" ? "https://cdn.${var.domain_name}" : ""
 }
 
-# ──────────────────────────────────────────────────
 # Route53 A-records (root level to avoid circular deps)
-# ──────────────────────────────────────────────────
 
 # Before cutover: apex domain → EB ALB
 # After cutover:  apex domain → Amplify
@@ -316,7 +278,6 @@ resource "aws_route53_record" "auth" {
   }
 }
 
-# ──────────────────────────────────────────────────
 # S3 Bucket Notification (root level — wires storage to messaging.
 # Cannot live inside the storage module because messaging already
 # consumes storage's bucket ARN, so the reverse direction would form
@@ -327,7 +288,6 @@ resource "aws_route53_record" "auth" {
 # notification rules with the same event and overlapping prefix. The
 # asset_uploaded SNS topic uses raw_message_delivery=true on both
 # subscriptions so the SQS consumers receive the S3 event JSON as-is.
-# ──────────────────────────────────────────────────
 resource "aws_s3_bucket_notification" "media_assets_uploads" {
   bucket = module.storage.bucket_id
 
@@ -341,10 +301,8 @@ resource "aws_s3_bucket_notification" "media_assets_uploads" {
   depends_on = [module.messaging]
 }
 
-# ──────────────────────────────────────────────────
 # EventBridge Rules (root level — depends on both messaging + serverless)
 # Defined here to avoid circular dependency between modules
-# ──────────────────────────────────────────────────
 
 # Daily Analytics Aggregation — cron(0 2 * * ? *)
 resource "aws_cloudwatch_event_rule" "daily_analytics" {
@@ -401,10 +359,8 @@ resource "aws_lambda_permission" "eventbridge_notification" {
   source_arn    = aws_cloudwatch_event_rule.approval_events.arn
 }
 
-# ──────────────────────────────────────────────────
 # Cognito Post-Confirmation Trigger (root level — needs both auth and
 # serverless module outputs; placing this at root avoids a module-level cycle)
-# ──────────────────────────────────────────────────
 
 # Extra inline policy on the Lambda execution role granting permission to
 # add users to Cognito groups. Scoped to the specific user pool ARN.

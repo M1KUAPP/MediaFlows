@@ -16,7 +16,6 @@ test.describe('Review Queue', () => {
   test('review queue displays pending items', async ({ editorPage }) => {
     await editorPage.goto('/review')
 
-    // Wait for the review table/list to load
     await editorPage.waitForSelector('table, [data-testid="review-list"], [data-testid="review-queue"]', {
       timeout: 10_000
     })
@@ -34,19 +33,16 @@ test.describe('Review Queue', () => {
   test('editor can navigate to review detail', async ({ editorPage }) => {
     await editorPage.goto('/review')
 
-    // Wait for items to load
     await editorPage.waitForSelector('table tbody tr', { timeout: 10_000 }).catch(() => null)
 
     const firstRow = editorPage.locator('table tbody tr').first()
 
     if (await firstRow.isVisible()) {
-      // Click the first review item
       const link = firstRow.locator('a').first()
       if (await link.isVisible()) {
         await link.click()
         await editorPage.waitForURL(/\/review\/[a-zA-Z0-9-]+/)
 
-        // Detail page should show approve/reject buttons
         await expect(
           editorPage.getByRole('button', { name: /approve/i }).or(editorPage.getByRole('button', { name: /reject/i }))
         ).toBeVisible()
@@ -78,7 +74,6 @@ test.describe('Review Queue', () => {
             await confirmButton.click()
           }
 
-          // Verify status changed — toast or status badge updates
           await expect(editorPage.getByText(/approved|success/i)).toBeVisible({ timeout: 5_000 })
         }
       }

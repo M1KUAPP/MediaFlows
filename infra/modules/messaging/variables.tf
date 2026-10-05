@@ -1,4 +1,3 @@
-# infra/modules/messaging/variables.tf
 variable "environment" {
   description = "Deployment environment"
   type        = string

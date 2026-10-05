@@ -1,4 +1,3 @@
-# infra/modules/amplify/variables.tf
 variable "environment" {
   description = "Deployment environment"
   type        = string

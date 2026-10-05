@@ -1,4 +1,3 @@
-# infra/modules/amplify/outputs.tf
 output "app_id" {
   description = "Amplify app ID"
   value       = aws_amplify_app.frontend.id

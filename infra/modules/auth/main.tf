@@ -1,8 +1,3 @@
-# infra/modules/auth/main.tf
-
-# ──────────────────────────────────────────────────
-# Cognito User Pool
-# ──────────────────────────────────────────────────
 resource "aws_cognito_user_pool" "main" {
   name = "${var.project_name}-users-${var.environment}"
 
@@ -72,10 +67,6 @@ resource "aws_cognito_user_pool" "main" {
   }
 }
 
-# ──────────────────────────────────────────────────
-# Cognito User Pool Domain (for Hosted UI)
-# ──────────────────────────────────────────────────
-
 # Prefix-based domain (dev or when no custom domain is set)
 resource "aws_cognito_user_pool_domain" "prefix" {
   count        = var.custom_domain == "" ? 1 : 0
@@ -91,9 +82,6 @@ resource "aws_cognito_user_pool_domain" "custom" {
   user_pool_id    = aws_cognito_user_pool.main.id
 }
 
-# ──────────────────────────────────────────────────
-# User Pool Groups (4 roles)
-# ──────────────────────────────────────────────────
 resource "aws_cognito_user_group" "system_admin" {
   name         = "SystemAdmin"
   user_pool_id = aws_cognito_user_pool.main.id
@@ -122,9 +110,6 @@ resource "aws_cognito_user_group" "viewer" {
   precedence   = 4
 }
 
-# ──────────────────────────────────────────────────
-# App Client (OIDC Authorization Code Flow with PKCE)
-# ──────────────────────────────────────────────────
 resource "aws_cognito_user_pool_client" "web_app" {
   name         = "${var.project_name}-web-${var.environment}"
   user_pool_id = aws_cognito_user_pool.main.id

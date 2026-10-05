@@ -1,4 +1,3 @@
-# infra/modules/cdn/variables.tf
 variable "environment" {
   description = "Deployment environment"
   type        = string

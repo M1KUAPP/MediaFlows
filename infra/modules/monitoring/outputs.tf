@@ -1,4 +1,3 @@
-# infra/modules/monitoring/outputs.tf
 output "dashboard_name" {
   description = "CloudWatch dashboard name (empty when EB stopped)"
   value       = try(aws_cloudwatch_dashboard.main[0].dashboard_name, "")

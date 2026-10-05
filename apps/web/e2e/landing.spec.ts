@@ -15,10 +15,8 @@ test.describe('Landing page (PrismHero)', () => {
     await expect(wordmark).toBeVisible()
     await expect(wordmark).toContainText('MediaFlows')
 
-    // The top-pill nav and its Sign in link have been removed
     await expect(page.getByTestId('hero-nav-signin')).toHaveCount(0)
 
-    // Primary CTA — Get started link to /login
     const ctaLink = page.getByTestId('hero-cta-getstarted')
     await expect(ctaLink).toBeVisible()
     await expect(ctaLink).toHaveAttribute('href', '/login')

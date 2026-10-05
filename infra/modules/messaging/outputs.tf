@@ -1,4 +1,3 @@
-# infra/modules/messaging/outputs.tf
 output "media_processing_queue_arn" {
   description = "Media processing SQS queue ARN"
   value       = aws_sqs_queue.media_processing.arn

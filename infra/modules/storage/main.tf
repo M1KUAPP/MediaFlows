@@ -1,5 +1,3 @@
-# infra/modules/storage/main.tf
-
 data "aws_caller_identity" "current" {}
 
 locals {
@@ -9,9 +7,6 @@ locals {
   bucket_name = "${var.project_name}-assets-${var.environment}-${data.aws_caller_identity.current.account_id}"
 }
 
-# ──────────────────────────────────────────────────
-# S3 Bucket — Media Assets
-# ──────────────────────────────────────────────────
 resource "aws_s3_bucket" "media_assets" {
   bucket = local.bucket_name
 
