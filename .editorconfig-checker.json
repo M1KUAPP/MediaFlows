@@ -1,3 +1,4 @@
 {
-  "Exclude": ["^Makefile$"]
+  "Exclude": ["^Makefile$"],
+  "IgnoreDefaults": true
 }
