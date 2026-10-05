@@ -6,8 +6,8 @@ aws_region   = "ap-southeast-1"
 project_name = "mediaflows"
 environment  = "prod"
 
-github_owner = "mediaflows-tech"
-github_repo  = "app"
+github_owner = "M1KUAPP"
+github_repo  = "MediaFlows"
 
 # ── Operator-supplied secrets ────────────────────────────
 # db_password: 12+ chars, RDS-safe characters only (no /, @, ", or spaces).
