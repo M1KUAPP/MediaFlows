@@ -21,20 +21,20 @@
     <br />
   </p>
 
-[![TypeScript][TypeScript.org]][TypeScript-url]
-[![C#][CSharp.com]][CSharp-url]
-[![Next][Next.js]][Next-url]
-[![React][React.js]][React-url]
-[![Tailwind][Tailwind.com]][Tailwind-url]
-[![shadcn/ui][Shadcn.com]][Shadcn-url]
-[![.NET][DotNet.com]][DotNet-url]
-[![PostgreSQL][PostgreSQL.org]][PostgreSQL-url]
-[![DynamoDB][DynamoDB.com]][DynamoDB-url]
-[![AWS][AWS.com]][AWS-url]
-[![AWS Lambda][Lambda.com]][Lambda-url]
-[![Terraform][Terraform.io]][Terraform-url]
-[![Playwright][Playwright.dev]][Playwright-url]
-[![pnpm][Pnpm.io]][Pnpm-url]
+[![TypeScript][typescript-badge]][typescript-url]
+[![C#][c-badge]][c-url]
+[![Next.js][nextjs-badge]][nextjs-url]
+[![React][react-badge]][react-url]
+[![Tailwind CSS][tailwindcss-badge]][tailwindcss-url]
+[![shadcn/ui][shadcnui-badge]][shadcnui-url]
+[![.NET][net-badge]][net-url]
+[![PostgreSQL][postgresql-badge]][postgresql-url]
+[![Amazon DynamoDB][amazondynamodb-badge]][amazondynamodb-url]
+[![AWS][aws-badge]][aws-url]
+[![AWS Lambda][awslambda-badge]][awslambda-url]
+[![Terraform][terraform-badge]][terraform-url]
+[![Playwright][playwright-badge]][playwright-url]
+[![pnpm][pnpm-badge]][pnpm-url]
 
 </div>
 
@@ -86,42 +86,50 @@ The repository is split into four top-level workloads:
 
 ### Screenshots
 
-<p align="center">
-  <img src="docs/screenshots/landing-hero.png" alt="MediaFlows landing page" width="100%" />
-  <br />
-  <em><strong>Landing page</strong> — a cinematic entry point into the workspace.</em>
-</p>
-
 <table>
   <tr>
-    <td width="50%" valign="top">
-      <img src="docs/screenshots/dashboard.png" alt="User dashboard" width="100%" /><br />
-      <strong>Dashboard</strong> — personalized greeting, role-based quick actions, and a recent-assets carousel.
+    <td width="50%" valign="top" align="left">
+      <img src="docs/screenshots/landing-hero.png" alt="MediaFlows landing page" width="100%">
+      <br />
+      <strong>Landing page</strong> · A cinematic entry point into the workspace.
     </td>
-    <td width="50%" valign="top">
-      <img src="docs/screenshots/catalog.png" alt="Media catalog" width="100%" /><br />
-      <strong>Catalog</strong> — browse published media with content-type filters and trending sort.
-    </td>
-  </tr>
-  <tr>
-    <td width="50%" valign="top">
-      <img src="docs/screenshots/admin-monitoring.png" alt="Real-time monitoring" width="100%" /><br />
-      <strong>Live Monitoring</strong> — real-time CPU, latency, error-rate, and cost metrics with streaming charts.
-    </td>
-    <td width="50%" valign="top">
-      <img src="docs/screenshots/admin-dashboard.png" alt="Admin summary" width="100%" /><br />
-      <strong>Admin Summary</strong> — platform KPIs, upload-activity trends, storage breakdown, and CloudWatch alarms.
+    <td width="50%" valign="top" align="left">
+      <img src="docs/screenshots/dashboard.png" alt="User dashboard" width="100%">
+      <br />
+      <strong>Dashboard</strong> · Personalized greeting, role-based quick actions, and a recent-assets carousel.
     </td>
   </tr>
   <tr>
-    <td width="50%" valign="top">
-      <img src="docs/screenshots/review-workflow-1.png" alt="Review queue" width="100%" /><br />
-      <strong>Review Queue</strong> — triage submissions with status filters and batch approve / reject / schedule.
+    <td width="50%" valign="top" align="left">
+      <img src="docs/screenshots/catalog.png" alt="Media catalog" width="100%">
+      <br />
+      <strong>Catalog</strong> · Browse published media with content-type filters and trending sort.
     </td>
-    <td width="50%" valign="top">
-      <img src="docs/screenshots/review-workflow-2.png" alt="Review and approve an asset" width="100%" /><br />
-      <strong>Review &amp; Decide</strong> — inspect an asset, leave comments, and approve, schedule, or reject.
+    <td width="50%" valign="top" align="left">
+      <img src="docs/screenshots/admin-monitoring.png" alt="Real-time monitoring" width="100%">
+      <br />
+      <strong>Live Monitoring</strong> · Real-time CPU, latency, error-rate, and cost metrics with streaming charts.
     </td>
+  </tr>
+  <tr>
+    <td width="50%" valign="top" align="left">
+      <img src="docs/screenshots/admin-dashboard.png" alt="Admin summary" width="100%">
+      <br />
+      <strong>Admin Summary</strong> · Platform KPIs, upload-activity trends, storage breakdown, and CloudWatch alarms.
+    </td>
+    <td width="50%" valign="top" align="left">
+      <img src="docs/screenshots/review-workflow-1.png" alt="Review queue" width="100%">
+      <br />
+      <strong>Review Queue</strong> · Triage submissions with status filters and batch approve / reject / schedule.
+    </td>
+  </tr>
+  <tr>
+    <td width="50%" valign="top" align="left">
+      <img src="docs/screenshots/review-workflow-2.png" alt="Review and approve an asset" width="100%">
+      <br />
+      <strong>Review &amp; Decide</strong> · Inspect an asset, leave comments, and approve, schedule, or reject.
+    </td>
+    <td width="50%" valign="top" align="left"></td>
   </tr>
 </table>
 
@@ -306,31 +314,31 @@ See [LICENSE](LICENSE) for more information.
 
 <!-- MARKDOWN LINKS & IMAGES -->
 
-[TypeScript.org]: https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white
-[TypeScript-url]: https://www.typescriptlang.org
-[Next.js]: https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white
-[Next-url]: https://nextjs.org/
-[React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
-[React-url]: https://reactjs.org/
-[Tailwind.com]: https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white
-[Tailwind-url]: https://tailwindcss.com/
-[DotNet.com]: https://img.shields.io/badge/.NET-927BE5?style=for-the-badge&logo=dotnet&logoColor=white
-[DotNet-url]: https://dotnet.microsoft.com/
-[PostgreSQL.org]: https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white
-[PostgreSQL-url]: https://www.postgresql.org/
-[AWS.com]: https://img.shields.io/badge/AWS-232F3E?style=for-the-badge&logo=data:image/svg%2Bxml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxZW0iIGhlaWdodD0iMWVtIiB2aWV3Qm94PSIwIDAgMjQgMjQiPjxwYXRoIGZpbGw9Im5vbmUiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIyIiBkPSJNMTcuNSAxOUg5YTcgNyAwIDEgMSA2LjcxLTloMS43OWE0LjUgNC41IDAgMSAxIDAgOSIvPjwvc3ZnPg%3D%3D
-[AWS-url]: https://aws.amazon.com/
-[Terraform.io]: https://img.shields.io/badge/Terraform-7B42BC?style=for-the-badge&logo=terraform&logoColor=white
-[Terraform-url]: https://www.terraform.io/
-[CSharp.com]: https://img.shields.io/badge/C%23-512BD4?style=for-the-badge&logo=data:image/svg%2Bxml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxZW0iIGhlaWdodD0iMWVtIiB2aWV3Qm94PSIwIDAgMjQgMjQiPjxwYXRoIGZpbGw9Im5vbmUiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIyIiBkPSJNNCA5aDE2TTQgMTVoMTZNMTAgM0w4IDIxbTgtMThsLTIgMTgiLz48L3N2Zz4%3D
-[CSharp-url]: https://learn.microsoft.com/dotnet/csharp/
-[Shadcn.com]: https://img.shields.io/badge/shadcn%2Fui-000000?style=for-the-badge&logo=shadcnui&logoColor=white
-[Shadcn-url]: https://ui.shadcn.com/
-[DynamoDB.com]: https://img.shields.io/badge/DynamoDB-4053D6?style=for-the-badge&logo=data:image/svg%2Bxml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxZW0iIGhlaWdodD0iMWVtIiB2aWV3Qm94PSIwIDAgMjQgMjQiPjxnIGZpbGw9Im5vbmUiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIyIj48ZWxsaXBzZSBjeD0iMTIiIGN5PSI1IiByeD0iOSIgcnk9IjMiLz48cGF0aCBkPSJNMyA1djE0YTkgMyAwIDAgMCAxOCAwVjUiLz48cGF0aCBkPSJNMyAxMmE5IDMgMCAwIDAgMTggMCIvPjwvZz48L3N2Zz4%3D
-[DynamoDB-url]: https://aws.amazon.com/dynamodb/
-[Lambda.com]: https://img.shields.io/badge/AWS_Lambda-FF9900?style=for-the-badge&logo=data:image/svg%2Bxml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxZW0iIGhlaWdodD0iMWVtIiB2aWV3Qm94PSIwIDAgMjQgMjQiPjxwYXRoIGZpbGw9Im5vbmUiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIyIiBkPSJNNCAxNGExIDEgMCAwIDEtLjc4LTEuNjNsOS45LTEwLjJhLjUuNSAwIDAgMSAuODYuNDZsLTEuOTIgNi4wMkExIDEgMCAwIDAgMTMgMTBoN2ExIDEgMCAwIDEgLjc4IDEuNjNsLTkuOSAxMC4yYS41LjUgMCAwIDEtLjg2LS40NmwxLjkyLTYuMDJBMSAxIDAgMCAwIDExIDE0eiIvPjwvc3ZnPg%3D%3D
-[Lambda-url]: https://aws.amazon.com/lambda/
-[Playwright.dev]: https://img.shields.io/badge/Playwright-2EAD33?style=for-the-badge&logo=data:image/svg%2Bxml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxZW0iIGhlaWdodD0iMWVtIiB2aWV3Qm94PSIwIDAgMjQgMjQiPjxnIGZpbGw9Im5vbmUiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIyIj48cGF0aCBkPSJNMTAgMTFoLjAxTTE0IDZoLjAxTTE4IDZoLjAxTTYuNSAxMy4xaC4wMU0yMiA1YzAgOS00IDEyLTYgMTJzLTYtMy02LTEycTAtMyA2LTNjNiAwIDYgMSA2IDMiLz48cGF0aCBkPSJNMTcuNCA5LjljLS44LjgtMiAuOC0yLjggMG0tNC41LTIuOEM5IDcuMiA3LjcgNy43IDYgOC42Yy0zLjUgMi00LjcgMy45LTMuNyA1LjZjNC41IDcuOCA5LjUgOC40IDExLjIgNy40Yy45LS41IDEuOS0yLjEgMS45LTQuNyIvPjxwYXRoIGQ9Ik05LjEgMTYuNWMuMy0xLjEgMS40LTEuNyAyLjQtMS40Ii8%2BPC9nPjwvc3ZnPg%3D%3D
-[Playwright-url]: https://playwright.dev/
-[Pnpm.io]: https://img.shields.io/badge/pnpm-F69220?style=for-the-badge&logo=pnpm&logoColor=white
-[Pnpm-url]: https://pnpm.io/
+[typescript-badge]: https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white
+[typescript-url]: https://www.typescriptlang.org/
+[c-badge]: https://img.shields.io/badge/C%23-512BD4?style=for-the-badge
+[c-url]: https://learn.microsoft.com/dotnet/csharp/
+[nextjs-badge]: https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white
+[nextjs-url]: https://nextjs.org/
+[react-badge]: https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black
+[react-url]: https://react.dev/
+[tailwindcss-badge]: https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white
+[tailwindcss-url]: https://tailwindcss.com/
+[shadcnui-badge]: https://img.shields.io/badge/shadcn%2Fui-000000?style=for-the-badge&logo=shadcnui&logoColor=white
+[shadcnui-url]: https://ui.shadcn.com/
+[net-badge]: https://img.shields.io/badge/.NET-512BD4?style=for-the-badge&logo=dotnet&logoColor=white
+[net-url]: https://dotnet.microsoft.com/
+[postgresql-badge]: https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white
+[postgresql-url]: https://www.postgresql.org/
+[amazondynamodb-badge]: https://img.shields.io/badge/Amazon_DynamoDB-4053D6?style=for-the-badge
+[amazondynamodb-url]: https://aws.amazon.com/dynamodb/
+[aws-badge]: https://img.shields.io/badge/AWS-FF9900?style=for-the-badge
+[aws-url]: https://aws.amazon.com/
+[awslambda-badge]: https://img.shields.io/badge/AWS_Lambda-FF9900?style=for-the-badge
+[awslambda-url]: https://aws.amazon.com/lambda/
+[terraform-badge]: https://img.shields.io/badge/Terraform-844FBA?style=for-the-badge&logo=terraform&logoColor=white
+[terraform-url]: https://www.terraform.io/
+[playwright-badge]: https://img.shields.io/badge/Playwright-2EAD33?style=for-the-badge
+[playwright-url]: https://playwright.dev/
+[pnpm-badge]: https://img.shields.io/badge/pnpm-F69220?style=for-the-badge&logo=pnpm&logoColor=white
+[pnpm-url]: https://pnpm.io/
