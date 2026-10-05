@@ -140,7 +140,7 @@ async function exportSvg(browser, pageUrl, colorScheme, outFile) {
   const svg = fs.readFileSync(await download.path(), 'utf8')
   const locked = svg.replace(/<svg\b/, `<svg data-theme="${colorScheme}"`)
   if (locked === svg) throw new Error('No <svg> root element in the export')
-  fs.writeFileSync(outFile, locked)
+  fs.writeFileSync(outFile, locked.replace(/[ \t]+$/gm, '').replace(/\n*$/, '\n'))
   await context.close()
 }
 
