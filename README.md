@@ -201,6 +201,8 @@ The repository is split into four top-level workloads:
   <img src="docs/readme/architecture-light.svg" alt="MediaFlows architecture">
 </picture>
 
+The diagram is drawn with [archify](https://github.com/tt-a1i/archify) from [`architecture.json`](docs/readme/architecture.json).
+
 Once deployed behind a custom domain, MediaFlows serves four endpoints:
 
 | Subdomain        | Service                                |

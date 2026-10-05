@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg viewBox="0 0 1770 912" role="img" lang="en" aria-labelledby="archify-diagram-title archify-diagram-description" data-preset="classic" data-quality-profile="showcase" data-reader-fit="intrinsic-height" data-reader-min-text="7.5" data-reader-primary-text="14" style="width: 1770px; height: 912px; min-width: 0px;" width="1770" height="912" xmlns="http://www.w3.org/2000/svg" data-theme="light"><style>
+<svg data-theme="light" viewBox="0 0 1770 912" role="img" lang="en" aria-labelledby="archify-diagram-title archify-diagram-description" data-preset="classic" data-quality-profile="standard" style="width: 1770px; height: 912px; min-width: 0px;" width="1770" height="912" xmlns="http://www.w3.org/2000/svg"><style>
 /*
 JetBrains Mono variable WOFF2 subsets from Google Fonts service revision v24.
 These fixed bytes are shared by the viewer and its SVG/raster exports.
@@ -134,15 +134,15 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
       unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
   
 svg { font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', 'Liberation Mono', 'Noto Sans Mono CJK SC', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', monospace; }
-:root, [data-theme="dark"] { --bg: #020617; --grid: #1e293b; --canvas-dot: rgba(148, 163, 184, 0.16); --text: #ffffff; --text-muted: #94a3b8; --text-dim: #475569; --text-faint: #7d8da1; --panel: rgba(15, 23, 42, 0.5); --panel-border: #1e293b; --lane-fill: rgba(15, 23, 42, 0.22); --lane-stroke: #334155; --arrow: #64748b; --arrow-emphasis: #34d399; --mask: #0f172a; --frontend-fill: rgba(8, 51, 68, 0.4); --frontend-stroke: #22d3ee; --backend-fill: rgba(6, 78, 59, 0.4); --backend-stroke: #34d399; --database-fill: rgba(76, 29, 149, 0.4); --database-stroke: #a78bfa; --cloud-fill: rgba(120, 53, 15, 0.3); --cloud-stroke: #fbbf24; --security-fill: rgba(136, 19, 55, 0.4); --security-stroke: #fb7185; --messagebus-fill: rgba(251, 146, 60, 0.3); --messagebus-stroke: #fb923c; --external-fill: rgba(30, 41, 59, 0.5); --external-stroke: #94a3b8; --toolbar-bg: rgba(15, 23, 42, 0.8); --toolbar-border: #334155; --toolbar-text: #e2e8f0; --toolbar-hover: rgba(15, 23, 42, 0.95); --toolbar-menu-bg: #0f172a; }
-[data-theme="light"] { --bg: #f4f5f7; --grid: #e9edf2; --canvas-dot: #d9dee5; --text: #111827; --text-muted: #5b6474; --text-dim: #9aa3b2; --text-faint: #6b7280; --panel: #ffffff; --panel-border: #e5e7eb; --lane-fill: rgba(248, 250, 252, 0.65); --lane-stroke: #cbd5e1; --arrow: #94a3b8; --arrow-emphasis: #059669; --mask: #ffffff; --frontend-fill: rgba(34, 211, 238, 0.15); --frontend-stroke: #0891b2; --backend-fill: rgba(52, 211, 153, 0.18); --backend-stroke: #059669; --database-fill: rgba(167, 139, 250, 0.2); --database-stroke: #7c3aed; --cloud-fill: rgba(251, 191, 36, 0.18); --cloud-stroke: #d97706; --security-fill: rgba(251, 113, 133, 0.15); --security-stroke: #e11d48; --messagebus-fill: rgba(251, 146, 60, 0.15); --messagebus-stroke: #ea580c; --external-fill: rgba(148, 163, 184, 0.18); --external-stroke: #64748b; --toolbar-bg: rgba(255, 255, 255, 0.92); --toolbar-border: #cbd5e1; --toolbar-text: #334155; --toolbar-hover: #ffffff; --toolbar-menu-bg: #ffffff; }
+:root, [data-theme="dark"] { --bg: #020617; --grid: #1e293b; --text: #ffffff; --text-muted: #94a3b8; --text-dim: #475569; --text-faint: #7d8da1; --panel: rgba(15, 23, 42, 0.5); --panel-border: #1e293b; --lane-fill: rgba(15, 23, 42, 0.22); --lane-stroke: #334155; --arrow: #64748b; --arrow-emphasis: #34d399; --mask: #0f172a; --frontend-fill: rgba(8, 51, 68, 0.4); --frontend-stroke: #22d3ee; --backend-fill: rgba(6, 78, 59, 0.4); --backend-stroke: #34d399; --database-fill: rgba(76, 29, 149, 0.4); --database-stroke: #a78bfa; --cloud-fill: rgba(120, 53, 15, 0.3); --cloud-stroke: #fbbf24; --security-fill: rgba(136, 19, 55, 0.4); --security-stroke: #fb7185; --messagebus-fill: rgba(251, 146, 60, 0.3); --messagebus-stroke: #fb923c; --external-fill: rgba(30, 41, 59, 0.5); --external-stroke: #94a3b8; --toolbar-bg: rgba(15, 23, 42, 0.8); --toolbar-border: #334155; --toolbar-text: #e2e8f0; --toolbar-hover: rgba(15, 23, 42, 0.95); --toolbar-menu-bg: #0f172a; }
+[data-theme="light"] { --bg: #f8fafc; --grid: #e2e8f0; --text: #0f172a; --text-muted: #64748b; --text-dim: #94a3b8; --text-faint: #64748b; --panel: #ffffff; --panel-border: #e2e8f0; --lane-fill: rgba(248, 250, 252, 0.65); --lane-stroke: #cbd5e1; --arrow: #94a3b8; --arrow-emphasis: #059669; --mask: #ffffff; --frontend-fill: rgba(34, 211, 238, 0.15); --frontend-stroke: #0891b2; --backend-fill: rgba(52, 211, 153, 0.18); --backend-stroke: #059669; --database-fill: rgba(167, 139, 250, 0.2); --database-stroke: #7c3aed; --cloud-fill: rgba(251, 191, 36, 0.18); --cloud-stroke: #d97706; --security-fill: rgba(251, 113, 133, 0.15); --security-stroke: #e11d48; --messagebus-fill: rgba(251, 146, 60, 0.15); --messagebus-stroke: #ea580c; --external-fill: rgba(148, 163, 184, 0.18); --external-stroke: #64748b; --toolbar-bg: rgba(255, 255, 255, 0.92); --toolbar-border: #cbd5e1; --toolbar-text: #334155; --toolbar-hover: #ffffff; --toolbar-menu-bg: #ffffff; }
 [data-preset="signal-flow"][data-theme="dark"] { --bg: #030711; --grid: #15233a; --panel: rgba(6, 14, 28, 0.78); --panel-border: #1d3350; --lane-fill: rgba(9, 22, 40, 0.5); --lane-stroke: #2c4564; --text: #f5fbff; --text-muted: #9eb0c7; --text-dim: #52667f; --text-faint: #7890ad; --mask: #07101e; --frontend-fill: rgba(6, 182, 212, 0.14); --frontend-stroke: #67e8f9; --backend-fill: rgba(16, 185, 129, 0.14); --backend-stroke: #5eead4; --database-fill: rgba(139, 92, 246, 0.16); --database-stroke: #c4b5fd; --cloud-fill: rgba(245, 158, 11, 0.13); --cloud-stroke: #fcd34d; --security-fill: rgba(244, 63, 94, 0.13); --security-stroke: #fda4af; --messagebus-fill: rgba(249, 115, 22, 0.13); --messagebus-stroke: #fdba74; --external-fill: rgba(71, 85, 105, 0.24); --external-stroke: #a5b4c7; --arrow: #7890ad; --arrow-emphasis: #2dd4bf; --toolbar-bg: rgba(7, 16, 30, 0.86); --toolbar-border: #29415f; --toolbar-menu-bg: #07101e; }
 [data-preset="signal-flow"][data-theme="light"] { --bg: #f4f9fc; --grid: #d4e5ee; --panel: rgba(255, 255, 255, 0.82); --panel-border: #bfd5e2; --lane-fill: rgba(232, 243, 248, 0.62); --lane-stroke: #a9c5d5; --text: #102638; --text-muted: #587287; --text-dim: #8aa2b4; --text-faint: #668397; --mask: #ffffff; --frontend-fill: rgba(6, 182, 212, 0.09); --frontend-stroke: #0789a1; --backend-fill: rgba(5, 150, 105, 0.09); --backend-stroke: #087f69; --database-fill: rgba(124, 58, 237, 0.09); --database-stroke: #7254c7; --cloud-fill: rgba(217, 119, 6, 0.08); --cloud-stroke: #b9670b; --security-fill: rgba(225, 29, 72, 0.08); --security-stroke: #c53a59; --messagebus-fill: rgba(234, 88, 12, 0.08); --messagebus-stroke: #c65f27; --external-fill: rgba(100, 116, 139, 0.1); --external-stroke: #607a8c; --arrow: #7b97aa; --arrow-emphasis: #0d9488; }
 [data-preset="blueprint"][data-theme="dark"] { --bg: #06131f; --grid: #17425a; --panel: rgba(7, 27, 43, 0.9); --panel-border: #27627f; --lane-fill: rgba(10, 43, 66, 0.36); --lane-stroke: #34799a; --text: #e3f6ff; --text-muted: #91b8ca; --text-dim: #557e92; --text-faint: #739caf; --mask: #0a2031; --frontend-fill: rgba(26, 157, 193, 0.14); --frontend-stroke: #66d9ef; --backend-fill: rgba(31, 155, 124, 0.13); --backend-stroke: #69dfbd; --database-fill: rgba(120, 105, 196, 0.14); --database-stroke: #b4a8ff; --cloud-fill: rgba(197, 145, 43, 0.13); --cloud-stroke: #ffd166; --security-fill: rgba(199, 76, 104, 0.13); --security-stroke: #ff8da1; --messagebus-fill: rgba(207, 112, 49, 0.13); --messagebus-stroke: #ffad66; --external-fill: rgba(84, 119, 139, 0.18); --external-stroke: #a7cad9; --arrow: #78a3b7; --arrow-emphasis: #64dfc1; --toolbar-bg: rgba(7, 28, 45, 0.92); --toolbar-border: #34799a; --toolbar-text: #d8f3ff; --toolbar-hover: rgba(18, 58, 83, 0.95); --toolbar-menu-bg: #0a2031; }
 [data-preset="blueprint"][data-theme="light"] { --bg: #edf7fa; --grid: #b5d5e1; --panel: rgba(249, 253, 255, 0.94); --panel-border: #78aabd; --lane-fill: rgba(210, 232, 240, 0.42); --lane-stroke: #83b2c4; --text: #123344; --text-muted: #4e7486; --text-dim: #86a6b4; --text-faint: #668c9d; --mask: #f9fdff; --frontend-fill: rgba(8, 145, 178, 0.08); --frontend-stroke: #087f9c; --backend-fill: rgba(5, 128, 101, 0.08); --backend-stroke: #08755f; --database-fill: rgba(100, 75, 180, 0.08); --database-stroke: #6757a8; --cloud-fill: rgba(181, 120, 15, 0.08); --cloud-stroke: #a86609; --security-fill: rgba(190, 48, 80, 0.07); --security-stroke: #b32f50; --messagebus-fill: rgba(196, 81, 22, 0.07); --messagebus-stroke: #b65120; --external-fill: rgba(79, 112, 128, 0.08); --external-stroke: #506f7e; --arrow: #6d93a5; --arrow-emphasis: #087f69; --toolbar-bg: rgba(247, 252, 254, 0.94); --toolbar-border: #8ab5c5; --toolbar-text: #294f61; --toolbar-hover: #ffffff; --toolbar-menu-bg: #f9fdff; }
 [data-preset="editorial"][data-theme="dark"] { --bg: #181611; --grid: #39342a; --panel: rgba(35, 31, 24, 0.96); --panel-border: #625a4a; --lane-fill: rgba(52, 46, 35, 0.46); --lane-stroke: #726957; --text: #f4eddf; --text-muted: #b9ae9b; --text-dim: #776e60; --text-faint: #9d917e; --mask: #231f18; --frontend-fill: rgba(43, 133, 142, 0.16); --frontend-stroke: #7fc6c7; --backend-fill: rgba(63, 132, 92, 0.16); --backend-stroke: #8fc29e; --database-fill: rgba(117, 91, 141, 0.17); --database-stroke: #c0a4d0; --cloud-fill: rgba(170, 119, 49, 0.16); --cloud-stroke: #d8ad68; --security-fill: rgba(157, 69, 65, 0.17); --security-stroke: #df9085; --messagebus-fill: rgba(174, 79, 42, 0.16); --messagebus-stroke: #df946f; --external-fill: rgba(126, 115, 96, 0.18); --external-stroke: #b8ad99; --arrow: #948978; --arrow-emphasis: #dd6b3d; --toolbar-bg: rgba(35, 31, 24, 0.92); --toolbar-border: #625a4a; --toolbar-text: #eee5d5; --toolbar-hover: #302a20; --toolbar-menu-bg: #231f18; }
 [data-preset="editorial"][data-theme="light"] { --bg: #f2eee5; --grid: #d8d0c2; --panel: rgba(251, 248, 241, 0.97); --panel-border: #c4b9a6; --lane-fill: rgba(229, 221, 207, 0.42); --lane-stroke: #b8aa94; --text: #242018; --text-muted: #6f6658; --text-dim: #a09788; --text-faint: #817767; --mask: #fbf8f1; --frontend-fill: rgba(31, 117, 126, 0.09); --frontend-stroke: #287e84; --backend-fill: rgba(42, 119, 75, 0.09); --backend-stroke: #397b53; --database-fill: rgba(105, 75, 130, 0.09); --database-stroke: #765d86; --cloud-fill: rgba(157, 103, 31, 0.1); --cloud-stroke: #9a671f; --security-fill: rgba(153, 58, 52, 0.09); --security-stroke: #9e463f; --messagebus-fill: rgba(182, 70, 27, 0.09); --messagebus-stroke: #ad4b25; --external-fill: rgba(101, 91, 75, 0.09); --external-stroke: #746b5e; --arrow: #8a806f; --arrow-emphasis: #bb4c23; --toolbar-bg: rgba(251, 248, 241, 0.94); --toolbar-border: #c4b9a6; --toolbar-text: #40392f; --toolbar-hover: #fffdf8; --toolbar-menu-bg: #fbf8f1; }
-svg { font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, "DejaVu Sans Mono", "Liberation Mono", "Noto Sans Mono CJK SC", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", monospace; width: 100%; min-width: min(900px, 100%); display: block; transform-origin: 0px 0px; transition: transform 0.18s; }
+svg { width: 100%; min-width: min(900px, 100%); display: block; transform-origin: 0px 0px; transition: transform 0.18s; }
 @keyframes archify-lens-in { 
   0% { opacity: 0; transform: translateY(5px) scale(0.985); }
   100% { opacity: 1; transform: translateY(0px) scale(1); }
@@ -151,18 +151,22 @@ svg { font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consol
   0% { opacity: 0; transform: translateY(-5px) scale(0.985); }
   100% { opacity: 1; transform: translateY(0px) scale(1); }
 }
-[data-theme="dark"] .toolbar #btn-theme::before { background: rgba(148, 163, 184, 0.16); }
-[data-theme="dark"] .toolbar #btn-theme::after { left: calc(100% - 1.6875rem); background: rgb(59, 74, 99); box-shadow: rgba(0, 0, 0, 0.4) 0px 1px 3px; }
-[data-theme="dark"] .toolbar #theme-icon { left: calc(100% - 1.5rem); color: rgb(199, 210, 254); }
+svg[data-chapter-handoff] [data-node-id][data-chapter-role="stay"] { opacity: 1; }
+svg[data-chapter-handoff] [data-node-id][data-chapter-role="enter"] { opacity: 0.78; }
+svg[data-chapter-handoff] [data-node-id][data-chapter-role="leave"] { opacity: 0.26; }
+@keyframes archify-chapter-anchor { 
+  0% { opacity: 0.35; stroke-dashoffset: 8; }
+  45% { opacity: 1; }
+  100% { opacity: 0.72; stroke-dashoffset: 0; }
+}
+@keyframes archify-story-caption-in { 
+  0% { opacity: 0; transform: translateY(3px); }
+  100% { opacity: 1; transform: translateY(0px); }
+}
 [data-theme="light"] #theme-icon { mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cg fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round'%3E%3Ccircle cx='10' cy='10' r='3.1'/%3E%3Cpath d='M10 2.2v1.4M10 16.4v1.4M2.2 10h1.4M16.4 10h1.4M4.5 4.5l1 1M14.5 14.5l1 1M15.5 4.5l-1 1M5.5 14.5l-1 1'/%3E%3C/g%3E%3C/svg%3E"); }
 [data-theme="dark"] #theme-icon { mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M15.2 12.7A6.3 6.3 0 017.3 4.8a6.3 6.3 0 107.9 7.9Z' fill='none' stroke='black' stroke-width='1.7' stroke-linejoin='round'/%3E%3C/svg%3E"); }
-[data-theme="dark"] .toolbar .preset-menu, [data-theme="dark"] .toolbar .export-menu { border-color: rgba(148, 163, 184, 0.16); box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 2px, rgba(0, 0, 0, 0.6) 0px 18px 44px -12px; }
-[data-theme="light"] .preset-option-swatch.classic { background: radial-gradient(circle at 1px 1px, rgb(217, 222, 229) 0.6px, transparent 0.9px) 0px 0px / 5px 5px, rgb(255, 255, 255); }
-[data-theme="light"] .preset-option-swatch.classic::before { border-color: rgb(27, 135, 163); background: rgba(14, 116, 144, 0.08); box-shadow: rgba(17, 24, 39, 0.12) 0px 2px 4px; }
 .c-grid { stroke: var(--grid); fill: none; }
 .c-mask { fill: var(--mask); stroke: none; }
-.c-lane-rule { stroke: var(--lane-stroke); fill: none; opacity: 0.7; }
-.c-lane-wash { fill: var(--lane-fill); stroke: none; }
 .c-frontend { fill: var(--frontend-fill); stroke: var(--frontend-stroke); }
 .c-backend { fill: var(--backend-fill); stroke: var(--backend-stroke); }
 .c-database { fill: var(--database-fill); stroke: var(--database-stroke); }
@@ -201,8 +205,8 @@ svg .brand-mark-fallback { fill: none; stroke: rgb(71, 85, 105); stroke-width: 1
 svg[data-preset="blueprint"] .brand-mark-badge, svg[data-preset="blueprint"] .brand-mark-frame { rx: 1px; }
 svg [data-detail] { transition: opacity 160ms; }
 svg [data-detail-anchor] { transform-box: fill-box; transform-origin: center center; transition: transform 160ms; }
-svg[data-focus-active] [data-focus-match][data-detail], svg[data-focus-active] [data-focus-match] [data-detail], svg[data-reach-active] [data-reach-match][data-detail], svg[data-reach-active] [data-reach-match] [data-detail], svg[data-lens-active] [data-lens-match][data-detail], svg[data-lens-active] [data-lens-match] [data-detail], svg[data-legend-preview-active] [data-legend-preview-match][data-detail], svg[data-legend-preview-active] [data-legend-preview-match] [data-detail], svg[data-intent-trace-active] [data-intent-trace-match][data-detail], svg[data-intent-trace-active] [data-intent-trace-match] [data-detail], svg[data-route-active] [data-route-match][data-detail], svg[data-route-active] [data-route-match] [data-detail], svg[data-relationship-preview-active] [data-relationship-preview][data-detail], svg[data-relationship-preview-active] [data-relationship-preview] [data-detail], svg [data-node-id]:hover [data-detail], svg [data-node-id]:focus-visible [data-detail] { opacity: 1; pointer-events: auto; }
-svg[data-focus-active] [data-focus-match] [data-detail-anchor], svg[data-reach-active] [data-reach-match] [data-detail-anchor], svg[data-lens-active] [data-lens-match] [data-detail-anchor], svg[data-legend-preview-active] [data-legend-preview-match] [data-detail-anchor], svg[data-intent-trace-active] [data-intent-trace-match] [data-detail-anchor], svg[data-route-active] [data-route-match] [data-detail-anchor], svg [data-node-id]:hover [data-detail-anchor], svg [data-node-id]:focus-visible [data-detail-anchor] { transform: none; }
+svg[data-focus-active] [data-focus-match][data-detail], svg[data-focus-active] [data-focus-match] [data-detail], svg[data-reach-active] [data-reach-match][data-detail], svg[data-reach-active] [data-reach-match] [data-detail], svg[data-lens-active] [data-lens-match][data-detail], svg[data-lens-active] [data-lens-match] [data-detail], svg[data-legend-preview-active] [data-legend-preview-match][data-detail], svg[data-legend-preview-active] [data-legend-preview-match] [data-detail], svg[data-intent-trace-active] [data-intent-trace-match][data-detail], svg[data-intent-trace-active] [data-intent-trace-match] [data-detail], svg[data-route-active] [data-route-match][data-detail], svg[data-route-active] [data-route-match] [data-detail], svg[data-story-active] [data-story-step][data-detail], svg[data-story-active] [data-story-step] [data-detail], svg[data-relationship-preview-active] [data-relationship-preview][data-detail], svg[data-relationship-preview-active] [data-relationship-preview] [data-detail], svg [data-node-id]:hover [data-detail], svg [data-node-id]:focus-visible [data-detail] { opacity: 1; pointer-events: auto; }
+svg[data-focus-active] [data-focus-match] [data-detail-anchor], svg[data-reach-active] [data-reach-match] [data-detail-anchor], svg[data-lens-active] [data-lens-match] [data-detail-anchor], svg[data-legend-preview-active] [data-legend-preview-match] [data-detail-anchor], svg[data-intent-trace-active] [data-intent-trace-match] [data-detail-anchor], svg[data-route-active] [data-route-match] [data-detail-anchor], svg[data-story-active] [data-story-step] [data-detail-anchor], svg [data-node-id]:hover [data-detail-anchor], svg [data-node-id]:focus-visible [data-detail-anchor] { transform: none; }
 .a-default { stroke: var(--arrow); fill: none; }
 .a-emphasis { stroke: var(--arrow-emphasis); fill: none; }
 .a-security { stroke: var(--security-stroke); fill: none; stroke-dasharray: 5, 5; }
@@ -211,8 +215,8 @@ svg[data-focus-active] [data-focus-match] [data-detail-anchor], svg[data-reach-a
 .m-emphasis { fill: var(--arrow-emphasis); }
 .m-security { fill: var(--security-stroke); }
 .m-dashed { fill: var(--database-stroke); }
-svg [data-node-id] { cursor: pointer; transition: opacity 0.18s, fill-opacity 0.18s, stroke-opacity 0.18s, filter 0.18s; }
-svg [data-edge-from], svg [data-graph-role="automatic-crossover-underlay"] { transition: opacity 0.18s, filter 0.18s; }
+svg [data-node-id] { cursor: pointer; transition: opacity 0.18s, filter 0.18s; }
+svg [data-edge-from] { transition: opacity 0.18s, filter 0.18s; }
 svg [data-node-id]:hover, svg [data-node-id]:focus-visible { filter: drop-shadow(0 0 7px var(--frontend-stroke)); outline: none; }
 svg [data-node-id]:hover .source-evidence-beacon, svg [data-node-id]:focus-visible .source-evidence-beacon, svg [data-node-id][data-focus-selected] .source-evidence-beacon { opacity: 1; filter: drop-shadow(0 0 4px color-mix(in srgb, var(--backend-stroke) 72%, transparent)); }
 svg[data-preset="signal-flow"] .source-evidence-beacon { opacity: 0.9; }
@@ -243,19 +247,12 @@ svg[data-preset="signal-flow"] .semantic-lens-flow[data-direction="out"], svg[da
 svg[data-preset="signal-flow"] .semantic-lens-flow[data-direction="in"], svg[data-preset="signal-flow"] .semantic-lens-flow[data-direction="reverse"] { filter: drop-shadow(0 0 6px var(--database-stroke)); }
 svg[data-preset="signal-flow"] .semantic-lens-flow[data-direction="within"] { filter: drop-shadow(0 0 6px var(--messagebus-stroke)); }
 svg[data-preset="blueprint"] .semantic-lens-flow { stroke-width: 2.45; stroke-linecap: square; filter: none; opacity: 0.78; }
-svg[data-legend-preview-active] [data-graph-role="automatic-crossover"] &gt; [data-graph-role="automatic-crossover-underlay"], svg[data-lens-active] [data-graph-role="automatic-crossover"] &gt; [data-graph-role="automatic-crossover-underlay"] { opacity: 0.11; }
-svg[data-legend-preview-active] [data-graph-role="automatic-crossover"]:has(&gt; [data-legend-preview-match]) &gt; [data-graph-role="automatic-crossover-underlay"], svg[data-lens-active] [data-graph-role="automatic-crossover"]:has(&gt; [data-lens-match]) &gt; [data-graph-role="automatic-crossover-underlay"] { opacity: 1; }
-svg[data-legend-preview-active] [data-graph-role="automatic-crossover"]:has(&gt; [data-legend-preview-peer]) &gt; [data-graph-role="automatic-crossover-underlay"], svg[data-lens-active] [data-graph-role="automatic-crossover"]:has(&gt; [data-lens-peer]) &gt; [data-graph-role="automatic-crossover-underlay"] { opacity: 0.62; }
 svg[data-focus-active] [data-node-id], svg[data-focus-active] [data-edge-from] { opacity: 0.13; }
-svg[data-focus-active] [data-graph-role="automatic-crossover"] &gt; [data-graph-role="automatic-crossover-underlay"] { opacity: 0.13; }
 svg[data-focus-active] [data-lifecycle-rail] { opacity: 0; }
 svg[data-focus-active] [data-focus-match] { opacity: 1; }
-svg[data-focus-active] [data-graph-role="automatic-crossover"]:has(&gt; [data-focus-match]) &gt; [data-graph-role="automatic-crossover-underlay"] { opacity: 1; }
 svg[data-focus-active] [data-focus-selected] { filter: drop-shadow(0 0 10px var(--frontend-stroke)); }
 svg[data-reach-active] [data-node-id], svg[data-reach-active] [data-edge-from] { opacity: 0.09; }
-svg[data-reach-active] [data-graph-role="automatic-crossover"] &gt; [data-graph-role="automatic-crossover-underlay"] { opacity: 0.09; }
 svg[data-reach-active] [data-reach-match] { opacity: 1; }
-svg[data-reach-active] [data-graph-role="automatic-crossover"]:has(&gt; [data-reach-match]) &gt; [data-graph-role="automatic-crossover-underlay"] { opacity: 1; }
 svg[data-reach-active="upstream"] [data-reach-origin] { filter: drop-shadow(0 0 11px var(--database-stroke)); }
 svg[data-reach-active="downstream"] [data-reach-origin] { filter: drop-shadow(0 0 11px var(--backend-stroke)); }
 svg[data-reach-active="upstream"] [data-edge-from][data-reach-match] { filter: drop-shadow(0 0 4px color-mix(in srgb, var(--database-stroke) 72%, transparent)); }
@@ -263,15 +260,11 @@ svg[data-reach-active="downstream"] [data-edge-from][data-reach-match] { filter:
 svg[data-preset="blueprint"][data-reach-active] [data-reach-origin], svg[data-preset="blueprint"][data-reach-active] [data-edge-from][data-reach-match] { filter: none; }
 svg[data-preset="blueprint"] .relationship-hit-target:focus-visible .relationship-focus-rail { stroke-linecap: square; filter: none; }
 svg[data-relationship-direct-active] [data-node-id], svg[data-relationship-direct-active] [data-edge-from] { opacity: 0.16; }
-svg[data-relationship-direct-active] [data-graph-role="automatic-crossover"] &gt; [data-graph-role="automatic-crossover-underlay"] { opacity: 0.16; }
 svg[data-relationship-direct-active] [data-relationship-preview], svg[data-relationship-direct-active] [data-relationship-preview-node] { opacity: 1; }
-svg[data-relationship-direct-active] [data-graph-role="automatic-crossover"]:has(&gt; [data-relationship-preview]) &gt; [data-graph-role="automatic-crossover-underlay"] { opacity: 1; }
-svg[data-focus-active]:not([data-relationship-pin-active]) .relationship-hit-rail, svg[data-route-picking] .relationship-hit-rail, svg[data-route-active] .relationship-hit-rail, svg[data-lens-active] .relationship-hit-rail { pointer-events: none; }
+svg[data-focus-active]:not([data-relationship-pin-active]) .relationship-hit-rail, svg[data-story-active] .relationship-hit-rail, svg[data-route-picking] .relationship-hit-rail, svg[data-route-active] .relationship-hit-rail, svg[data-lens-active] .relationship-hit-rail, svg[data-chapter-preview] .relationship-hit-rail { pointer-events: none; }
 svg[data-relationship-preview-active] [data-focus-match] { opacity: 0.18; }
-svg[data-relationship-preview-active] [data-graph-role="automatic-crossover"]:has(&gt; [data-focus-match]) &gt; [data-graph-role="automatic-crossover-underlay"] { opacity: 0.18; }
 svg[data-relationship-preview-active] [data-lifecycle-rail] { opacity: 0; }
 svg[data-relationship-preview-active] [data-relationship-preview], svg[data-relationship-preview-active] [data-relationship-preview-node] { opacity: 1; }
-svg[data-relationship-preview-active] [data-graph-role="automatic-crossover"]:has(&gt; [data-relationship-preview]) &gt; [data-graph-role="automatic-crossover-underlay"] { opacity: 1; }
 svg[data-relationship-preview-active] [data-relationship-preview] { filter: drop-shadow(0 0 5px var(--arrow-emphasis)); }
 svg[data-relationship-preview-active] [data-relationship-preview] path, svg[data-relationship-preview-active] path[data-relationship-preview], svg[data-relationship-preview-active] [data-relationship-preview] line, svg[data-relationship-preview-active] line[data-relationship-preview], svg[data-relationship-preview-active] [data-relationship-preview] polyline, svg[data-relationship-preview-active] polyline[data-relationship-preview] { stroke-width: 2.75; }
 svg[data-relationship-preview-active] [data-relationship-preview-source] { filter: drop-shadow(0 0 7px var(--frontend-stroke)); }
@@ -282,14 +275,9 @@ svg[data-preset="editorial"] .relationship-flow-pulse { stroke: var(--arrow-emph
 svg[data-preset="signal-flow"] .semantic-flow-token { filter: drop-shadow(currentcolor 0px 0px 5px); }
 svg[data-preset="blueprint"] .semantic-flow-token { filter: none; }
 svg[data-preset="editorial"] .semantic-flow-token { filter: none; }
-svg[data-intent-trace-active] [data-node-id] { fill-opacity: 0.2; stroke-opacity: 0.2; }
-svg [data-node-id] &gt; .c-mask { fill-opacity: 1; }
-svg[data-intent-trace-active] [data-node-id][data-intent-trace-match] { fill-opacity: 1; stroke-opacity: 1; }
-svg[data-intent-trace-active] [data-edge-from] { opacity: 0.2; }
-svg[data-intent-trace-active] [data-graph-role="automatic-crossover"] &gt; [data-graph-role="automatic-crossover-underlay"] { opacity: 0.2; }
+svg[data-intent-trace-active] [data-node-id], svg[data-intent-trace-active] [data-edge-from] { opacity: 0.2; }
 svg[data-intent-trace-active] [data-lifecycle-rail] { opacity: 0; }
 svg[data-intent-trace-active] [data-intent-trace-match] { opacity: 1; }
-svg[data-intent-trace-active] [data-graph-role="automatic-crossover"]:has(&gt; [data-intent-trace-match]) &gt; [data-graph-role="automatic-crossover-underlay"] { opacity: 1; }
 svg[data-intent-trace-active] [data-intent-trace-selected] { filter: drop-shadow(0 0 10px var(--frontend-stroke)); }
 svg[data-preset="blueprint"] [data-intent-trace-selected], svg[data-preset="blueprint"] .intent-trace-flow { filter: none; stroke-linecap: square; }
 svg[data-preset="editorial"] [data-intent-trace-selected], svg[data-preset="editorial"] .intent-trace-flow { filter: none; }
@@ -298,18 +286,13 @@ svg[data-route-picking="target"] [data-route-candidate], svg[data-route-picking=
 svg[data-route-picking] [data-node-id] { cursor: crosshair; }
 svg[data-route-picking] [data-route-start] { filter: drop-shadow(0 0 10px var(--frontend-stroke)); }
 svg[data-route-active] [data-node-id], svg[data-route-active] [data-edge-from] { opacity: 0.11; }
-svg[data-route-active] [data-graph-role="automatic-crossover"] &gt; [data-graph-role="automatic-crossover-underlay"] { opacity: 0.11; }
 svg[data-route-active] [data-route-match] { opacity: 1; }
-svg[data-route-active] [data-graph-role="automatic-crossover"]:has(&gt; [data-route-match]) &gt; [data-graph-role="automatic-crossover-underlay"] { opacity: 1; }
 svg[data-route-active] [data-route-start] { filter: drop-shadow(0 0 11px var(--frontend-stroke)); }
 svg[data-route-active] [data-route-end] { filter: drop-shadow(0 0 11px var(--security-stroke)); }
 svg[data-route-active] [data-route-step]:not([data-route-start]):not([data-route-end]) { filter: drop-shadow(0 0 7px var(--backend-stroke)); }
 svg[data-route-journey] [data-route-match][data-route-journey-state="past"] { opacity: 0.62; }
 svg[data-route-journey] [data-route-match][data-route-journey-state="future"] { opacity: 0.34; }
 svg[data-route-journey] [data-route-match][data-route-journey-state="current"] { opacity: 1; }
-svg[data-route-journey] [data-graph-role="automatic-crossover"]:has(&gt; [data-route-match][data-route-journey-state="past"]) &gt; [data-graph-role="automatic-crossover-underlay"] { opacity: 0.62; }
-svg[data-route-journey] [data-graph-role="automatic-crossover"]:has(&gt; [data-route-match][data-route-journey-state="future"]) &gt; [data-graph-role="automatic-crossover-underlay"] { opacity: 0.34; }
-svg[data-route-journey] [data-graph-role="automatic-crossover"]:has(&gt; [data-route-match][data-route-journey-state="current"]) &gt; [data-graph-role="automatic-crossover-underlay"] { opacity: 1; }
 svg[data-route-journey] [data-node-id][data-route-journey-current] { filter: drop-shadow(0 0 10px var(--backend-stroke)); }
 svg[data-route-journey] [data-edge-from][data-route-journey-current] { opacity: 1; filter: drop-shadow(0 0 6px var(--backend-stroke)); }
 svg[data-preset="blueprint"] [data-route-start], svg[data-preset="blueprint"] [data-route-end], svg[data-preset="blueprint"] [data-route-step], svg[data-preset="blueprint"] .route-probe-flow { filter: none; stroke-linecap: square; }
@@ -325,17 +308,37 @@ svg[data-preset="blueprint"] [data-node-id]:hover, svg[data-preset="blueprint"] 
 svg[data-preset="blueprint"][data-focus-active] [data-focus-selected] { filter: drop-shadow(0 0 3px var(--frontend-stroke)); }
 svg[data-preset="blueprint"][data-focus-active][data-reach-active] [data-focus-selected][data-reach-origin] { filter: none; }
 svg[data-preset="blueprint"][data-relationship-preview-active] [data-relationship-preview], svg[data-preset="blueprint"][data-relationship-preview-active] [data-relationship-preview-source], svg[data-preset="blueprint"][data-relationship-preview-active] [data-relationship-preview-target] { filter: drop-shadow(0 0 3px var(--frontend-stroke)); }
+svg[data-story-beat] [data-story-step] { opacity: 0.22; filter: saturate(0.42); transition: opacity 180ms, filter 180ms; }
+svg[data-story-beat] [data-story-step][data-story-beat-state="past"] { opacity: 0.72; filter: saturate(0.82); }
+svg[data-story-beat] [data-story-step][data-story-beat-state="next"] { opacity: 0.5; filter: saturate(0.66); }
+svg[data-story-beat] [data-story-step][data-story-beat-state="active"] { opacity: 1; filter: drop-shadow(0 0 7px var(--frontend-stroke)); animation: 360ms cubic-bezier(0.22, 1, 0.36, 1) 0s 1 normal both running archify-story-beat-node; }
+svg[data-story-beat] [data-edge-from][data-story-beat-step] { opacity: 0.16; transition: opacity 160ms; }
+svg[data-story-beat] [data-edge-from][data-story-beat-step][data-story-beat-state="past"] { opacity: 0.58; }
+svg[data-story-beat] [data-edge-from][data-story-beat-step][data-story-beat-state="next"] { opacity: 0.34; }
+svg[data-story-beat] [data-edge-from][data-story-beat-step][data-story-beat-state="active"] { opacity: 1; }
+svg[data-story-beat] .story-trail-flow { opacity: 0; transition: opacity 160ms; }
+svg[data-story-beat] .story-trail-flow[data-story-beat-state="past"] { opacity: 0.34; }
+svg[data-story-beat] .story-trail-flow[data-story-beat-state="next"] { opacity: 0.2; }
+svg[data-story-beat] .story-trail-flow[data-story-beat-state="active"] { opacity: 0.92; }
+svg[data-story-beat] .story-trail-flow[data-story-pulse="true"] { stroke-dasharray: 2, 13; stroke-dashoffset: 30; opacity: 0.92; animation: 0.78s linear 0s 1 normal both running archify-story-flow; }
+svg[data-preset="blueprint"] .story-trail-flow { stroke-linecap: square; filter: none; opacity: 0.5; }
+svg[data-preset="blueprint"][data-story-beat] [data-story-step][data-story-beat-state="active"] { filter: none; animation: auto ease 0s 1 normal none running none; }
+svg[data-preset="editorial"] .story-trail-flow { filter: none; }
+svg[data-preset="editorial"][data-story-beat] [data-story-step][data-story-beat-state="active"] { filter: drop-shadow(0 2px 2px color-mix(in srgb, var(--text) 16%, transparent)); }
+svg[data-chapter-preview] [data-node-id], svg[data-chapter-preview] [data-edge-from] { opacity: 0.1 !important; filter: none !important; transition: none !important; }
+svg[data-chapter-preview] .story-trail-overlay { opacity: 0.08 !important; }
+svg[data-chapter-preview] [data-node-id][data-chapter-preview-role="stay"] { opacity: 0.76 !important; filter: saturate(0.7) !important; }
+svg[data-chapter-preview] [data-node-id][data-chapter-preview-role="enter"] { opacity: 1 !important; filter: saturate(1.2) !important; }
+svg[data-chapter-preview] [data-node-id][data-chapter-preview-role="leave"] { opacity: 0.28 !important; filter: grayscale(0.72) !important; }
+svg[data-preset="blueprint"][data-chapter-preview] [data-node-id] { filter: none !important; }
 .c-security-group { fill: transparent; stroke: var(--security-stroke); stroke-dasharray: 4, 4; }
 .c-region { fill: rgba(251, 191, 36, 0.05); stroke: var(--cloud-stroke); stroke-dasharray: 8, 4; }
 .c-lane { fill: var(--lane-fill); stroke: var(--lane-stroke); stroke-dasharray: 6, 6; }
 svg[data-preset="signal-flow"][data-animation="trace"] [data-animate="edge"] { stroke-linecap: round; filter: drop-shadow(0 0 3px var(--arrow-emphasis)); animation-duration: 1.75s; }
-svg[data-preset="signal-flow"][data-animation="trace"] [data-graph-role="automatic-crossover"]:has(&gt; [data-animate="edge"]) &gt; [data-graph-role="automatic-crossover-underlay"] { animation-duration: 1.75s; }
 svg[data-preset="signal-flow"][data-animation="trace"] [data-animate="node"] { animation-duration: 3.1s; }
 svg[data-preset="blueprint"][data-animation="trace"] [data-animate="edge"] { stroke-linecap: square; filter: none; animation-duration: 2.15s; }
-svg[data-preset="blueprint"][data-animation="trace"] [data-graph-role="automatic-crossover"]:has(&gt; [data-animate="edge"]) &gt; [data-graph-role="automatic-crossover-underlay"] { animation-duration: 2.15s; }
 svg[data-preset="blueprint"][data-animation="trace"] [data-animate="node"] { animation-name: archify-blueprint-node-pulse; animation-duration: 3.8s; }
 svg[data-preset="editorial"][data-animation="trace"] [data-animate="edge"] { filter: none; animation-duration: 2.2s; }
-svg[data-preset="editorial"][data-animation="trace"] [data-graph-role="automatic-crossover"]:has(&gt; [data-animate="edge"]) &gt; [data-graph-role="automatic-crossover-underlay"] { animation-duration: 2.2s; }
 svg[data-preset="editorial"][data-animation="trace"] [data-animate="node"] { animation-name: archify-editorial-node-pulse; animation-duration: 3.5s; }
 @keyframes archify-edge-flow { 
   0% { stroke-dasharray: 10, 8; stroke-dashoffset: 54; opacity: 0.42; }
@@ -363,6 +366,13 @@ svg[data-preset="editorial"][data-animation="trace"] [data-animate="node"] { ani
 @keyframes archify-radar-live { 
   0% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--backend-stroke) 52%, transparent); }
   55%, 100% { box-shadow: transparent 0px 0px 0px 0.32rem; }
+}
+@keyframes archify-guided-progress { 
+  0% { transform: scaleX(var(--guided-progress-start, 0)); }
+  100% { transform: scaleX(1); }
+}
+@keyframes archify-story-flow { 
+  100% { stroke-dashoffset: 0; }
 }
 @keyframes archify-intent-trace-flow { 
   0% { opacity: 0.28; stroke-dashoffset: 0; }
@@ -394,6 +404,11 @@ svg[data-preset="editorial"][data-animation="trace"] [data-animate="node"] { ani
   13%, 82% { opacity: 1; }
   100% { opacity: 0; }
 }
+@keyframes archify-story-beat-node { 
+  0% { opacity: 0.48; filter: saturate(0.6); }
+  58% { opacity: 1; filter: drop-shadow(0 0 10px var(--frontend-stroke)); }
+  100% { opacity: 1; filter: drop-shadow(0 0 7px var(--frontend-stroke)); }
+}
 @keyframes archify-share-cue-enter { 
   0% { opacity: 0; transform: translate(-50%, -0.45rem); }
   100% { opacity: 1; transform: translate(-50%, 0px); }
@@ -402,11 +417,14 @@ svg[data-preset="editorial"][data-animation="trace"] [data-animate="node"] { ani
   0%, 100% { opacity: 1; transform: scale(1); }
   50% { opacity: 0.48; transform: scale(0.78); }
 }
-:root, svg { --bg: #f4f5f7; --grid: #e9edf2; --canvas-dot: #d9dee5; --text: #111827; --text-muted: #5b6474; --text-dim: #9aa3b2; --text-faint: #6b7280; --panel: #ffffff; --panel-border: #e5e7eb; --lane-fill: rgba(248, 250, 252, 0.65); --lane-stroke: #cbd5e1; --arrow: #94a3b8; --arrow-emphasis: #059669; --mask: #ffffff; --frontend-fill: rgba(34, 211, 238, 0.15); --frontend-stroke: #0891b2; --backend-fill: rgba(52, 211, 153, 0.18); --backend-stroke: #059669; --database-fill: rgba(167, 139, 250, 0.2); --database-stroke: #7c3aed; --cloud-fill: rgba(251, 191, 36, 0.18); --cloud-stroke: #d97706; --security-fill: rgba(251, 113, 133, 0.15); --security-stroke: #e11d48; --messagebus-fill: rgba(251, 146, 60, 0.15); --messagebus-stroke: #ea580c; --external-fill: rgba(148, 163, 184, 0.18); --external-stroke: #64748b; --toolbar-bg: rgba(255, 255, 255, 0.92); --toolbar-border: #cbd5e1; --toolbar-text: #334155; --toolbar-hover: #ffffff; --toolbar-menu-bg: #ffffff; }
-
-/* MediaFlows tokens (light), frontend/src/app/globals.css: neutral :root palette and --status-* colors */
-:root, svg, svg[data-theme] { --bg: #ffffff; --grid: #f5f5f5; --canvas-dot: #e5e5e5; --text: #0a0a0a; --text-muted: #737373; --text-dim: #a1a1a1; --text-faint: #737373; --panel: #ffffff; --panel-border: #e5e5e5; --lane-fill: #f5f5f5; --lane-stroke: #a1a1a1; --arrow: #737373; --arrow-emphasis: #171717; --mask: #ffffff; --frontend-fill: rgba(255, 106, 0, 0.12); --frontend-stroke: #ff6a00; --backend-fill: rgba(47, 196, 97, 0.12); --backend-stroke: #2fc461; --database-fill: rgba(22, 93, 252, 0.12); --database-stroke: #165dfc; --cloud-fill: rgba(223, 172, 0, 0.12); --cloud-stroke: #dfac00; --security-fill: rgba(231, 0, 11, 0.12); --security-stroke: #e7000b; --messagebus-fill: rgba(82, 82, 82, 0.09); --messagebus-stroke: #525252; --external-fill: rgba(161, 161, 161, 0.09); --external-stroke: #a1a1a1; }
-</style><rect x="0" y="0" width="1770" height="912" fill="#ffffff"/>
+[data-theme="dark"] { --bg: #0A0A0A; --mask: #0A0A0A; --grid: #171717; --panel: #171717; --panel-border: #262626; --text: #FAFAFA; --text-muted: #A1A1A1; --text-dim: #737373; --text-faint: #A1A1A1; --arrow: #737373; --arrow-emphasis: #E5E5E5; --frontend-fill: rgba(22, 93, 252, 0.16); --frontend-stroke: #165DFC; --backend-fill: rgba(47, 196, 97, 0.14); --backend-stroke: #2FC461; --database-fill: #262626; --database-stroke: #E5E5E5; --cloud-fill: rgba(223, 172, 0, 0.14); --cloud-stroke: #DFAC00; --security-fill: rgba(255, 100, 103, 0.12); --security-stroke: #FF6467; --messagebus-fill: rgba(255, 106, 0, 0.14); --messagebus-stroke: #FF6A00; --external-fill: #171717; --external-stroke: #A1A1A1; }
+[data-theme="light"] { --bg: #FFFFFF; --mask: #FFFFFF; --grid: #F5F5F5; --panel: #FFFFFF; --panel-border: #E5E5E5; --text: #0A0A0A; --text-muted: #737373; --text-dim: #A1A1A1; --text-faint: #737373; --arrow: #A1A1A1; --arrow-emphasis: #171717; --frontend-fill: rgba(22, 93, 252, 0.08); --frontend-stroke: #165DFC; --backend-fill: rgba(47, 196, 97, 0.1); --backend-stroke: #2FC461; --database-fill: #F5F5F5; --database-stroke: #171717; --cloud-fill: rgba(223, 172, 0, 0.1); --cloud-stroke: #DFAC00; --security-fill: rgba(231, 0, 11, 0.06); --security-stroke: #E7000B; --messagebus-fill: rgba(255, 106, 0, 0.08); --messagebus-stroke: #FF6A00; --external-fill: #FAFAFA; --external-stroke: #737373; }
+:root, svg { --bg: #0A0A0A; --grid: #171717; --text: #FAFAFA; --text-muted: #A1A1A1; --text-dim: #737373; --text-faint: #A1A1A1; --panel: #171717; --panel-border: #262626; --lane-fill: rgba(15, 23, 42, 0.22); --lane-stroke: #334155; --arrow: #737373; --arrow-emphasis: #E5E5E5; --mask: #0A0A0A; --frontend-fill: rgba(22, 93, 252, 0.16); --frontend-stroke: #165DFC; --backend-fill: rgba(47, 196, 97, 0.14); --backend-stroke: #2FC461; --database-fill: #262626; --database-stroke: #E5E5E5; --cloud-fill: rgba(223, 172, 0, 0.14); --cloud-stroke: #DFAC00; --security-fill: rgba(255, 100, 103, 0.12); --security-stroke: #FF6467; --messagebus-fill: rgba(255, 106, 0, 0.14); --messagebus-stroke: #FF6A00; --external-fill: #171717; --external-stroke: #A1A1A1; --toolbar-bg: rgba(15, 23, 42, 0.8); --toolbar-border: #334155; --toolbar-text: #e2e8f0; --toolbar-hover: rgba(15, 23, 42, 0.95); --toolbar-menu-bg: #0f172a; }
+@media (prefers-color-scheme: light) { :root, svg { --bg: #FFFFFF; --grid: #F5F5F5; --text: #0A0A0A; --text-muted: #737373; --text-dim: #A1A1A1; --text-faint: #737373; --panel: #FFFFFF; --panel-border: #E5E5E5; --lane-fill: rgba(248, 250, 252, 0.65); --lane-stroke: #cbd5e1; --arrow: #A1A1A1; --arrow-emphasis: #171717; --mask: #FFFFFF; --frontend-fill: rgba(22, 93, 252, 0.08); --frontend-stroke: #165DFC; --backend-fill: rgba(47, 196, 97, 0.1); --backend-stroke: #2FC461; --database-fill: #F5F5F5; --database-stroke: #171717; --cloud-fill: rgba(223, 172, 0, 0.1); --cloud-stroke: #DFAC00; --security-fill: rgba(231, 0, 11, 0.06); --security-stroke: #E7000B; --messagebus-fill: rgba(255, 106, 0, 0.08); --messagebus-stroke: #FF6A00; --external-fill: #FAFAFA; --external-stroke: #737373; --toolbar-bg: rgba(255, 255, 255, 0.92); --toolbar-border: #cbd5e1; --toolbar-text: #334155; --toolbar-hover: #ffffff; --toolbar-menu-bg: #ffffff; } }
+svg[data-theme="light"] { --bg: #FFFFFF; --grid: #F5F5F5; --text: #0A0A0A; --text-muted: #737373; --text-dim: #A1A1A1; --text-faint: #737373; --panel: #FFFFFF; --panel-border: #E5E5E5; --lane-fill: rgba(248, 250, 252, 0.65); --lane-stroke: #cbd5e1; --arrow: #A1A1A1; --arrow-emphasis: #171717; --mask: #FFFFFF; --frontend-fill: rgba(22, 93, 252, 0.08); --frontend-stroke: #165DFC; --backend-fill: rgba(47, 196, 97, 0.1); --backend-stroke: #2FC461; --database-fill: #F5F5F5; --database-stroke: #171717; --cloud-fill: rgba(223, 172, 0, 0.1); --cloud-stroke: #DFAC00; --security-fill: rgba(231, 0, 11, 0.06); --security-stroke: #E7000B; --messagebus-fill: rgba(255, 106, 0, 0.08); --messagebus-stroke: #FF6A00; --external-fill: #FAFAFA; --external-stroke: #737373; --toolbar-bg: rgba(255, 255, 255, 0.92); --toolbar-border: #cbd5e1; --toolbar-text: #334155; --toolbar-hover: #ffffff; --toolbar-menu-bg: #ffffff; }
+svg[data-theme="dark"] { --bg: #0A0A0A; --grid: #171717; --text: #FAFAFA; --text-muted: #A1A1A1; --text-dim: #737373; --text-faint: #A1A1A1; --panel: #171717; --panel-border: #262626; --lane-fill: rgba(15, 23, 42, 0.22); --lane-stroke: #334155; --arrow: #737373; --arrow-emphasis: #E5E5E5; --mask: #0A0A0A; --frontend-fill: rgba(22, 93, 252, 0.16); --frontend-stroke: #165DFC; --backend-fill: rgba(47, 196, 97, 0.14); --backend-stroke: #2FC461; --database-fill: #262626; --database-stroke: #E5E5E5; --cloud-fill: rgba(223, 172, 0, 0.14); --cloud-stroke: #DFAC00; --security-fill: rgba(255, 100, 103, 0.12); --security-stroke: #FF6467; --messagebus-fill: rgba(255, 106, 0, 0.14); --messagebus-stroke: #FF6A00; --external-fill: #171717; --external-stroke: #A1A1A1; --toolbar-bg: rgba(15, 23, 42, 0.8); --toolbar-border: #334155; --toolbar-text: #e2e8f0; --toolbar-hover: rgba(15, 23, 42, 0.95); --toolbar-menu-bg: #0f172a; }
+rect.c-bg-rect { fill: var(--bg); }
+</style><rect width="100%" height="100%" class="c-bg-rect"/>
         <title id="archify-diagram-title">MediaFlows on AWS</title>
         <desc id="archify-diagram-description">An architecture diagram generated by Archify.</desc>
         <!-- Definitions -->
@@ -435,86 +453,26 @@ svg[data-preset="editorial"][data-animation="trace"] [data-animate="node"] { ani
         <rect data-graph-role="structural-frame" data-composition-frame-kind="security-group" data-composition-frame-id="0" data-composition-frame-label="VPC private subnets" x="622" y="213" width="826" height="111" rx="8" class="c-security-group" stroke-width="1"/>
 
         <!-- Connection paths (before components for correct z-order) -->
-        <g data-graph-role="automatic-crossover" style="--step:0">
-          <path data-graph-role="automatic-crossover-underlay" d="M 230 272 L 340 272" fill="none" stroke="var(--mask)" stroke-width="5.8" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="users" data-edge-to="frontend" data-edge-label="HTTPS" data-edge-key="0" data-composition-points="230,272;340,272" data-composition-crossover="halo" data-composition-independent="true" d="M 230 272 L 340 272" class="a-emphasis" stroke-width="1.8" marker-end="url(#arrowhead-emphasis)"/>
-        </g>
-        <g data-graph-role="automatic-crossover" style="--step:1">
-          <path data-graph-role="automatic-crossover-underlay" d="M 530 280.05 L 640 280.05" fill="none" stroke="var(--mask)" stroke-width="5.8" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="frontend" data-edge-to="api" data-edge-label="REST + SignalR" data-edge-key="1" data-composition-points="530,280.05;640,280.05" data-composition-crossover="halo" data-composition-independent="true" d="M 530 280.05 L 640 280.05" class="a-emphasis" stroke-width="1.8" marker-end="url(#arrowhead-emphasis)"/>
-        </g>
-        <g data-graph-role="automatic-crossover" style="--step:2">
-          <path data-graph-role="automatic-crossover-underlay" d="M 830 280.05 L 940 280.05" fill="none" stroke="var(--mask)" stroke-width="5.8" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="api" data-edge-to="rds" data-edge-label="EF Core" data-edge-key="2" data-composition-points="830,280.05;940,280.05" data-composition-crossover="halo" data-composition-independent="true" d="M 830 280.05 L 940 280.05" class="a-emphasis" stroke-width="1.8" marker-end="url(#arrowhead-emphasis)"/>
-        </g>
-        <g data-graph-role="automatic-crossover" style="--step:3">
-          <path data-graph-role="automatic-crossover-underlay" d="M 435 240 L 435 124" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="frontend" data-edge-to="cognito" data-edge-label="sign-in · sign-up" data-edge-key="3" data-composition-points="435,240;435,124" data-composition-crossover="halo" data-composition-independent="true" d="M 435 240 L 435 124" class="a-security" stroke-width="1.5" marker-end="url(#arrowhead-security)"/>
-        </g>
-        <g data-graph-role="automatic-crossover" style="--step:4">
-          <path data-graph-role="automatic-crossover-underlay" d="M 340 92 L 230 92" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="cognito" data-edge-to="postconfirm" data-edge-label="post-confirm" data-edge-key="4" data-composition-points="340,92;230,92" data-composition-crossover="halo" data-composition-independent="true" d="M 340 92 L 230 92" class="a-default" stroke-width="1.5" marker-end="url(#arrowhead)"/>
-        </g>
-        <g data-graph-role="automatic-crossover" style="--step:5">
-          <path data-graph-role="automatic-crossover-underlay" d="M 735 240 L 735 224 Q 735 216 727 216 L 562 216 Q 554 216 554 208 L 554 100 Q 554 92 546 92 L 530 92" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="api" data-edge-to="cognito" data-edge-label="JWT · admin users" data-edge-key="5" data-composition-points="735,240;735,216;554,216;554,92;530,92" data-composition-crossover="halo" data-composition-independent="true" d="M 735 240 L 735 224 Q 735 216 727 216 L 562 216 Q 554 216 554 208 L 554 100 Q 554 92 546 92 L 530 92" class="a-security" stroke-width="1.5" marker-end="url(#arrowhead-security)"/>
-        </g>
-        <g data-graph-role="automatic-crossover" style="--step:6">
-          <path data-graph-role="automatic-crossover-underlay" d="M 830 265 L 846 265 Q 854 265 854 257 L 854 100 Q 854 92 862 92 L 940 92" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="api" data-edge-to="eventbridge" data-edge-label="review events" data-edge-key="6" data-composition-points="830,265;854,265;854,92;940,92" data-composition-crossover="halo" data-composition-independent="true" d="M 830 265 L 846 265 Q 854 265 854 257 L 854 100 Q 854 92 862 92 L 940 92" class="a-dashed" stroke-width="1.5" marker-end="url(#arrowhead-dashed)"/>
-        </g>
-        <g data-graph-role="automatic-crossover" style="--step:7">
-          <path data-graph-role="automatic-crossover-underlay" d="M 1130 92 L 1240 92" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="eventbridge" data-edge-to="notify" data-edge-label="invoke" data-edge-key="7" data-composition-points="1130,92;1240,92" data-composition-crossover="halo" data-composition-independent="true" d="M 1130 92 L 1240 92" class="a-dashed" stroke-width="1.5" marker-end="url(#arrowhead-dashed)"/>
-        </g>
-        <g data-graph-role="automatic-crossover" style="--step:8">
-          <path data-graph-role="automatic-crossover-underlay" d="M 1430 92 L 1540 92" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="notify" data-edge-to="snsemail" data-edge-label="publish" data-edge-key="8" data-composition-points="1430,92;1540,92" data-composition-crossover="halo" data-composition-independent="true" d="M 1430 92 L 1540 92" class="a-dashed" stroke-width="1.5" marker-end="url(#arrowhead-dashed)"/>
-        </g>
-        <g data-graph-role="automatic-crossover" style="--step:9">
-          <path data-graph-role="automatic-crossover-underlay" d="M 1240 265 L 1130 265" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="moderator" data-edge-to="rds" data-edge-label="auto-tags" data-edge-key="9" data-composition-points="1240,265;1130,265" data-composition-crossover="halo" data-composition-independent="true" d="M 1240 265 L 1130 265" class="a-default" stroke-width="1.5" marker-end="url(#arrowhead)"/>
-        </g>
-        <g data-graph-role="automatic-crossover" style="--step:10">
-          <path data-graph-role="automatic-crossover-underlay" d="M 1430 272 L 1540 272" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="moderator" data-edge-to="rekognition" data-edge-label="DetectLabels" data-edge-key="10" data-composition-points="1430,272;1540,272" data-composition-crossover="halo" data-composition-independent="true" d="M 1430 272 L 1540 272" class="a-default" stroke-width="1.5" marker-end="url(#arrowhead)"/>
-        </g>
-        <g data-graph-role="automatic-crossover" style="--step:11">
-          <path data-graph-role="automatic-crossover-underlay" d="M 135 304 L 135 420" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="users" data-edge-to="cdn" data-edge-label="GET media" data-edge-key="11" data-composition-points="135,304;135,420" data-composition-crossover="halo" data-composition-independent="true" d="M 135 304 L 135 420" class="a-default" stroke-width="1.5" marker-end="url(#arrowhead)"/>
-        </g>
-        <g data-graph-role="automatic-crossover" style="--step:12">
-          <path data-graph-role="automatic-crossover-underlay" d="M 435 304 L 435 420" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="frontend" data-edge-to="s3" data-edge-label="PUT presigned" data-edge-key="12" data-composition-points="435,304;435,420" data-composition-crossover="halo" data-composition-independent="true" d="M 435 304 L 435 420" class="a-default" stroke-width="1.5" marker-end="url(#arrowhead)"/>
-        </g>
-        <g data-graph-role="automatic-crossover" style="--step:13">
-          <path data-graph-role="automatic-crossover-underlay" d="M 230 452 L 340 452" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="cdn" data-edge-to="s3" data-edge-label="origin (OAC)" data-edge-key="13" data-composition-points="230,452;340,452" data-composition-crossover="halo" data-composition-independent="true" d="M 230 452 L 340 452" class="a-default" stroke-width="1.5" marker-end="url(#arrowhead)"/>
-        </g>
-        <g data-graph-role="automatic-crossover" style="--step:14">
-          <path data-graph-role="automatic-crossover-underlay" d="M 735 304 L 735 420" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="api" data-edge-to="dynamodb" data-edge-label="views · trending" data-edge-key="14" data-composition-points="735,304;735,420" data-composition-crossover="halo" data-composition-independent="true" d="M 735 304 L 735 420" class="a-default" stroke-width="1.5" marker-end="url(#arrowhead)"/>
-        </g>
-        <g data-graph-role="automatic-crossover" style="--step:15">
-          <path data-graph-role="automatic-crossover-underlay" d="M 940 452 L 830 452" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="aggregator" data-edge-to="dynamodb" data-edge-label="trending" data-edge-key="15" data-composition-points="940,452;830,452" data-composition-crossover="halo" data-composition-independent="true" d="M 940 452 L 830 452" class="a-default" stroke-width="1.5" marker-end="url(#arrowhead)"/>
-        </g>
-        <g data-graph-role="automatic-crossover" style="--step:16">
-          <path data-graph-role="automatic-crossover-underlay" d="M 442 484 L 442 600" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="s3" data-edge-to="snsqs" data-edge-label="ObjectCreated" data-edge-key="16" data-composition-points="442,484;442,600" data-composition-crossover="halo" data-composition-independent="true" d="M 442 484 L 442 600" class="a-dashed" stroke-width="1.5" marker-end="url(#arrowhead-dashed)"/>
-        </g>
-        <g data-graph-role="automatic-crossover" style="--step:17">
-          <path data-graph-role="automatic-crossover-underlay" d="M 340 632 L 293 632 Q 285 632 285 640 L 285 804 Q 285 812 277 812 L 230 812" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="snsqs" data-edge-to="thumb" data-edge-label="media-processing" data-edge-key="17" data-composition-points="340,632;285,632;285,812;230,812" data-composition-crossover="halo" data-composition-independent="true" d="M 340 632 L 293 632 Q 285 632 285 640 L 285 804 Q 285 812 277 812 L 230 812" class="a-dashed" stroke-width="1.5" marker-end="url(#arrowhead-dashed)"/>
-        </g>
-        <g data-graph-role="automatic-crossover" style="--step:18">
-          <path data-graph-role="automatic-crossover-underlay" d="M 530 632 L 1208 632 Q 1216 632 1216 624 L 1216 287 Q 1216 279 1224 279 L 1240 279" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="snsqs" data-edge-to="moderator" data-edge-label="content-moderation" data-edge-key="18" data-composition-points="530,632;1216,632;1216,279;1240,279" data-composition-crossover="halo" data-composition-independent="true" d="M 530 632 L 1208 632 Q 1216 632 1216 624 L 1216 287 Q 1216 279 1224 279 L 1240 279" class="a-dashed" stroke-width="1.5" marker-end="url(#arrowhead-dashed)"/>
-        </g>
-        <g data-graph-role="automatic-crossover" style="--step:19">
-          <path data-graph-role="automatic-crossover-underlay" d="M 135 780 L 135 516 Q 135 508 143 508 L 420 508 Q 428 508 428 500 L 428 484" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="thumb" data-edge-to="s3" data-edge-label="thumbnails/" data-edge-key="19" data-composition-points="135,780;135,508;428,508;428,484" data-composition-crossover="halo" data-composition-independent="true" d="M 135 780 L 135 516 Q 135 508 143 508 L 420 508 Q 428 508 428 500 L 428 484" class="a-default" stroke-width="1.5" marker-end="url(#arrowhead)"/>
-        </g>
+        <path data-edge-from="users" data-edge-to="frontend" data-edge-label="HTTPS" data-edge-key="0" data-composition-points="230,272;340,272" d="M 230 272 L 340 272" class="a-emphasis" stroke-width="1.8" marker-end="url(#arrowhead-emphasis)"/>
+        <path data-edge-from="frontend" data-edge-to="api" data-edge-label="REST + SignalR" data-edge-key="1" data-composition-points="530,272;640,272" d="M 530 272 L 640 272" class="a-emphasis" stroke-width="1.8" marker-end="url(#arrowhead-emphasis)"/>
+        <path data-edge-from="api" data-edge-to="rds" data-edge-label="EF Core" data-edge-key="2" data-composition-points="830,279;940,279" d="M 830 279 L 940 279" class="a-emphasis" stroke-width="1.8" marker-end="url(#arrowhead-emphasis)"/>
+        <path data-edge-from="frontend" data-edge-to="cognito" data-edge-label="sign-in · sign-up" data-edge-key="3" data-composition-points="435,240;435,124" d="M 435 240 L 435 124" class="a-security" stroke-width="1.5" marker-end="url(#arrowhead-security)"/>
+        <path data-edge-from="cognito" data-edge-to="postconfirm" data-edge-label="post-confirm" data-edge-key="4" data-composition-points="340,92;230,92" d="M 340 92 L 230 92" class="a-default" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+        <path data-edge-from="api" data-edge-to="cognito" data-edge-label="JWT · admin users" data-edge-key="5" data-composition-points="735,240;735,216;554,216;554,92;530,92" d="M 735 240 L 735 224 Q 735 216 727 216 L 562 216 Q 554 216 554 208 L 554 100 Q 554 92 546 92 L 530 92" class="a-security" stroke-width="1.5" marker-end="url(#arrowhead-security)"/>
+        <path data-edge-from="api" data-edge-to="eventbridge" data-edge-label="review events" data-edge-key="6" data-composition-points="830,265;885,265;885,92;940,92" d="M 830 265 L 877 265 Q 885 265 885 257 L 885 100 Q 885 92 893 92 L 940 92" class="a-dashed" stroke-width="1.5" marker-end="url(#arrowhead-dashed)"/>
+        <path data-edge-from="eventbridge" data-edge-to="notify" data-edge-label="invoke" data-edge-key="7" data-composition-points="1130,92;1240,92" d="M 1130 92 L 1240 92" class="a-dashed" stroke-width="1.5" marker-end="url(#arrowhead-dashed)"/>
+        <path data-edge-from="notify" data-edge-to="snsemail" data-edge-label="publish" data-edge-key="8" data-composition-points="1430,92;1540,92" d="M 1430 92 L 1540 92" class="a-dashed" stroke-width="1.5" marker-end="url(#arrowhead-dashed)"/>
+        <path data-edge-from="moderator" data-edge-to="rds" data-edge-label="auto-tags" data-edge-key="9" data-composition-points="1240,265;1130,265" d="M 1240 265 L 1130 265" class="a-default" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+        <path data-edge-from="moderator" data-edge-to="rekognition" data-edge-label="DetectLabels" data-edge-key="10" data-composition-points="1430,272;1540,272" d="M 1430 272 L 1540 272" class="a-default" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+        <path data-edge-from="users" data-edge-to="cdn" data-edge-label="GET media" data-edge-key="11" data-composition-points="135,304;135,420" d="M 135 304 L 135 420" class="a-default" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+        <path data-edge-from="frontend" data-edge-to="s3" data-edge-label="PUT presigned" data-edge-key="12" data-composition-points="435,304;435,420" d="M 435 304 L 435 420" class="a-default" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+        <path data-edge-from="cdn" data-edge-to="s3" data-edge-label="origin (OAC)" data-edge-key="13" data-composition-points="230,452;340,452" d="M 230 452 L 340 452" class="a-default" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+        <path data-edge-from="api" data-edge-to="dynamodb" data-edge-label="views · trending" data-edge-key="14" data-composition-points="735,304;735,420" d="M 735 304 L 735 420" class="a-default" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+        <path data-edge-from="aggregator" data-edge-to="dynamodb" data-edge-label="trending" data-edge-key="15" data-composition-points="940,452;830,452" d="M 940 452 L 830 452" class="a-default" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+        <path data-edge-from="s3" data-edge-to="snsqs" data-edge-label="ObjectCreated" data-edge-key="16" data-composition-points="442,484;442,600" d="M 442 484 L 442 600" class="a-dashed" stroke-width="1.5" marker-end="url(#arrowhead-dashed)"/>
+        <path data-edge-from="snsqs" data-edge-to="thumb" data-edge-label="media-processing" data-edge-key="17" data-composition-points="340,632;285,632;285,812;230,812" d="M 340 632 L 293 632 Q 285 632 285 640 L 285 804 Q 285 812 277 812 L 230 812" class="a-dashed" stroke-width="1.5" marker-end="url(#arrowhead-dashed)"/>
+        <path data-edge-from="snsqs" data-edge-to="moderator" data-edge-label="content-moderation" data-edge-key="18" data-composition-points="530,632;1216,632;1216,279;1240,279" d="M 530 632 L 1208 632 Q 1216 632 1216 624 L 1216 287 Q 1216 279 1224 279 L 1240 279" class="a-dashed" stroke-width="1.5" marker-end="url(#arrowhead-dashed)"/>
+        <path data-edge-from="thumb" data-edge-to="s3" data-edge-label="thumbnails/" data-edge-key="19" data-composition-points="135,780;135,508;428,508;428,484" d="M 135 780 L 135 516 Q 135 508 143 508 L 420 508 Q 428 508 428 500 L 428 484" class="a-default" stroke-width="1.5" marker-end="url(#arrowhead)"/>
 
         <!-- Components -->
         <g id="node-postconfirm" data-node-id="postconfirm" data-node-label="PostConfirmation" tabindex="0" role="button" aria-label="Focus PostConfirmation, λ · adds user to Viewer group, Architecture component" aria-pressed="false" data-node-kind="backend" data-node-sublabel="λ · adds user to Viewer group" data-node-context="Architecture component">
@@ -727,12 +685,12 @@ svg[data-preset="editorial"][data-animation="trace"] [data-animate="node"] { ani
           <text x="285" y="262" class="t-edge-emphasis" font-size="8" text-anchor="middle">HTTPS</text>
         </g>
         <g data-edge-from="frontend" data-edge-to="api" data-edge-label="REST + SignalR" data-edge-key="1">
-          <rect x="546.4" y="260.05" width="77.2" height="14" rx="3" class="c-mask"/>
-          <text x="585" y="270.05" class="t-edge-emphasis" font-size="8" text-anchor="middle">REST + SignalR</text>
+          <rect x="546.4" y="252" width="77.2" height="14" rx="3" class="c-mask"/>
+          <text x="585" y="262" class="t-edge-emphasis" font-size="8" text-anchor="middle">REST + SignalR</text>
         </g>
         <g data-edge-from="api" data-edge-to="rds" data-edge-label="EF Core" data-edge-key="2">
-          <rect x="863.2" y="260.05" width="43.6" height="14" rx="3" class="c-mask"/>
-          <text x="885" y="270.05" class="t-edge-emphasis" font-size="8" text-anchor="middle">EF Core</text>
+          <rect x="863.2" y="283" width="43.6" height="14" rx="3" class="c-mask"/>
+          <text x="885" y="293" class="t-edge-emphasis" font-size="8" text-anchor="middle">EF Core</text>
         </g>
         <g data-edge-from="frontend" data-edge-to="cognito" data-edge-label="sign-in · sign-up" data-edge-key="3">
           <rect x="389.2" y="220" width="91.6" height="14" rx="3" class="c-mask"/>
@@ -747,8 +705,8 @@ svg[data-preset="editorial"][data-animation="trace"] [data-animate="node"] { ani
           <text x="644.5" y="206" class="t-edge-security" font-size="8" text-anchor="middle">JWT · admin users</text>
         </g>
         <g data-edge-from="api" data-edge-to="eventbridge" data-edge-label="review events" data-edge-key="6">
-          <rect x="817.8" y="158.5" width="72.4" height="14" rx="3" class="c-mask"/>
-          <text x="854" y="168.5" class="t-edge-dashed" font-size="8" text-anchor="middle">review events</text>
+          <rect x="848.8" y="158.5" width="72.4" height="14" rx="3" class="c-mask"/>
+          <text x="885" y="168.5" class="t-edge-dashed" font-size="8" text-anchor="middle">review events</text>
         </g>
         <g data-edge-from="eventbridge" data-edge-to="notify" data-edge-label="invoke" data-edge-key="7">
           <rect x="1165.6" y="72" width="38.8" height="14" rx="3" class="c-mask"/>
