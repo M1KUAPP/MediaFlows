@@ -200,7 +200,7 @@ crash.*.log
 *.tfvars
 *.tfvars.json
 # Exception: the env-level tfvars for the root stack no longer contain any
-# secrets (those moved to SSM) — track them so CI can pass -var-file.
+# secrets (those moved to SSM) — track them so `make plan`/`make apply` can pass -var-file.
 # Bootstrap's tfvars stays gitignored because it DOES carry seed secrets.
 !infrastructure/environments/*.tfvars
 
