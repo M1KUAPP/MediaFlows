@@ -2,11 +2,11 @@
   "name": "MediaFlows",
   "description": "A cloud-native digital asset management platform on AWS where media teams ingest, review, transform and publish image and video assets.",
   "logo": {
-    "light": "../../frontend/public/mediaflows-light.png",
-    "dark": "../../frontend/public/mediaflows-dark.png"
+    "light": "../../apps/web/public/mediaflows-light.png",
+    "dark": "../../apps/web/public/mediaflows-dark.png"
   },
   "screenshot": { "light": "screenshots/dashboard.png" },
   "colors": { "paper": "#FFFFFF", "ink": "#0A0A0A", "accent": "#165DFC" },
-  "font": "../../frontend/node_modules/geist/dist/fonts/geist-sans/Geist-Variable.woff2",
+  "font": "../../apps/web/node_modules/geist/dist/fonts/geist-sans/Geist-Variable.woff2",
   "out": "docs/readme"
 }

@@ -5,7 +5,7 @@
  * Archify (https://github.com/tt-a1i/archify) renders architecture.json into a
  * standalone HTML viewer. This script copies architecture.json to a temporary
  * directory with the `meta.output` field that `archify deliver` requires, runs
- * `deliver`, restyles the viewer with the frontend/src/app/globals.css tokens,
+ * `deliver`, restyles the viewer with the apps/web/src/app/globals.css tokens,
  * and saves the viewer's own SVG export once per colour scheme.
  *
  * Archify's export resolves every theme variable with getComputedStyle and
@@ -20,11 +20,11 @@
  *   - the archify CLI, bin/archify.mjs from an archify checkout or skill install (v2.17)
  *
  * Re-run, from the repository root:
- *   (cd frontend && pnpm install)   # once, for Playwright
+ *   (cd apps/web && pnpm install)   # once, for Playwright
  *   node docs/readme/export-architecture.mjs <archify>/bin/archify.mjs
  *
  * Uses the installed Google Chrome, or Playwright's Chromium when Chrome is
- * missing (`pnpm --dir frontend exec playwright install chromium`, once).
+ * missing (`pnpm --dir apps/web exec playwright install chromium`, once).
  *
  * Writes: architecture-light.svg and architecture-dark.svg beside this file.
  */
@@ -37,11 +37,11 @@ import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 const README_DIR = path.dirname(fileURLToPath(import.meta.url))
-const FRONTEND_DIR = path.resolve(README_DIR, '../../frontend')
-const require = createRequire(path.join(FRONTEND_DIR, 'package.json'))
+const WEB_DIR = path.resolve(README_DIR, '../../apps/web')
+const require = createRequire(path.join(WEB_DIR, 'package.json'))
 const { chromium } = require('@playwright/test')
 
-// frontend/src/app/globals.css tokens (oklch converted to hex) mapped onto Archify's theme variables.
+// apps/web/src/app/globals.css tokens (oklch converted to hex) mapped onto Archify's theme variables.
 const THEMES = {
   light: {
     '--bg': '#FFFFFF', // --background
