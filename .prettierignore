@@ -1,0 +1,10 @@
+.agents/
+.claude/
+
+# Repo-specific
+.next/
+bin/
+obj/
+frontend/
+graphify-out/
+infrastructure/
