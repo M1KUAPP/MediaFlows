@@ -5,21 +5,21 @@
 <br />
 <div align="center">
   <a href="https://github.com/M1KUAPP/MediaFlows">
-    <img src="frontend/public/mediaflows-light.png" alt="Logo" width="200" height="200">
+    <img src="frontend/public/embed-banner.jpg" alt="Banner">
   </a>
 
-  <h3 align="center">MediaFlows</h3>
+  <h3>MediaFlows</h3>
 
-  <p align="center">
+  <p>
     A cloud-native Digital Asset Management platform for the media industry.
     <br />
+    <a href="#screenshots"><strong>View Screenshots »</strong></a>
+    &middot;
     <a href="https://github.com/M1KUAPP/MediaFlows/issues/new?labels=bug">Bug Report</a>
     &middot;
     <a href="https://github.com/M1KUAPP/MediaFlows/issues/new?labels=enhancement">Feature Request</a>
     <br />
   </p>
-
-  <div align="center">
 
 [![TypeScript][TypeScript.org]][TypeScript-url]
 [![C#][CSharp.com]][CSharp-url]
@@ -37,7 +37,6 @@
 [![Playwright][Playwright.dev]][Playwright-url]
 [![pnpm][Pnpm.io]][Pnpm-url]
 
-  </div>
 </div>
 
 <!-- TABLE OF CONTENTS -->
@@ -47,8 +46,16 @@
 <details>
   <summary>Expand</summary>
   <ol>
-    <li><a href="#about-the-project">About The Project</a></li>
-    <li><a href="#screenshots">Screenshots</a></li>
+    <li>
+      <a href="#about-the-project">About The Project</a>
+      <ul>
+        <li><a href="#screenshots">Screenshots</a></li>
+        <li><a href="#how-it-works">How It Works</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#architecture">Architecture</a></li>
+        <li><a href="#tech-stack">Tech Stack</a></li>
+      </ul>
+    </li>
     <li>
       <a href="#getting-started">Getting Started</a>
       <ul>
@@ -56,12 +63,9 @@
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
-    <li><a href="#usage">Usage</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#main-contributors">Main Contributors</a></li>
-    <li><a href="#contributing">Contributing</a></li>
+    <li><a href="#team">Team</a></li>
     <li><a href="#license">License</a></li>
-    <li><a href="#contact">Contact</a></li>
     <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
 </details>
@@ -81,9 +85,7 @@ The repository is split into four top-level workloads:
 
 <p align="right"><a href="#readme-top">&uarr;</a></p>
 
-<!-- SCREENSHOTS -->
-
-## Screenshots
+### Screenshots
 
 <p align="center">
   <img src="docs/screenshots/landing-hero.png" alt="MediaFlows landing page" width="100%" />
@@ -126,11 +128,97 @@ The repository is split into four top-level workloads:
 
 <p align="right"><a href="#readme-top">&uarr;</a></p>
 
+### How It Works
+
+1. **Enter the workspace.** The landing page at `/` links to sign-in. New users register at `/register`, enter the six-digit code that Cognito emails them at `/confirm`, and sign in at `/login`. A post-confirmation Lambda adds every new account to the `Viewer` group.
+
+   ![Landing page](docs/screenshots/landing-hero.png)
+
+2. **Start from the dashboard.** `/dashboard` greets you and shows a carousel of recent assets. The sidebar lists only the pages your role (`SystemAdmin`, `ContentCreator`, `Editor` or `Viewer`) can open.
+
+   ![Dashboard](docs/screenshots/dashboard.png)
+
+3. **Upload media.** Content creators drop files on `/creator/upload`. The browser sends each file straight to S3 through a presigned URL, then confirms the upload with the API. For images, Lambda functions then generate WebP thumbnails and Rekognition auto-tags in the background.
+4. **Prepare assets for review.** `/creator/assets` lists the creator's asset library. On an asset's page, creators edit tags, read comments, and open the version history to upload, compare or revert versions. They then submit one asset or a batch for review.
+5. **Review submissions.** Editors triage the queue at `/review` with status filters and batch approve, reject or schedule. On an asset's review page, they leave comments, then approve, request changes, reject or schedule it.
+
+   ![Review queue](docs/screenshots/review-workflow-1.png)
+
+   ![Review and approve an asset](docs/screenshots/review-workflow-2.png)
+
+6. **Schedule publication.** `/schedule` shows a publishing calendar for approved assets. The API publishes each scheduled asset once its time arrives.
+7. **Browse and share.** Every role can browse published media at `/catalog` with content-type filters and a trending sort, search with autocomplete at `/search`, and save assets to `/bookmarks`. An asset's page lets them download it or copy a share link.
+
+   ![Media catalog](docs/screenshots/catalog.png)
+
+8. **Run the platform.** System admins read platform KPIs at `/admin`, manage users and their roles at `/admin/users`, filter audit logs at `/admin/audit-logs`, and watch live metrics at `/admin/monitoring`.
+
+   ![Admin summary](docs/screenshots/admin-dashboard.png)
+
+   ![Real-time monitoring](docs/screenshots/admin-monitoring.png)
+
+<p align="right"><a href="#readme-top">&uarr;</a></p>
+
+### Features
+
+- Four Cognito roles (`SystemAdmin`, `ContentCreator`, `Editor`, `Viewer`), enforced by API authorization policies and the sidebar.
+- Self-service sign-up with email confirmation, plus forgot-password and reset-password flows.
+- Drag-and-drop uploads that go straight to S3 through presigned URLs, with per-file progress.
+- WebP thumbnails generated by the `ThumbnailGenerator` Lambda.
+- Rekognition auto-tags with confidence scores, plus manual tag editing. Content flagged by Rekognition moderation moves to a quarantine prefix.
+- Version history with version upload, compare, and revert.
+- Review workflow with approve, request changes, reject, and schedule decisions, a status timeline, and batch actions.
+- Publishing calendar, with a background worker that publishes scheduled assets every minute.
+- Catalog with content-type filters and a trending sort, ranked daily from view counts in DynamoDB.
+- Search with autocomplete, bookmarks, share links, and downloads.
+- Threaded comments on assets.
+- Real-time notifications and live analytics over SignalR.
+- Review-decision events on EventBridge, sent as email through SNS when a subscriber is configured.
+- Admin console with platform KPIs, user management, audit logs, and live CloudWatch metrics and alarms with cost estimates.
+- Light and dark themes that follow the system setting.
+
+<p align="right"><a href="#readme-top">&uarr;</a></p>
+
+### Architecture
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/architecture/architecture-dark.svg">
+  <img src="docs/architecture/architecture-light.svg" alt="MediaFlows architecture">
+</picture>
+
+Once deployed behind a custom domain, MediaFlows serves four endpoints:
+
+| Subdomain        | Service                                |
+| ---------------- | -------------------------------------- |
+| `web.<domain>`   | Next.js frontend (AWS Amplify Hosting) |
+| `api.<domain>`   | ASP.NET Core API (Elastic Beanstalk)   |
+| `login.<domain>` | Cognito Hosted UI                      |
+| `cdn.<domain>`   | CloudFront asset delivery              |
+
+The frontend talks to the API over HTTPS and SignalR (realtime hub), assets are delivered via the CloudFront CDN, and async processing runs through the Lambda pipeline. See [`infrastructure/README.md`](infrastructure/README.md) for how the AWS estate is provisioned.
+
+<p align="right"><a href="#readme-top">&uarr;</a></p>
+
+### Tech Stack
+
+- **Frontend:** Next.js 16 (App Router), React 19, TypeScript 5, Tailwind CSS 4, shadcn/ui on Base UI, TanStack Query, NextAuth 5 beta, Recharts, FullCalendar, and the SignalR client.
+- **Backend:** ASP.NET Core 8 (C#), Entity Framework Core 8 with Npgsql, SignalR, Serilog, Swashbuckle, and the AWS SDK for .NET.
+- **Data:** PostgreSQL on Amazon RDS, Amazon DynamoDB, and Amazon S3.
+- **Serverless:** AWS Lambda on .NET 8, ImageSharp, Amazon Rekognition, SQS, SNS, EventBridge, and API Gateway.
+- **Infrastructure:** Terraform with the AWS and TLS providers, AWS Amplify Hosting, Elastic Beanstalk, CloudFront, Cognito, Route 53, CloudWatch, and X-Ray.
+- **Testing:** xUnit, Moq, and FluentAssertions for .NET, and Playwright for end-to-end tests.
+- **CI/CD:** GitHub Actions with AWS OIDC credentials.
+- **Tooling:** pnpm and ESLint.
+
+<p align="right"><a href="#readme-top">&uarr;</a></p>
+
 <!-- GETTING STARTED -->
 
 ## Getting Started
 
 The repository contains four workloads. This section shows the starting commands for the frontend, backend, and infrastructure from the repository root.
+
+<p align="right"><a href="#readme-top">&uarr;</a></p>
 
 ### Prerequisites
 
@@ -139,6 +227,8 @@ The repository contains four workloads. This section shows the starting commands
 - [AWS CLI](https://aws.amazon.com/cli/) v2 with an `mediaflows` profile — for deploys and SSM lookups
 - [Terraform](https://www.terraform.io/) 1.6+ — for `infrastructure/`
 - [GitHub CLI](https://cli.github.com/) (`gh`) — for the first-time bootstrap workflow
+
+<p align="right"><a href="#readme-top">&uarr;</a></p>
 
 ### Installation
 
@@ -171,24 +261,9 @@ Provision AWS separately from the repository root when needed:
 make deploy  # see infrastructure/README.md
 ```
 
+The CI deploy workflows (`deploy.yml`, `terraform-apply.yml`) ship with their automatic push triggers disabled. Run them manually from the Actions tab (`workflow_dispatch`) once AWS credentials are configured for your account.
+
 Workload-specific instructions live in [`frontend/README.md`](frontend/README.md) and [`infrastructure/README.md`](infrastructure/README.md).
-
-<p align="right"><a href="#readme-top">&uarr;</a></p>
-
-<!-- USAGE EXAMPLES -->
-
-## Usage
-
-Once deployed behind a custom domain, MediaFlows serves four endpoints:
-
-| Subdomain        | Service                                |
-| ---------------- | -------------------------------------- |
-| `web.<domain>`   | Next.js frontend (AWS Amplify Hosting) |
-| `api.<domain>`   | ASP.NET Core API (Elastic Beanstalk)   |
-| `login.<domain>` | Cognito Hosted UI                      |
-| `cdn.<domain>`   | CloudFront asset delivery              |
-
-The frontend talks to the API over HTTPS and SignalR (realtime hub), assets are delivered via the CloudFront CDN, and async processing runs through the Lambda pipeline. See [`infrastructure/README.md`](infrastructure/README.md) for how the AWS estate is provisioned.
 
 <p align="right"><a href="#readme-top">&uarr;</a></p>
 
@@ -196,38 +271,19 @@ The frontend talks to the API over HTTPS and SignalR (realtime hub), assets are 
 
 ## Roadmap
 
-See the [open issues](https://github.com/M1KUAPP/MediaFlows/issues) for a full list of proposed features (and known issues).
-
-<p align="right"><a href="#readme-top">&uarr;</a></p>
-
-<!-- MAIN CONTRIBUTORS -->
-
-## Main Contributors
-
-<div align="center">
-<table>
-  <tr>
-    <td align="center" width="25%"><a href="https://github.com/AlaskanTuna"><img src="https://github.com/AlaskanTuna.png" width="90" alt="Hee Zi Jie" /><br /><sub><b>Hee Zi Jie</b></sub></a></td>
-    <td align="center" width="25%"><a href="https://github.com/c3638"><img src="https://github.com/c3638.png" width="90" alt="KH" /><br /><sub><b>KH</b></sub></a></td>
-    <td align="center" width="25%"><a href="https://github.com/WhiteAvocad0"><img src="https://github.com/WhiteAvocad0.png" width="90" alt="Jeremy Woon" /><br /><sub><b>Jeremy Woon</b></sub></a></td>
-    <td align="center" width="25%"><a href="https://github.com/kymil4"><img src="https://github.com/kymil4.png" width="90" alt="Yk" /><br /><sub><b>Yk</b></sub></a></td>
-  </tr>
-</table>
-</div>
+See [open issues](https://github.com/M1KUAPP/MediaFlows/issues) for a full list of proposed features (and known issues).
 
 <p align="right"><a href="#readme-top">&uarr;</a></p>
 
 <!-- CONTRIBUTING -->
 
-## Contributing
+## Team
 
-Contributions are welcome. The usual flow:
+<a href="https://github.com/M1KUAPP/MediaFlows/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=M1KUAPP/MediaFlows" alt="Team" />
+</a>
 
-1. Fork the repo and create your feature branch (`git checkout -b feat/your-feature`).
-2. Commit your changes.
-3. Push to your fork and open a Pull Request against `main`.
-
-The CI deploy workflows (`deploy.yml`, `terraform-apply.yml`) ship with their automatic push triggers disabled. Run them manually from the Actions tab (`workflow_dispatch`) once AWS credentials are configured for your account.
+Made with [contrib.rocks](https://contrib.rocks).
 
 <p align="right"><a href="#readme-top">&uarr;</a></p>
 
@@ -235,17 +291,19 @@ The CI deploy workflows (`deploy.yml`, `terraform-apply.yml`) ship with their au
 
 ## License
 
-No license has been declared. All rights reserved by the project authors. Contact the maintainers before reusing this code.
+See [LICENSE](LICENSE) for more information.
 
 <p align="right"><a href="#readme-top">&uarr;</a></p>
 
-<!-- CONTACT -->
+<!-- ACKNOWLEDGMENTS -->
 
-## Contact
+## Acknowledgments
 
-MediaFlows — [@mediaflows-tech](https://github.com/mediaflows-tech)
-
-Project Link: [https://github.com/M1KUAPP/MediaFlows](https://github.com/M1KUAPP/MediaFlows)
+- [shadcn/ui](https://ui.shadcn.com)
+- [Lucide](https://lucide.dev)
+- [Geist](https://vercel.com/font)
+- [Shields.io](https://shields.io)
+- [contrib.rocks](https://contrib.rocks)
 
 <p align="right"><a href="#readme-top">&uarr;</a></p>
 
