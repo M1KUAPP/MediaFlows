@@ -11,7 +11,7 @@ output "state_bucket_region" {
 }
 
 output "github_actions_role_arn" {
-  description = "ARN to set as the GitHub Actions AWS_ROLE_ARN secret"
+  description = "ARN of the IAM role GitHub Actions can assume via OIDC (no workflow in this repository uses it)"
   value       = aws_iam_role.github_actions.arn
 }
 
