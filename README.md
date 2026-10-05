@@ -228,53 +228,62 @@ The frontend talks to the API over HTTPS and SignalR (realtime hub), assets are 
 
 ## Getting Started
 
-The repository contains four workloads. This section shows the starting commands for the frontend, backend, and infrastructure from the repository root.
+The frontend and the backend run locally from the repository root, and the frontend needs Cognito and API values in `.env.local`. See the [frontend README](frontend/README.md) for more.
 
 <p align="right"><a href="#readme-top">&uarr;</a></p>
 
 ### Prerequisites
 
-- [Node.js](https://nodejs.org/) 20+ and [pnpm](https://pnpm.io/) 9+ — frontend
-- [.NET SDK](https://dotnet.microsoft.com/) 8 — backend
-- [AWS CLI](https://aws.amazon.com/cli/) v2 with an `mediaflows` profile — for deploys and SSM lookups
-- [Terraform](https://www.terraform.io/) 1.6+ — for `infrastructure/`
+- [Node.js](https://nodejs.org/) 20+ — for the frontend.
+- [pnpm](https://pnpm.io/) 9+ — for the frontend.
+- [.NET SDK](https://dotnet.microsoft.com/) 8 — for the backend.
+- [AWS CLI](https://aws.amazon.com/cli/) v2 with a `mediaflows` profile — for deploys and SSM lookups.
+- [Terraform](https://www.terraform.io/) 1.6+ — for `infrastructure/`.
 
 <p align="right"><a href="#readme-top">&uarr;</a></p>
 
 ### Installation
 
-Clone the repo:
+1. **Clone the repo.**
 
-```bash
-git clone https://github.com/M1KUAPP/MediaFlows.git
-cd MediaFlows
-```
+   ```sh
+   git clone https://github.com/M1KUAPP/MediaFlows.git
+   cd MediaFlows
+   ```
 
-Start the frontend from the repository root:
+2. **Start the frontend.** From the repository root:
 
-```bash
-cd frontend
-pnpm install
-cp .env.production.example .env.local    # fill in Cognito + API values
-pnpm dev                                 # http://localhost:3000
-```
+   ```sh
+   cd frontend
+   pnpm install
+   cp .env.production.example .env.local    # fill in Cognito + API values
+   pnpm dev                                 # http://localhost:3000
+   ```
 
-In another terminal, start the backend from the repository root:
+3. **Start the backend.** In another terminal, from the repository root:
 
-```bash
-dotnet restore MediaFlows.slnx
-dotnet run --project src/MediaFlows.Web --launch-profile http  # http://localhost:5140
-```
+   ```sh
+   dotnet restore MediaFlows.slnx
+   dotnet run --project src/MediaFlows.Web --launch-profile http  # http://localhost:5140
+   ```
 
-Provision AWS separately from the repository root when needed:
+4. **Provision AWS when needed.** Separately, from the repository root:
 
-```bash
-make deploy  # see infrastructure/README.md
-```
+   ```sh
+   make deploy  # see infrastructure/README.md
+   ```
 
-The repository has no CI, and deploys are manual: `make deploy` provisions the AWS infrastructure and `make apply` applies later changes. The exception is the frontend, which Amplify Hosting builds from `main` once provisioned. No script deploys the API or Lambda code. The removed workflows are linked at their last commit for reference: [`deploy.yml`](https://github.com/M1KUAPP/MediaFlows/blob/6b2c63289af4207f6d723888810c32913e53d143/.github/workflows/deploy.yml) built and uploaded the API and Lambda code, and [`terraform-apply.yml`](https://github.com/M1KUAPP/MediaFlows/blob/6b2c63289af4207f6d723888810c32913e53d143/.github/workflows/terraform-apply.yml) ran `terraform apply`.
+   The repository has no CI, and deploys are manual: `make deploy` provisions the AWS infrastructure and `make apply` applies later changes. The exception is the frontend, which Amplify Hosting builds from `main` once provisioned. No script deploys the API or Lambda code. The removed workflows are linked at their last commit for reference: [`deploy.yml`](https://github.com/M1KUAPP/MediaFlows/blob/6b2c63289af4207f6d723888810c32913e53d143/.github/workflows/deploy.yml) built and uploaded the API and Lambda code, and [`terraform-apply.yml`](https://github.com/M1KUAPP/MediaFlows/blob/6b2c63289af4207f6d723888810c32913e53d143/.github/workflows/terraform-apply.yml) ran `terraform apply`. Workload-specific instructions live in [`frontend/README.md`](frontend/README.md) and [`infrastructure/README.md`](infrastructure/README.md).
 
-Workload-specific instructions live in [`frontend/README.md`](frontend/README.md) and [`infrastructure/README.md`](infrastructure/README.md).
+5. **Run the checks.** From the repository root:
+
+   ```sh
+   cd frontend
+   pnpm lint
+   pnpm test:e2e    # Playwright, defaults to http://localhost:3000
+   cd ..
+   dotnet test MediaFlows.slnx
+   ```
 
 <p align="right"><a href="#readme-top">&uarr;</a></p>
 
