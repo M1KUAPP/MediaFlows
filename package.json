@@ -1,0 +1,23 @@
+{
+  "private": true,
+  "packageManager": "bun@1.4.2",
+  "scripts": {
+    "check": "bun run lint && bun run typecheck && bun run test",
+    "graph": "graphify update .",
+    "lint": "prettier --check .",
+    "lint:fix": "prettier --write .",
+    "prepare": "husky",
+    "test": "if command -v dotnet >/dev/null 2>&1; then dotnet test MediaFlows.slnx; else echo 'dotnet not found on PATH; skipping dotnet test'; fi",
+    "typecheck": "pnpm --dir frontend exec tsc --noEmit"
+  },
+  "lint-staged": {
+    "*": "prettier --write --ignore-unknown"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^21.2.3",
+    "@commitlint/config-conventional": "^21.2.3",
+    "husky": "^9.1.7",
+    "lint-staged": "^17.6.0",
+    "prettier": "^3.9.9"
+  }
+}
