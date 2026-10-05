@@ -17,7 +17,6 @@ test.describe('Auto-Tags — Rekognition Pipeline', () => {
     await adminPage.goto('/catalog')
     await adminPage.waitForSelector('a[href^="/catalog/"]', { timeout: 10_000 })
 
-    // Intercept the detail API response when we click into an asset
     const [response] = await Promise.all([
       adminPage.waitForResponse((resp) => /\/api\/v1\/catalog\/\d+$/.test(resp.url()) && resp.status() === 200),
       adminPage.locator('a[href^="/catalog/"]').first().click()
@@ -26,7 +25,6 @@ test.describe('Auto-Tags — Rekognition Pipeline', () => {
     const detail = await response.json()
     const metadata = detail.asset?.metadata ?? detail.asset?.Metadata ?? {}
 
-    // autoTags field should exist in the metadata
     expect(metadata).toHaveProperty('autoTags')
 
     const autoTags = metadata.autoTags ?? metadata.AutoTags ?? []
@@ -40,7 +38,6 @@ test.describe('Auto-Tags — Rekognition Pipeline', () => {
     await adminPage.goto('/creator/assets')
     await adminPage.waitForSelector('a[href^="/creator/assets/"]', { timeout: 10_000 })
 
-    // Navigate to first asset and intercept the tags API call
     const [response] = await Promise.all([
       adminPage.waitForResponse((resp) => /\/api\/v1\/assets\/\d+\/tags/.test(resp.url()) && resp.status() === 200),
       adminPage.locator('a[href^="/creator/assets/"]').first().click()
@@ -52,7 +49,6 @@ test.describe('Auto-Tags — Rekognition Pipeline', () => {
     expect(tagsData).toHaveProperty('autoTags')
     expect(Array.isArray(tagsData.autoTags)).toBeTruthy()
 
-    // Validate structure if autoTags exist
     if (tagsData.autoTags.length > 0) {
       const first = tagsData.autoTags[0]
       expect(first).toHaveProperty('name')
@@ -63,7 +59,6 @@ test.describe('Auto-Tags — Rekognition Pipeline', () => {
   })
 
   liveOnly('catalog detail page shows AI Tags section in sidebar', async ({ adminPage }) => {
-    // Intercept catalog detail response to check if autoTags exist
     let autoTags: { name: string; confidence: number }[] = []
 
     await adminPage.route(/\/api\/v1\/catalog\/\d+$/, async (route) => {
@@ -83,10 +78,8 @@ test.describe('Auto-Tags — Rekognition Pipeline', () => {
     await adminPage.waitForTimeout(2_000)
 
     if (autoTags.length > 0) {
-      // AI Tags heading should be visible in the sidebar
       await expect(adminPage.getByText('AI Tags')).toBeVisible({ timeout: 5_000 })
 
-      // At least one badge with percentage should be rendered
       const tagBadges = adminPage.locator('[class*="badge"]').filter({ hasText: /%/ })
       await expect(tagBadges.first()).toBeVisible()
     } else {
@@ -101,13 +94,11 @@ test.describe('Auto-Tags — Rekognition Pipeline', () => {
     await adminPage.locator('a[href^="/creator/assets/"]').first().click()
     await adminPage.waitForURL(/\/creator\/assets\/\d+/)
 
-    // Check for the AI-detected tags section (rendered by AutoTagDisplay component)
     const aiTagsLabel = adminPage.getByText('AI-detected tags')
 
     if (await aiTagsLabel.isVisible({ timeout: 5_000 }).catch(() => false)) {
       await expect(aiTagsLabel).toBeVisible()
 
-      // Verify tag badges with confidence percentages
       const tagBadges = adminPage.locator('[class*="badge"]').filter({ hasText: /%/ })
       const count = await tagBadges.count()
       expect(count).toBeGreaterThan(0)

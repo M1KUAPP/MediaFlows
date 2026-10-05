@@ -10,14 +10,12 @@ test.describe('Upload', () => {
     await creatorPage.goto('/creator/upload')
     await expect(creatorPage.getByRole('heading', { name: /upload/i })).toBeVisible()
 
-    // Dropzone should be visible
     await expect(creatorPage.getByText(/drag.*drop|click.*upload|browse/i)).toBeVisible()
   })
 
   test('upload page is not accessible to viewer', async ({ viewerPage }) => {
     await viewerPage.goto('/creator/upload')
 
-    // Should redirect away from upload page
     const url = viewerPage.url()
     expect(url).not.toContain('/creator/upload')
   })
@@ -25,20 +23,16 @@ test.describe('Upload', () => {
   skipInCI('upload a file and verify it appears in asset library', async ({ creatorPage }) => {
     await creatorPage.goto('/creator/upload')
 
-    // Create a test file to upload
     const fileInput = creatorPage.locator('input[type="file"]')
 
-    // Upload a small test image
     await fileInput.setInputFiles({
       name: 'test-image.png',
       mimeType: 'image/png',
       buffer: Buffer.alloc(100, 0) // Minimal PNG-like buffer for test
     })
 
-    // Wait for upload progress and completion
     await expect(creatorPage.getByText(/uploading|processing|complete|uploaded/i)).toBeVisible({ timeout: 30_000 })
 
-    // Navigate to asset library and verify the file appears
     await creatorPage.goto('/creator/assets')
     await creatorPage.waitForTimeout(2000) // Allow indexing
 
