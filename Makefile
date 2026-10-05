@@ -13,8 +13,8 @@ SHELL         := bash
 # Config
 AWS_PROFILE   ?= mediaflows
 TF_ENV        ?= prod
-BOOTSTRAP_DIR := infrastructure/bootstrap
-MAIN_DIR      := infrastructure
+BOOTSTRAP_DIR := infra/bootstrap
+MAIN_DIR      := infra
 VAR_FILE      := environments/$(TF_ENV).tfvars
 BACKEND_HCL   := bootstrap/backend.hcl
 
