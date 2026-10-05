@@ -1,0 +1,392 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "MediaFlows on AWS",
+    "quality_profile": "standard"
+  },
+  "components": [
+    {
+      "id": "postconfirm",
+      "type": "backend",
+      "label": "PostConfirmation",
+      "sublabel": "λ · adds user to Viewer group",
+      "pos": [
+        40,
+        60
+      ],
+      "size": [
+        190,
+        64
+      ]
+    },
+    {
+      "id": "cognito",
+      "type": "security",
+      "label": "Amazon Cognito",
+      "sublabel": "login.<domain> · 4 role groups",
+      "pos": [
+        340,
+        60
+      ],
+      "size": [
+        190,
+        64
+      ]
+    },
+    {
+      "id": "eventbridge",
+      "type": "messagebus",
+      "label": "EventBridge",
+      "sublabel": "mediaflows bus · reviews rule",
+      "pos": [
+        940,
+        60
+      ],
+      "size": [
+        190,
+        64
+      ]
+    },
+    {
+      "id": "notify",
+      "type": "backend",
+      "label": "NotificationDispatcher",
+      "sublabel": "λ · event → SNS message",
+      "pos": [
+        1240,
+        60
+      ],
+      "size": [
+        190,
+        64
+      ]
+    },
+    {
+      "id": "snsemail",
+      "type": "messagebus",
+      "label": "SNS review-completed",
+      "sublabel": "email subscriber",
+      "pos": [
+        1540,
+        60
+      ],
+      "size": [
+        190,
+        64
+      ]
+    },
+    {
+      "id": "users",
+      "type": "external",
+      "label": "Media teams",
+      "sublabel": "browser",
+      "pos": [
+        40,
+        240
+      ],
+      "size": [
+        190,
+        64
+      ]
+    },
+    {
+      "id": "frontend",
+      "type": "frontend",
+      "label": "Next.js web app",
+      "sublabel": "Amplify Hosting · NextAuth",
+      "pos": [
+        340,
+        240
+      ],
+      "size": [
+        190,
+        64
+      ]
+    },
+    {
+      "id": "api",
+      "type": "backend",
+      "label": "ASP.NET Core API",
+      "sublabel": "Elastic Beanstalk · api.<domain>",
+      "pos": [
+        640,
+        240
+      ],
+      "size": [
+        190,
+        64
+      ]
+    },
+    {
+      "id": "rds",
+      "type": "database",
+      "label": "PostgreSQL",
+      "sublabel": "Amazon RDS · private subnets",
+      "pos": [
+        940,
+        240
+      ],
+      "size": [
+        190,
+        64
+      ]
+    },
+    {
+      "id": "moderator",
+      "type": "backend",
+      "label": "ContentModerator",
+      "sublabel": "λ · auto-tags, moderation",
+      "pos": [
+        1240,
+        240
+      ],
+      "size": [
+        190,
+        64
+      ]
+    },
+    {
+      "id": "rekognition",
+      "type": "cloud",
+      "label": "Amazon Rekognition",
+      "sublabel": "labels + moderation labels",
+      "pos": [
+        1540,
+        240
+      ],
+      "size": [
+        190,
+        64
+      ]
+    },
+    {
+      "id": "cdn",
+      "type": "cloud",
+      "label": "CloudFront",
+      "sublabel": "cdn.<domain> · S3 origin",
+      "pos": [
+        40,
+        420
+      ],
+      "size": [
+        190,
+        64
+      ]
+    },
+    {
+      "id": "s3",
+      "type": "database",
+      "label": "S3 media bucket",
+      "sublabel": "uploads/ thumbnails/ quarantine/",
+      "pos": [
+        340,
+        420
+      ],
+      "size": [
+        190,
+        64
+      ]
+    },
+    {
+      "id": "dynamodb",
+      "type": "database",
+      "label": "DynamoDB",
+      "sublabel": "views · trending · activity",
+      "pos": [
+        640,
+        420
+      ],
+      "size": [
+        190,
+        64
+      ]
+    },
+    {
+      "id": "aggregator",
+      "type": "backend",
+      "label": "AnalyticsAggregator",
+      "sublabel": "λ · daily cron 02:00 UTC",
+      "pos": [
+        940,
+        420
+      ],
+      "size": [
+        190,
+        64
+      ]
+    },
+    {
+      "id": "snsqs",
+      "type": "messagebus",
+      "label": "SNS → SQS fan-out",
+      "sublabel": "asset-uploaded topic",
+      "pos": [
+        340,
+        600
+      ],
+      "size": [
+        190,
+        64
+      ]
+    },
+    {
+      "id": "thumb",
+      "type": "backend",
+      "label": "ThumbnailGenerator",
+      "sublabel": "λ · WebP thumbnails",
+      "pos": [
+        40,
+        780
+      ],
+      "size": [
+        190,
+        64
+      ]
+    }
+  ],
+  "boundaries": [
+    {
+      "kind": "security-group",
+      "label": "VPC private subnets",
+      "wraps": [
+        "api",
+        "rds",
+        "moderator"
+      ],
+      "pad": 18
+    }
+  ],
+  "connections": [
+    {
+      "from": "users",
+      "to": "frontend",
+      "label": "HTTPS",
+      "variant": "emphasis"
+    },
+    {
+      "from": "frontend",
+      "to": "api",
+      "label": "REST + SignalR",
+      "variant": "emphasis"
+    },
+    {
+      "from": "api",
+      "to": "rds",
+      "label": "EF Core",
+      "variant": "emphasis",
+      "labelDy": 24
+    },
+    {
+      "from": "frontend",
+      "to": "cognito",
+      "label": "sign-in · sign-up",
+      "variant": "security"
+    },
+    {
+      "from": "cognito",
+      "to": "postconfirm",
+      "label": "post-confirm"
+    },
+    {
+      "from": "api",
+      "to": "cognito",
+      "label": "JWT · admin users",
+      "variant": "security",
+      "fromSide": "top",
+      "toSide": "right"
+    },
+    {
+      "from": "api",
+      "to": "eventbridge",
+      "label": "review events",
+      "variant": "dashed",
+      "fromSide": "right",
+      "toSide": "left"
+    },
+    {
+      "from": "eventbridge",
+      "to": "notify",
+      "label": "invoke",
+      "variant": "dashed"
+    },
+    {
+      "from": "notify",
+      "to": "snsemail",
+      "label": "publish",
+      "variant": "dashed"
+    },
+    {
+      "from": "moderator",
+      "to": "rds",
+      "label": "auto-tags"
+    },
+    {
+      "from": "moderator",
+      "to": "rekognition",
+      "label": "DetectLabels"
+    },
+    {
+      "from": "users",
+      "to": "cdn",
+      "label": "GET media",
+      "labelDx": -32.6,
+      "labelDy": 71
+    },
+    {
+      "from": "frontend",
+      "to": "s3",
+      "label": "PUT presigned",
+      "labelDx": -42.2,
+      "labelDy": 71
+    },
+    {
+      "from": "cdn",
+      "to": "s3",
+      "label": "origin (OAC)"
+    },
+    {
+      "from": "api",
+      "to": "dynamodb",
+      "label": "views · trending",
+      "labelDx": -49.4,
+      "labelDy": 71
+    },
+    {
+      "from": "aggregator",
+      "to": "dynamodb",
+      "label": "trending"
+    },
+    {
+      "from": "s3",
+      "to": "snsqs",
+      "label": "ObjectCreated",
+      "variant": "dashed",
+      "labelDx": -42.2,
+      "labelDy": 71
+    },
+    {
+      "from": "snsqs",
+      "to": "thumb",
+      "label": "media-processing",
+      "variant": "dashed",
+      "fromSide": "left",
+      "toSide": "right"
+    },
+    {
+      "from": "snsqs",
+      "to": "moderator",
+      "label": "content-moderation",
+      "variant": "dashed",
+      "fromSide": "right",
+      "toSide": "left"
+    },
+    {
+      "from": "thumb",
+      "to": "s3",
+      "label": "thumbnails/",
+      "fromSide": "top",
+      "toSide": "bottom"
+    }
+  ]
+}
