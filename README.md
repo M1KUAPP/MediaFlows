@@ -91,7 +91,7 @@ The repository is split into four top-level workloads:
     <td width="50%" valign="top" align="left">
       <img src="docs/screenshots/landing-hero.png" alt="MediaFlows landing page" width="100%">
       <br />
-      <strong>Landing page</strong> · A cinematic entry point into the workspace.
+      <strong>Landing Page</strong> · A cinematic entry point into the workspace.
     </td>
     <td width="50%" valign="top" align="left">
       <img src="docs/screenshots/dashboard.png" alt="User dashboard" width="100%">
