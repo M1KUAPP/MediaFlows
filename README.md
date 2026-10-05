@@ -78,12 +78,12 @@
 
 MediaFlows is a Digital Asset Management (DAM) platform that lets media teams ingest, organize, transform, and distribute large volumes of image and video assets from a single workspace. It pairs a Next.js web app with an API-only ASP.NET Core backend on AWS, fronted by Cognito-backed SSO and a CloudFront-served asset CDN.
 
-The repository is split into four top-level workloads:
+The repository is split into four workloads, with the deployable apps under `apps/` and the Terraform under `infra/`:
 
-- `frontend/` — Next.js 16 (App Router) + React 19 + Tailwind v4 web app, deployed to AWS Amplify Hosting.
-- `src/` — ASP.NET Core 8 solution (`MediaFlows.Web`, `MediaFlows.Data`, `MediaFlows.Shared`) deployed to Elastic Beanstalk.
-- `lambda/` — supporting AWS Lambda functions for async asset processing.
-- `infrastructure/` — Terraform (bootstrap + main stack) provisioning the full AWS estate.
+- `apps/web/` — Next.js 16 (App Router) + React 19 + Tailwind v4 web app, deployed to AWS Amplify Hosting.
+- `apps/api/` — ASP.NET Core 8 solution (`MediaFlows.Web`, `MediaFlows.Data`, `MediaFlows.Shared`) deployed to Elastic Beanstalk, with the .NET tests in `apps/api/tests/`.
+- `apps/lambdas/` — supporting AWS Lambda functions for async asset processing.
+- `infra/` — Terraform (bootstrap + main stack) provisioning the full AWS estate.
 
 <p align="right"><a href="#readme-top">&uarr;</a></p>
 
@@ -208,7 +208,7 @@ Once deployed behind a custom domain, MediaFlows serves four endpoints:
 | `login.<domain>` | Cognito Hosted UI                      |
 | `cdn.<domain>`   | CloudFront asset delivery              |
 
-The frontend talks to the API over HTTPS and SignalR (realtime hub), assets are delivered via the CloudFront CDN, and async processing runs through the Lambda pipeline. See [`infrastructure/README.md`](infrastructure/README.md) for how the AWS estate is provisioned.
+The frontend talks to the API over HTTPS and SignalR (realtime hub), assets are delivered via the CloudFront CDN, and async processing runs through the Lambda pipeline. See [`infra/README.md`](infra/README.md) for how the AWS estate is provisioned.
 
 <p align="right"><a href="#readme-top">&uarr;</a></p>
 
@@ -228,7 +228,7 @@ The frontend talks to the API over HTTPS and SignalR (realtime hub), assets are 
 
 ## Getting Started
 
-The frontend and the backend run locally from the repository root, and the frontend needs Cognito and API values in `.env.local`. See the [frontend README](frontend/README.md) for more.
+The frontend and the backend run locally from the repository root, and the frontend needs Cognito and API values in `.env.local`. See the [frontend README](apps/web/README.md) for more.
 
 <p align="right"><a href="#readme-top">&uarr;</a></p>
 
@@ -239,7 +239,7 @@ The frontend and the backend run locally from the repository root, and the front
 - [pnpm](https://pnpm.io/) 9+ — for the frontend.
 - [.NET SDK](https://dotnet.microsoft.com/) 8 — for the backend.
 - [AWS CLI](https://aws.amazon.com/cli/) v2 with a `mediaflows` profile — for deploys and SSM lookups.
-- [Terraform](https://www.terraform.io/) 1.6+ — for `infrastructure/`.
+- [Terraform](https://www.terraform.io/) 1.6+ — for `infra/`.
 
 <p align="right"><a href="#readme-top">&uarr;</a></p>
 
@@ -255,7 +255,7 @@ The frontend and the backend run locally from the repository root, and the front
 2. **Start the frontend.** From the repository root:
 
    ```sh
-   cd frontend
+   cd apps/web
    pnpm install
    cp .env.production.example .env.local    # fill in Cognito + API values
    pnpm dev                                 # http://localhost:3000
@@ -265,18 +265,18 @@ The frontend and the backend run locally from the repository root, and the front
 
    ```sh
    dotnet restore MediaFlows.slnx
-   dotnet run --project src/MediaFlows.Web --launch-profile http  # http://localhost:5140
+   dotnet run --project apps/api/MediaFlows.Web --launch-profile http  # http://localhost:5140
    ```
 
 4. **Provision AWS when needed.** Separately, from the repository root:
 
    ```sh
-   make deploy  # see infrastructure/README.md
+   make deploy  # see infra/README.md
    ```
 
-   The repository has no CI, and deploys are manual: `make deploy` provisions the AWS infrastructure and `make apply` applies later changes. The exception is the frontend, which Amplify Hosting builds from `main` once provisioned. No script deploys the API or Lambda code. The removed workflows are linked at their last commit for reference: [`deploy.yml`](https://github.com/M1KUAPP/MediaFlows/blob/6b2c63289af4207f6d723888810c32913e53d143/.github/workflows/deploy.yml) built and uploaded the API and Lambda code, and [`terraform-apply.yml`](https://github.com/M1KUAPP/MediaFlows/blob/6b2c63289af4207f6d723888810c32913e53d143/.github/workflows/terraform-apply.yml) ran `terraform apply`. Workload-specific instructions live in [`frontend/README.md`](frontend/README.md) and [`infrastructure/README.md`](infrastructure/README.md).
+   The repository has no CI, and deploys are manual: `make deploy` provisions the AWS infrastructure and `make apply` applies later changes. The exception is the frontend, which Amplify Hosting builds from `main` once provisioned. No script deploys the API or Lambda code. The removed workflows are linked at their last commit for reference: [`deploy.yml`](https://github.com/M1KUAPP/MediaFlows/blob/6b2c63289af4207f6d723888810c32913e53d143/.github/workflows/deploy.yml) built and uploaded the API and Lambda code, and [`terraform-apply.yml`](https://github.com/M1KUAPP/MediaFlows/blob/6b2c63289af4207f6d723888810c32913e53d143/.github/workflows/terraform-apply.yml) ran `terraform apply`. Workload-specific instructions live in [`apps/web/README.md`](apps/web/README.md) and [`infra/README.md`](infra/README.md).
 
-5. **Run the checks.** From the repository root, run `bun install` once for the root tooling and Git hooks. `bun run check` runs Prettier, the frontend typecheck, and `dotnet test MediaFlows.slnx` when `dotnet` is installed. ESLint (`pnpm lint`) and the Playwright suite (`pnpm test:e2e`, against `http://localhost:3000`) run separately in `frontend/`.
+5. **Run the checks.** From the repository root, run `bun install` once for the root tooling and Git hooks. `bun run check` runs Prettier, the frontend typecheck, and `dotnet test MediaFlows.slnx` when `dotnet` is installed. ESLint (`pnpm lint`) and the Playwright suite (`pnpm test:e2e`, against `http://localhost:3000`) run separately in `apps/web/`.
 
    ```sh
    bun run check

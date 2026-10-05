@@ -5,6 +5,6 @@
 .next/
 bin/
 obj/
-frontend/
+apps/web/
 graphify-out/
-infrastructure/
+infra/

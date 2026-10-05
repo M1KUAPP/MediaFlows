@@ -8,7 +8,7 @@
     "lint:fix": "prettier --write .",
     "prepare": "husky",
     "test": "if command -v dotnet >/dev/null 2>&1; then dotnet test MediaFlows.slnx; else echo 'dotnet not found on PATH; skipping dotnet test'; fi",
-    "typecheck": "pnpm --dir frontend exec tsc --noEmit"
+    "typecheck": "pnpm --dir apps/web exec tsc --noEmit"
   },
   "lint-staged": {
     "*": "prettier --write --ignore-unknown"
