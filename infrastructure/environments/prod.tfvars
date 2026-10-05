@@ -1,8 +1,8 @@
 # infrastructure/environments/prod.tfvars
 environment = "prod"
 
-github_owner = "mediaflows-tech"
-github_repo  = "app"
+github_owner = "M1KUAPP"
+github_repo  = "MediaFlows"
 
 db_instance_class    = "db.t3.micro"
 db_allocated_storage = 20

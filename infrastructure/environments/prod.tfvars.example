@@ -5,10 +5,10 @@
 
 environment = "prod"
 
-# GitHub repo identity — propagated from the bootstrap stack so OIDC trust
-# matches the actual repo.
-github_owner = "mediaflows-tech"
-github_repo  = "app"
+# GitHub repo identity — keep in sync with the bootstrap stack. Feeds the
+# Amplify app's repository URL.
+github_owner = "M1KUAPP"
+github_repo  = "MediaFlows"
 
 db_instance_class    = "db.t3.micro"
 db_allocated_storage = 20
