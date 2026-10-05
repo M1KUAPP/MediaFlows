@@ -1,8 +1,3 @@
-# infra/modules/messaging/main.tf
-
-# ──────────────────────────────────────────────────
-# SQS Dead Letter Queues
-# ──────────────────────────────────────────────────
 resource "aws_sqs_queue" "media_processing_dlq" {
   name                      = "${var.project_name}-media-processing-dlq-${var.environment}"
   message_retention_seconds = 1209600 # 14 days
@@ -31,10 +26,6 @@ resource "aws_sqs_queue" "notification_dlq" {
     Name = "${var.project_name}-notification-dlq-${var.environment}"
   }
 }
-
-# ──────────────────────────────────────────────────
-# SQS Queues
-# ──────────────────────────────────────────────────
 
 # Media Processing Queue — Standard, triggered by S3 uploads
 resource "aws_sqs_queue" "media_processing" {
@@ -88,10 +79,6 @@ resource "aws_sqs_queue" "notification" {
     Name = "${var.project_name}-notification-${var.environment}"
   }
 }
-
-# ──────────────────────────────────────────────────
-# SNS Topics
-# ──────────────────────────────────────────────────
 
 # Asset Uploaded — fan-out to multiple SQS consumers
 resource "aws_sns_topic" "asset_uploaded" {
@@ -300,9 +287,6 @@ resource "aws_sqs_queue_policy" "notification_sns" {
   })
 }
 
-# ──────────────────────────────────────────────────
-# EventBridge Custom Event Bus
-# ──────────────────────────────────────────────────
 # NOTE: EventBridge rules that target Lambda functions are defined
 # in the ROOT main.tf to avoid circular dependency between
 # messaging and serverless modules.

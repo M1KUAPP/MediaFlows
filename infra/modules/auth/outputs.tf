@@ -1,4 +1,3 @@
-# infra/modules/auth/outputs.tf
 output "user_pool_id" {
   description = "Cognito User Pool ID"
   value       = aws_cognito_user_pool.main.id

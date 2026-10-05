@@ -1,4 +1,3 @@
-# infra/modules/database/outputs.tf
 output "rds_endpoint" {
   description = "RDS PostgreSQL endpoint (empty when stopped)"
   value       = try(aws_db_instance.postgresql[0].endpoint, "")

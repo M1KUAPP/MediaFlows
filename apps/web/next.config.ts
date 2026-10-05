@@ -83,20 +83,9 @@ const nextConfig: NextConfig = {
     ]
   },
 
-  // Enable source maps in production for error tracking
-  productionBrowserSourceMaps: false,
-
   // Include .env.local in standalone output for SSR runtime
   outputFileTracingIncludes: {
     '/*': ['./.env.local']
-  },
-
-  // Experimental features
-  experimental: {
-    // Optimize server component payloads
-    serverActions: {
-      bodySizeLimit: '2mb'
-    }
   }
 }
 

@@ -1,9 +1,3 @@
-# infra/modules/monitoring/main.tf
-
-# ──────────────────────────────────────────────────
-# CloudWatch Alarms
-# ──────────────────────────────────────────────────
-
 # CPU Utilization > 80% for 5 minutes (3 of 5 datapoints).
 # Gated on eb_enabled so the alarm is destroyed when services are stopped;
 # otherwise the EnvironmentName dimension would be empty (and CloudWatch
@@ -169,9 +163,6 @@ resource "aws_cloudwatch_metric_alarm" "billing" {
   }
 }
 
-# ──────────────────────────────────────────────────
-# CloudWatch Dashboard
-# ──────────────────────────────────────────────────
 # Gated on eb_enabled — the dashboard body embeds the EB env name in
 # metric definitions; PutDashboard rejects empty strings.
 resource "aws_cloudwatch_dashboard" "main" {
@@ -289,9 +280,6 @@ resource "aws_cloudwatch_dashboard" "main" {
   })
 }
 
-# ──────────────────────────────────────────────────
-# X-Ray Sampling Rule and Group
-# ──────────────────────────────────────────────────
 resource "aws_xray_group" "main" {
   group_name        = "${var.project_name}-${var.environment}"
   filter_expression = "service(\"MediaFlows\")"

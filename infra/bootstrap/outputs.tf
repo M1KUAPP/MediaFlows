@@ -1,5 +1,3 @@
-# infra/bootstrap/outputs.tf
-
 output "state_bucket_name" {
   description = "S3 bucket name holding the parent infra/ stack's Terraform state"
   value       = aws_s3_bucket.tfstate.bucket

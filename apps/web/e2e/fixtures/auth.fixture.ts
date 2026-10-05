@@ -1,6 +1,5 @@
 import { test as base, expect, type Page } from '@playwright/test'
 
-// Storage state paths for each role
 const STORAGE_DIR = 'e2e/.auth'
 
 type AuthFixtures = {
@@ -43,18 +42,15 @@ async function loginAs(page: Page, role: 'admin' | 'creator' | 'editor' | 'viewe
   // If using custom login page (auth-client.ts), fill the form directly
   await page.waitForURL(/\/(login|authorize)/)
 
-  // Fill credentials on the login form
   const emailInput = page.getByLabel(/email/i).or(page.locator('#signInFormUsername'))
   const passwordInput = page.getByLabel(/password/i).or(page.locator('#signInFormPassword'))
 
   await emailInput.fill(email)
   await passwordInput.fill(password)
 
-  // Submit
   const submitButton = page.getByRole('button', { name: /sign in/i }).or(page.locator('input[type="submit"]'))
   await submitButton.click()
 
-  // Wait for redirect back to the app (lands on /dashboard or other app page)
   await page.waitForURL((url) => !url.pathname.includes('/login') && !url.pathname.includes('/authorize'), {
     timeout: 30_000
   })

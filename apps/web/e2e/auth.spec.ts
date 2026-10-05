@@ -37,7 +37,6 @@ authTest.describe('Authenticated flows', () => {
   authTest('user can sign out', async ({ viewerPage }) => {
     await viewerPage.goto('/')
 
-    // Open user menu and click sign out
     const userMenu = viewerPage
       .getByTestId('user-menu')
       .or(viewerPage.getByRole('button', { name: /avatar|user|account/i }))
@@ -46,7 +45,6 @@ authTest.describe('Authenticated flows', () => {
     const signOutButton = viewerPage.getByRole('menuitem', { name: /sign out|log out/i })
     await signOutButton.click()
 
-    // Should redirect to login
     await viewerPage.waitForURL(/\/login/, { timeout: 10_000 })
     await expect(viewerPage).toHaveURL(/\/login/)
   })

@@ -1,5 +1,3 @@
-# infra/bootstrap/variables.tf
-
 variable "aws_region" {
   description = "AWS region for the state bucket and SSM parameters"
   type        = string

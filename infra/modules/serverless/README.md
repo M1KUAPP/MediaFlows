@@ -58,6 +58,6 @@ Provisions the Lambda execution role and seven .NET 8 Lambda functions that hand
 
 ## Notes
 
-- All functions are initialised from a placeholder zip at `terraform apply` time. Terraform does not deploy the function code, and no script in the repository does. The removed [`deploy.yml`](https://github.com/M1KUAPP/MediaFlows/blob/6b2c63289af4207f6d723888810c32913e53d143/.github/workflows/deploy.yml) workflow, linked at its last commit, shows how each function was published and uploaded with `aws lambda update-function-code`.
+- All functions are initialised from a placeholder zip at `terraform apply` time. Terraform does not deploy the function code, and no script in the repository does. The removed [`deploy.yml`](https://github.com/M1KUAPP/MediaFlows/blob/65d991929c6fb53a1d5754ea2b733c293a067f0a/.github/workflows/deploy.yml) workflow, linked at its last commit, shows how each function was published and uploaded with `aws lambda update-function-code`.
 - All functions run on `dotnet8` / `arm64` for best price-performance.
 - The Cognito `AdminAddUserToGroup` IAM permission and Lambda invocation permission for `PostConfirmationGroupAssigner` are defined in the **root module** (`infra/main.tf`) to avoid a circular dependency between the `auth` and `serverless` modules.

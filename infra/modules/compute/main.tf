@@ -1,8 +1,3 @@
-# infra/modules/compute/main.tf
-
-# ──────────────────────────────────────────────────
-# IAM Role for EC2 Instance Profile
-# ──────────────────────────────────────────────────
 resource "aws_iam_role" "eb_ec2_role" {
   name = "${var.project_name}-eb-ec2-${var.environment}"
 
@@ -202,9 +197,6 @@ resource "aws_iam_instance_profile" "eb_ec2_profile" {
   role = aws_iam_role.eb_ec2_role.name
 }
 
-# ──────────────────────────────────────────────────
-# IAM Service Role for Elastic Beanstalk
-# ──────────────────────────────────────────────────
 resource "aws_iam_role" "eb_service_role" {
   name = "${var.project_name}-eb-service-${var.environment}"
 
@@ -232,9 +224,6 @@ resource "aws_iam_role_policy_attachment" "eb_managed_updates" {
   policy_arn = "arn:aws:iam::aws:policy/AWSElasticBeanstalkManagedUpdatesCustomerRolePolicy"
 }
 
-# ──────────────────────────────────────────────────
-# Elastic Beanstalk Application
-# ──────────────────────────────────────────────────
 resource "aws_elastic_beanstalk_application" "main" {
   count = var.enabled ? 1 : 0
 
@@ -248,10 +237,8 @@ resource "aws_elastic_beanstalk_application" "main" {
   }
 }
 
-# ──────────────────────────────────────────────────
 # Self-signed TLS certificate for ALB HTTPS listener
 # Only created when no ACM certificate ARN is provided (dev environment)
-# ──────────────────────────────────────────────────
 resource "tls_private_key" "alb" {
   count     = var.app_domain == "" ? 1 : 0
   algorithm = "RSA"
@@ -290,9 +277,6 @@ locals {
   alb_certificate_arn = var.app_domain != "" ? var.acm_certificate_arn : aws_acm_certificate.alb[0].arn
 }
 
-# ──────────────────────────────────────────────────
-# Elastic Beanstalk Environment
-# ──────────────────────────────────────────────────
 resource "aws_elastic_beanstalk_environment" "main" {
   count = var.enabled ? 1 : 0
 
@@ -647,9 +631,7 @@ resource "aws_elastic_beanstalk_environment" "main" {
   }
 }
 
-# ──────────────────────────────────────────────────
 # ALB data source — for Route53 alias records
-# ──────────────────────────────────────────────────
 data "aws_lb" "eb_alb" {
   count = var.enabled ? 1 : 0
 

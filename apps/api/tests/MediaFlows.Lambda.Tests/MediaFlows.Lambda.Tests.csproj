@@ -4,9 +4,6 @@
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-
-    <IsPackable>false</IsPackable>
-    <IsTestProject>true</IsTestProject>
   </PropertyGroup>
 
   <ItemGroup>
@@ -15,7 +12,6 @@
     <PackageReference Include="Amazon.Lambda.TestUtilities" Version="2.0.0" />
     <PackageReference Include="AWSSDK.Rekognition" Version="4.*" />
     <PackageReference Include="AWSSDK.SimpleNotificationService" Version="4.*" />
-    <PackageReference Include="coverlet.collector" Version="6.0.0" />
     <PackageReference Include="FluentAssertions" Version="8.9.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="8.0.11" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.8.0" />

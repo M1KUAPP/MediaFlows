@@ -1,4 +1,3 @@
-# infra/variables.tf
 variable "aws_region" {
   description = "AWS region for all resources"
   type        = string
@@ -149,9 +148,6 @@ variable "amplify_cloudfront_dns" {
   default     = ""
 }
 
-# ──────────────────────────────────────────────────
-# Services on/off (stop/start orchestration)
-# ──────────────────────────────────────────────────
 variable "services_enabled" {
   description = "Master switch — when false, destroys EB env, RDS, NAT GW, and Route53 records that alias the ALB. Toggle via CI/automation; avoid flipping it by hand mid-apply."
   type        = bool

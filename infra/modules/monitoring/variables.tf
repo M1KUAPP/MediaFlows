@@ -1,4 +1,3 @@
-# infra/modules/monitoring/variables.tf
 variable "environment" {
   description = "Deployment environment"
   type        = string
