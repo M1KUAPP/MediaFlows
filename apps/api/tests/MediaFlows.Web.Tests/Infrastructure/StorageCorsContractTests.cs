@@ -1,3 +1,4 @@
+using System.Text.RegularExpressions;
 using FluentAssertions;
 
 namespace MediaFlows.Web.Tests.Infrastructure;
@@ -34,14 +35,18 @@ public class StorageCorsContractTests
     [Fact]
     public void ProductionTfvars_ShouldAllowTheProductionOrigin()
     {
-        // Real prod.tfvars is gitignored; the committed .example file
-        // documents the contract and is what CI inspects.
+        // The committed .example file documents the contract. Its domain is a
+        // placeholder, so the expected origin comes from its domain_name.
         var prodTfvars = ReadRepoFile("infra/environments/prod.tfvars.example");
 
-        prodTfvars.Should().Contain("cors_allowed_origins");
-        // The frontend now serves at app.${domain} because the dead account
-        // still globally claims the apex Amplify domain. Either host is
-        // acceptable here — the apex or the app subdomain.
-        prodTfvars.Should().MatchRegex("https://(app\\.)?mediaflows\\.tech");
+        var domain = Regex.Match(prodTfvars, "^domain_name\\s*=\\s*\"([^\"]+)\"", RegexOptions.Multiline);
+        domain.Success.Should().BeTrue("the example sets domain_name");
+
+        var origins = Regex.Match(prodTfvars, "cors_allowed_origins\\s*=\\s*\\[([^\\]]*)\\]");
+        origins.Success.Should().BeTrue("the example sets cors_allowed_origins");
+
+        // The web app serves at the apex, web.<domain> or app.<domain>.
+        origins.Groups[1].Value.Should().MatchRegex(
+            $"\"https://((app|web)\\.)?{Regex.Escape(domain.Groups[1].Value)}\"");
     }
 }
