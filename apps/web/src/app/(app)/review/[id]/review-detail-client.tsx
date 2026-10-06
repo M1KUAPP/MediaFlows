@@ -20,12 +20,11 @@ function getFileTypeLabel(contentType?: string | null) {
   return 'Document'
 }
 
-function getFileIcon(contentType?: string | null) {
-  if (!contentType) return FileText
-  if (contentType.startsWith('image/')) return FileImage
-  if (contentType.startsWith('video/')) return FileVideo
-  if (contentType.startsWith('audio/')) return FileAudio
-  return FileText
+function FileTypeIcon({ contentType, className }: { contentType?: string | null; className?: string }) {
+  if (contentType?.startsWith('image/')) return <FileImage className={className} />
+  if (contentType?.startsWith('video/')) return <FileVideo className={className} />
+  if (contentType?.startsWith('audio/')) return <FileAudio className={className} />
+  return <FileText className={className} />
 }
 
 interface ReviewDetailClientProps {
@@ -41,8 +40,6 @@ export function ReviewDetailClient({ initialData, assetId }: ReviewDetailClientP
   const canReview = review.canReview
   const canSchedule = review.canSchedule
   const isScheduled = asset.status === 'Approved' && !!asset.scheduledPublishAt
-
-  const Icon = getFileIcon(asset.contentType)
 
   return (
     <>
@@ -85,7 +82,7 @@ export function ReviewDetailClient({ initialData, assetId }: ReviewDetailClientP
               <div className="flex items-center justify-between">
                 <span className="text-sm text-muted-foreground">Type</span>
                 <div className="flex items-center gap-1.5 text-sm">
-                  <Icon className="h-3.5 w-3.5" />
+                  <FileTypeIcon contentType={asset.contentType} className="h-3.5 w-3.5" />
                   {getFileTypeLabel(asset.contentType)}
                 </div>
               </div>

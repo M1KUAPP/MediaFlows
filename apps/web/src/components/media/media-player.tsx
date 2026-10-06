@@ -22,11 +22,11 @@ function getMediaType(contentType: string): 'video' | 'audio' | 'image' | 'pdf' 
   return 'other'
 }
 
-function getIcon(contentType: string) {
-  if (contentType.startsWith('image/')) return FileImage
-  if (contentType.startsWith('video/')) return FileVideo
-  if (contentType.startsWith('audio/')) return FileAudio
-  return FileText
+function MediaTypeIcon({ contentType, className }: { contentType: string; className?: string }) {
+  if (contentType.startsWith('image/')) return <FileImage className={className} />
+  if (contentType.startsWith('video/')) return <FileVideo className={className} />
+  if (contentType.startsWith('audio/')) return <FileAudio className={className} />
+  return <FileText className={className} />
 }
 
 export function MediaPlayer({ src, contentType, title, thumbnailUrl, className }: MediaPlayerProps) {
@@ -38,10 +38,9 @@ export function MediaPlayer({ src, contentType, title, thumbnailUrl, className }
   }, [])
 
   if (!src) {
-    const Icon = getIcon(contentType)
     return (
       <div className={cn('flex aspect-video w-full items-center justify-center bg-muted rounded-md border', className)}>
-        <Icon className="h-12 w-12 text-muted-foreground/40" />
+        <MediaTypeIcon contentType={contentType} className="h-12 w-12 text-muted-foreground/40" />
       </div>
     )
   }
@@ -61,7 +60,7 @@ export function MediaPlayer({ src, contentType, title, thumbnailUrl, className }
             }
           }}
         >
-          {/* eslint-disable-next-line @next/next/no-img-element */}
+          {/* eslint-disable-next-line @next/next/no-img-element -- the media URL (CDN, S3 or the API media route) is used as-is; next/image would route it through /_next/image */}
           <img
             src={src}
             alt={title}
@@ -117,11 +116,10 @@ export function MediaPlayer({ src, contentType, title, thumbnailUrl, className }
   }
 
   // Unsupported type fallback
-  const Icon = getIcon(contentType)
   return (
     <div className={cn('flex aspect-video w-full items-center justify-center bg-muted rounded-md border', className)}>
       <div className="text-center">
-        <Icon className="mx-auto h-12 w-12 text-muted-foreground/40" />
+        <MediaTypeIcon contentType={contentType} className="mx-auto h-12 w-12 text-muted-foreground/40" />
         <p className="mt-2 text-sm text-muted-foreground">Preview not available</p>
       </div>
     </div>

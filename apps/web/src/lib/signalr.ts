@@ -1,4 +1,4 @@
-import { HubConnectionBuilder, HubConnection, LogLevel, HttpTransportType } from '@microsoft/signalr'
+import { HubConnectionBuilder, HubConnection, LogLevel } from '@microsoft/signalr'
 
 const API_BASE = process.env.NEXT_PUBLIC_API_BASE_URL ?? ''
 

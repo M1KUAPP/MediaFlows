@@ -1,7 +1,6 @@
 'use client'
 
 import { useAsset } from '@/hooks/use-assets'
-import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { StatusBadge } from '@/components/ui/status-badge'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
@@ -9,13 +8,12 @@ import { Separator } from '@/components/ui/separator'
 import { Skeleton } from '@/components/ui/skeleton'
 import { MediaPlayer } from '@/components/media/media-player'
 import { CommentThread } from '@/components/comments/comment-thread'
-import { formatBytes, formatDate, formatStatus } from '@/lib/utils'
+import { formatBytes, formatDate } from '@/lib/utils'
 import { ArrowLeft, GitBranch, Send, FileImage, FileVideo, FileAudio, FileText } from 'lucide-react'
 import { TagEditor } from '@/components/tags/tag-editor'
 import Link from 'next/link'
 import { useSubmitAsset } from '@/hooks/use-assets'
 import { toast } from '@/lib/toast'
-import type { AssetStatus } from '@/types/api'
 
 function getFileTypeLabel(contentType?: string | null) {
   if (!contentType) return 'Document'
@@ -25,12 +23,11 @@ function getFileTypeLabel(contentType?: string | null) {
   return 'Document'
 }
 
-function getFileIcon(contentType?: string | null) {
-  if (!contentType) return FileText
-  if (contentType.startsWith('image/')) return FileImage
-  if (contentType.startsWith('video/')) return FileVideo
-  if (contentType.startsWith('audio/')) return FileAudio
-  return FileText
+function FileTypeIcon({ contentType, className }: { contentType?: string | null; className?: string }) {
+  if (contentType?.startsWith('image/')) return <FileImage className={className} />
+  if (contentType?.startsWith('video/')) return <FileVideo className={className} />
+  if (contentType?.startsWith('audio/')) return <FileAudio className={className} />
+  return <FileText className={className} />
 }
 
 interface AssetDetailContentProps {
@@ -64,8 +61,6 @@ export function AssetDetailContent({ assetId }: AssetDetailContentProps) {
   if (!asset) {
     return <div className="py-20 text-center text-muted-foreground">Asset not found</div>
   }
-
-  const Icon = getFileIcon(asset.contentType)
 
   return (
     <div className="space-y-6">
@@ -110,7 +105,7 @@ export function AssetDetailContent({ assetId }: AssetDetailContentProps) {
         {/* Media Preview */}
         <div className="lg:col-span-2">
           <MediaPlayer
-            src={(asset as any).mediaUrl || `/api/v1/assets/${assetId}/media`}
+            src={asset.mediaUrl || `/api/v1/assets/${assetId}/media`}
             contentType={asset.contentType}
             title={asset.title}
             thumbnailUrl={asset.thumbnailUrl}
@@ -134,7 +129,7 @@ export function AssetDetailContent({ assetId }: AssetDetailContentProps) {
               <div className="flex items-center justify-between">
                 <span className="text-sm text-muted-foreground">Type</span>
                 <div className="flex items-center gap-1.5 text-sm">
-                  <Icon className="h-3.5 w-3.5" />
+                  <FileTypeIcon contentType={asset.contentType} className="h-3.5 w-3.5" />
                   {getFileTypeLabel(asset.contentType)}
                 </div>
               </div>

@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useSyncExternalStore } from 'react'
 import { badgeStore } from '@/lib/badge-store'
 
 /**
@@ -8,12 +8,5 @@ import { badgeStore } from '@/lib/badge-store'
  * { [elementId]: value }. Populated by the SignalR `UpdateBadge` event.
  */
 export function useBadges(): Record<string, string> {
-  const [badges, setBadges] = useState<Record<string, string>>(() => badgeStore.get())
-
-  useEffect(() => {
-    setBadges(badgeStore.get())
-    return badgeStore.subscribe(setBadges)
-  }, [])
-
-  return badges
+  return useSyncExternalStore(badgeStore.subscribe, badgeStore.get, badgeStore.get)
 }

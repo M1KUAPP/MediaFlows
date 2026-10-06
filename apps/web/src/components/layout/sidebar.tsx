@@ -113,7 +113,6 @@ export function Sidebar({ mobileOpen, onMobileClose }: SidebarProps) {
   const handleMouseLeave = useCallback(() => setCollapsed(true), [])
 
   const { resolvedTheme } = useTheme()
-  const logoSrc = resolvedTheme === 'dark' ? '/mediaflows-dark.png' : '/mediaflows-light.png'
 
   const renderContent = (isCollapsed: boolean) => (
     <TooltipProvider delay={0}>

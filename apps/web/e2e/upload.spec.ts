@@ -1,5 +1,4 @@
 import { test, expect } from './fixtures/auth.fixture'
-import path from 'path'
 
 test.describe('Upload', () => {
   // Note: upload tests that interact with S3 are skipped in CI.

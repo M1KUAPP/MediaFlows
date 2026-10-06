@@ -106,7 +106,7 @@ function LoginForm() {
   useEffect(() => {
     if (successMessage) toast.success(successMessage, { id: 'login-success' })
     if (urlError) notifyError(urlError, urlCode)
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- show the URL messages once, on mount
   }, [])
 
   async function handleSubmit(e: React.FormEvent) {

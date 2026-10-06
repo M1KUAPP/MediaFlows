@@ -7,7 +7,7 @@ import { Checkbox } from '@/components/ui/checkbox'
 import { StatusBadge } from '@/components/ui/status-badge'
 import { formatBytes, formatRelativeTime } from '@/lib/utils'
 import { Eye, GitBranch, Send, Trash2, FileImage, FileVideo, FileAudio, FileText } from 'lucide-react'
-import type { MediaAssetSummaryDto, AssetStatus } from '@/types/api'
+import type { MediaAssetSummaryDto } from '@/types/api'
 
 function getFileIcon(contentType: string) {
   if (contentType.startsWith('image/')) return FileImage

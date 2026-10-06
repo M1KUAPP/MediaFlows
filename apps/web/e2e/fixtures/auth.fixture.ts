@@ -1,7 +1,5 @@
 import { test as base, expect, type Page } from '@playwright/test'
 
-const STORAGE_DIR = 'e2e/.auth'
-
 type AuthFixtures = {
   adminPage: Page
   creatorPage: Page
@@ -58,35 +56,35 @@ async function loginAs(page: Page, role: 'admin' | 'creator' | 'editor' | 'viewe
 }
 
 export const test = base.extend<AuthFixtures>({
-  adminPage: async ({ browser }, use) => {
+  adminPage: async ({ browser }, provide) => {
     const context = await browser.newContext()
     const page = await context.newPage()
     await loginAs(page, 'admin')
-    await use(page)
+    await provide(page)
     await context.close()
   },
 
-  creatorPage: async ({ browser }, use) => {
+  creatorPage: async ({ browser }, provide) => {
     const context = await browser.newContext()
     const page = await context.newPage()
     await loginAs(page, 'creator')
-    await use(page)
+    await provide(page)
     await context.close()
   },
 
-  editorPage: async ({ browser }, use) => {
+  editorPage: async ({ browser }, provide) => {
     const context = await browser.newContext()
     const page = await context.newPage()
     await loginAs(page, 'editor')
-    await use(page)
+    await provide(page)
     await context.close()
   },
 
-  viewerPage: async ({ browser }, use) => {
+  viewerPage: async ({ browser }, provide) => {
     const context = await browser.newContext()
     const page = await context.newPage()
     await loginAs(page, 'viewer')
-    await use(page)
+    await provide(page)
     await context.close()
   }
 })
