@@ -63,9 +63,8 @@ variable "cognito_callback_urls" {
   description = "Cognito allowed callback URLs"
   type        = list(string)
   default = [
-    "https://localhost:5001/signin-oidc",
-    "http://localhost:3000/api/auth/callback/cognito",
-    "https://example.com/api/auth/callback/cognito"
+    "https://web.example.com/api/auth/callback/cognito",
+    "http://localhost:3000/api/auth/callback/cognito"
   ]
 }
 
@@ -73,9 +72,8 @@ variable "cognito_logout_urls" {
   description = "Cognito allowed logout URLs"
   type        = list(string)
   default = [
-    "https://localhost:5001/signout-callback-oidc",
-    "http://localhost:3000",
-    "https://example.com"
+    "https://web.example.com",
+    "http://localhost:3000"
   ]
 }
 
