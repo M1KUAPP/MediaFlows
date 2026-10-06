@@ -297,6 +297,3 @@ app.MapGet("/api/health", () => Results.Ok(new
 .WithTags("Health");
 
 app.Run();
-
-// Make Program class accessible for WebApplicationFactory in integration tests
-public partial class Program { }
