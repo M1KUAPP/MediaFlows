@@ -19,9 +19,11 @@ export function AuditLogFilters({ filters, onFilterChange, actionTypes }: AuditL
   // Local search state for debouncing — all other filters fire immediately
   const [search, setSearch] = useState(filters.query ?? '')
   const cbRef = useRef(onFilterChange)
-  cbRef.current = onFilterChange
   const filtersRef = useRef(filters)
-  filtersRef.current = filters
+  useEffect(() => {
+    cbRef.current = onFilterChange
+    filtersRef.current = filters
+  })
 
   useEffect(() => {
     const timer = setTimeout(() => {

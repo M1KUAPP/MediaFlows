@@ -21,11 +21,11 @@ interface MediaCardProps {
   className?: string
 }
 
-function getContentTypeIcon(contentType: string) {
-  if (contentType.startsWith('video/')) return Film
-  if (contentType.startsWith('audio/')) return Music
-  if (contentType.startsWith('image/')) return ImageIcon
-  return FileText
+function ContentTypeIcon({ contentType, className }: { contentType: string; className?: string }) {
+  if (contentType.startsWith('video/')) return <Film className={className} />
+  if (contentType.startsWith('audio/')) return <Music className={className} />
+  if (contentType.startsWith('image/')) return <ImageIcon className={className} />
+  return <FileText className={className} />
 }
 
 function getContentTypeLabel(contentType: string): string {
@@ -48,7 +48,6 @@ export function MediaCard({
   href,
   className
 }: MediaCardProps) {
-  const Icon = getContentTypeIcon(contentType)
   const typeLabel = getContentTypeLabel(contentType)
   const linkHref = href ?? `/catalog/${id}`
   const displayDate = publishedAt ?? createdAt
@@ -68,7 +67,7 @@ export function MediaCard({
             />
           ) : (
             <div className="flex h-full items-center justify-center">
-              <Icon className="h-10 w-10 text-muted-foreground/50" />
+              <ContentTypeIcon contentType={contentType} className="h-10 w-10 text-muted-foreground/50" />
             </div>
           )}
           <Badge

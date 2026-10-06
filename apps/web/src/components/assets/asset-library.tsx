@@ -94,6 +94,7 @@ export function AssetLibrary() {
 
   // Clear selection on filter changes
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- resets the selection after a filter change; moving it into render changes when the reset lands
     setSelectedIds(new Set())
   }, [status, fileType, sort])
 

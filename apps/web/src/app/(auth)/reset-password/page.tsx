@@ -22,8 +22,6 @@ function ResetPasswordForm() {
   const [confirmPassword, setConfirmPassword] = useState('')
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
-  const codeRef = useRef(code)
-  codeRef.current = code
   const inputRefs = useRef<(HTMLInputElement | null)[]>([])
   const searchParams = useSearchParams()
   const router = useRouter()
@@ -46,11 +44,14 @@ function ResetPasswordForm() {
     }
   }, [])
 
-  const handleKeyDown = useCallback((index: number, e: React.KeyboardEvent) => {
-    if (e.key === 'Backspace' && !codeRef.current[index] && index > 0) {
-      inputRefs.current[index - 1]?.focus()
-    }
-  }, [])
+  const handleKeyDown = useCallback(
+    (index: number, e: React.KeyboardEvent) => {
+      if (e.key === 'Backspace' && !code[index] && index > 0) {
+        inputRefs.current[index - 1]?.focus()
+      }
+    },
+    [code]
+  )
 
   const handlePaste = useCallback((e: React.ClipboardEvent) => {
     e.preventDefault()

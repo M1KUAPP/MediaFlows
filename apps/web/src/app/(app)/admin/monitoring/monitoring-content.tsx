@@ -79,6 +79,7 @@ export function MonitoringContent() {
   }, [snapshot])
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- each polled snapshot appends one history point; this follows the polling query, not render
     appendDataPoint()
   }, [appendDataPoint])
 

@@ -23,7 +23,7 @@ module "auth" {
   # Another AWS account may still hold a global claim on auth.${domain} and
   # cdn./www. on CloudFront. Until any such claim is released, fall back to
   # login.${domain} for the Cognito hosted UI. The frontend also lives at
-  # app.${domain} via the amplify module override below.
+  # web.${domain} via the amplify module override below.
   custom_domain       = var.domain_name != "" ? "login.${var.domain_name}" : ""
   acm_certificate_arn = var.domain_name != "" ? module.dns[0].acm_certificate_arn_cloudfront : ""
 
@@ -173,8 +173,8 @@ module "amplify" {
   branch_name = "main"
 
   domain_name   = var.domain_name
-  custom_domain = var.domain_name != "" ? "app.${var.domain_name}" : ""
-  frontend_url  = var.domain_name != "" ? "https://app.${var.domain_name}" : "https://${module.compute.eb_environment_url}"
+  custom_domain = var.domain_name != "" ? "web.${var.domain_name}" : ""
+  frontend_url  = var.domain_name != "" ? "https://web.${var.domain_name}" : "https://${module.compute.eb_environment_url}"
 
   api_base_url         = var.domain_name != "" ? "https://api.${var.domain_name}" : "https://${module.compute.eb_environment_url}"
   cognito_client_id    = module.auth.client_id

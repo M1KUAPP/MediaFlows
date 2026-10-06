@@ -33,20 +33,20 @@ public class StorageCorsContractTests
     }
 
     [Fact]
-    public void ProductionTfvars_ShouldAllowTheProductionOrigin()
+    public void ProductionTfvars_ShouldAllowTheWebOrigin()
     {
-        // The committed .example file documents the contract. Its domain is a
-        // placeholder, so the expected origin comes from its domain_name.
-        var prodTfvars = ReadRepoFile("infra/environments/prod.tfvars.example");
+        // prod.tfvars' domain is a placeholder, so the expected origin is built
+        // from its domain_name. Amplify serves the web app at web.<domain>.
+        var prodTfvars = ReadRepoFile("infra/environments/prod.tfvars");
+        var rootMain = ReadRepoFile("infra/main.tf");
 
         var domain = Regex.Match(prodTfvars, "^domain_name\\s*=\\s*\"([^\"]+)\"", RegexOptions.Multiline);
-        domain.Success.Should().BeTrue("the example sets domain_name");
+        domain.Success.Should().BeTrue("prod.tfvars sets domain_name");
 
         var origins = Regex.Match(prodTfvars, "cors_allowed_origins\\s*=\\s*\\[([^\\]]*)\\]");
-        origins.Success.Should().BeTrue("the example sets cors_allowed_origins");
+        origins.Success.Should().BeTrue("prod.tfvars sets cors_allowed_origins");
 
-        // The web app serves at the apex, web.<domain> or app.<domain>.
-        origins.Groups[1].Value.Should().MatchRegex(
-            $"\"https://((app|web)\\.)?{Regex.Escape(domain.Groups[1].Value)}\"");
+        rootMain.Should().Contain("custom_domain = var.domain_name != \"\" ? \"web.${var.domain_name}\"");
+        origins.Groups[1].Value.Should().Contain($"\"https://web.{domain.Groups[1].Value}\"");
     }
 }

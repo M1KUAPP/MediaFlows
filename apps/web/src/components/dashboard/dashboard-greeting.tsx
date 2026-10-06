@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useSyncExternalStore } from 'react'
 import { PageHeader } from '@/components/shared/page-header'
 
 function getGreeting(): string {
@@ -10,13 +10,12 @@ function getGreeting(): string {
   return 'Good evening'
 }
 
-export function DashboardGreeting({ name }: { name: string }) {
-  const [greeting, setGreeting] = useState('Welcome back')
+const noSubscription = () => () => {}
 
-  // Defer time-based greeting to client to avoid hydration mismatch
-  useEffect(() => {
-    setGreeting(getGreeting())
-  }, [])
+export function DashboardGreeting({ name }: { name: string }) {
+  // The server snapshot avoids a hydration mismatch; the client shows the
+  // time-based greeting.
+  const greeting = useSyncExternalStore(noSubscription, getGreeting, () => 'Welcome back')
 
   return <PageHeader title={`${greeting}, ${name}`} description="Here's your workspace at a glance." />
 }

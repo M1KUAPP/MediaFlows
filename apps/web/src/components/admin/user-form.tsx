@@ -1,6 +1,6 @@
 'use client'
 
-import { useForm } from 'react-hook-form'
+import { useForm, useWatch } from 'react-hook-form'
 import { useRouter } from 'next/navigation'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -38,7 +38,7 @@ export function UserForm({ user, mode }: UserFormProps) {
     register,
     handleSubmit,
     setValue,
-    watch,
+    control,
     formState: { errors }
   } = useForm<UserFormData>({
     defaultValues: {
@@ -49,7 +49,7 @@ export function UserForm({ user, mode }: UserFormProps) {
     }
   })
 
-  const selectedRole = watch('role')
+  const selectedRole = useWatch({ control, name: 'role' })
   const isPending = createUser.isPending || updateUser.isPending
 
   async function onSubmit(data: UserFormData) {
