@@ -124,6 +124,7 @@ function CarouselContent({ assets, role }: CarouselContentProps) {
               return (
                 <div key={asset.id} className="relative h-full min-w-0 flex-[0_0_100%]">
                   {src ? (
+                    // eslint-disable-next-line @next/next/no-img-element -- previews load straight from the CDN/S3 URL; next/image would route them through /_next/image
                     <img src={src} alt={asset.title} className="h-full w-full object-cover" />
                   ) : (
                     <div className="flex h-full items-center justify-center text-muted-foreground">

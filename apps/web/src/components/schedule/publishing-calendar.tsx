@@ -1,6 +1,6 @@
 'use client'
 
-import { useCallback, useRef, useState } from 'react'
+import { useCallback, useState } from 'react'
 import dynamic from 'next/dynamic'
 import type { DateClickArg } from '@fullcalendar/interaction'
 import type { DatesSetArg, EventClickArg, EventDropArg } from '@fullcalendar/core'
@@ -130,7 +130,7 @@ export function PublishingCalendar() {
             <AlertDialogDescription>
               {selectedEvent?.thumbnailUrl && (
                 <span className="mb-3 block text-center">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  {/* eslint-disable-next-line @next/next/no-img-element -- the thumbnail loads straight from the CDN/S3 URL; next/image would route it through /_next/image */}
                   <img src={selectedEvent.thumbnailUrl} alt="Thumbnail" className="mx-auto max-h-[200px] rounded-md" />
                 </span>
               )}

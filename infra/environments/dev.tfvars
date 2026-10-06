@@ -1,4 +1,3 @@
-# infra/environments/dev.tfvars
 environment          = "dev"
 db_instance_class    = "db.t3.micro"
 db_allocated_storage = 20
@@ -9,11 +8,9 @@ lambda_memory_size   = 256
 lambda_timeout       = 60
 
 cognito_callback_urls = [
-  "http://localhost:5000/signin-oidc",
-  "https://localhost:5001/signin-oidc"
+  "http://localhost:3000/api/auth/callback/cognito"
 ]
 
 cognito_logout_urls = [
-  "http://localhost:5000/signout-callback-oidc",
-  "https://localhost:5001/signout-callback-oidc"
+  "http://localhost:3000"
 ]

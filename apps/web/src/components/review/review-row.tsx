@@ -33,7 +33,7 @@ export function ReviewRow({ item, isSelected, onToggleSelect }: ReviewRowProps) 
         <div className="flex items-center gap-3">
           <div className="h-12 w-12 shrink-0 overflow-hidden rounded-md bg-muted">
             {item.thumbnailUrl ? (
-              /* eslint-disable-next-line @next/next/no-img-element */
+              /* eslint-disable-next-line @next/next/no-img-element -- the thumbnail loads straight from the CDN/S3 URL; next/image would route it through /_next/image */
               <img src={item.thumbnailUrl} alt="" className="h-full w-full object-cover" />
             ) : (
               <div className="flex h-full w-full items-center justify-center">

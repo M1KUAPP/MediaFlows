@@ -11,7 +11,7 @@ interface DateTimePickerInputProps {
   className?: string
 }
 
-export function DateTimePickerInput({ value, min, onChange, className }: DateTimePickerInputProps) {
+export function DateTimePickerInput({ value, onChange, className }: DateTimePickerInputProps) {
   const datePart = value ? value.slice(0, 10) : undefined
   const timePart = value && value.length > 10 ? value.slice(11, 16) : '09:00'
 

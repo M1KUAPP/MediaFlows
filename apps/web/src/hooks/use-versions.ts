@@ -51,12 +51,11 @@ export function useVersions(assetId: number) {
   return useQuery({
     queryKey: versionKeys.list(assetId),
     queryFn: async (): Promise<AssetVersionDto[]> => {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      const raw: any = await api.get(`/assets/${assetId}/versions`)
-      // API returns a wrapper object { assetId, currentVersionId, versions: [...] }
+      const raw = await api.get<VersionsApiResponse | VersionsApiResponse['versions']>(
+        `/assets/${assetId}/versions`
+      )
       const items = Array.isArray(raw) ? raw : (raw?.versions ?? [])
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      return items.map((v: any) => ({
+      return items.map((v) => ({
         id: v.id,
         versionNumber: v.versionNumber,
         s3Key: v.s3Key ?? '',

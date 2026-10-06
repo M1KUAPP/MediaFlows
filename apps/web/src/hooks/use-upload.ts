@@ -167,7 +167,7 @@ export function useUploadFiles() {
         notify.error(`${file.name}: ${msg}`)
       }
     },
-    [presign, confirm, updateFile]
+    [presign, confirm, updateFile, queryClient]
   )
 
   const startUpload = useCallback(

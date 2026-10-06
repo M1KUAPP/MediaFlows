@@ -38,6 +38,7 @@ export function RecentAssets() {
           <Link key={asset.id} href={`/catalog/${asset.id}`} className="group shrink-0">
             <div className="h-24 w-24 overflow-hidden rounded-lg border border-border/50 bg-muted">
               {asset.thumbnailUrl ? (
+                // eslint-disable-next-line @next/next/no-img-element -- thumbnails load straight from the CDN/S3 URL; next/image would route them through /_next/image
                 <img
                   src={asset.thumbnailUrl}
                   alt={asset.title}

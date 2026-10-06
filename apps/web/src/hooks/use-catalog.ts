@@ -1,6 +1,6 @@
 import { useInfiniteQuery, useQuery, type InfiniteData } from '@tanstack/react-query'
 import { api } from '@/lib/api'
-import type { PagedResult, MediaAssetSummaryDto, AssetDetailDto } from '@/types/api'
+import type { PagedResult, MediaAssetSummaryDto, AssetDetailDto, AssetDetailView } from '@/types/api'
 
 export const catalogKeys = {
   all: ['catalog'] as const,
@@ -44,7 +44,7 @@ export function useCatalog(options: UseCatalogOptions = {}) {
 }
 
 export function useCatalogDetail(id: number) {
-  return useQuery<AssetDetailDto>({
+  return useQuery<AssetDetailView>({
     queryKey: catalogKeys.detail(id),
     queryFn: async () => {
       const raw = await api.get<{
@@ -56,14 +56,14 @@ export function useCatalogDetail(id: number) {
         commentCount: number
         relatedAssets: unknown[]
       }>(`/catalog/${id}`)
-      // Unwrap the nested response into a flat AssetDetailDto
+      // Unwrap the nested response into a flat AssetDetailView
       return {
         ...raw.asset,
         mediaUrl: raw.mediaUrl,
         viewCount: raw.viewCount ?? 0,
         isBookmarked: raw.isBookmarked ?? false,
         commentCount: raw.commentCount ?? 0
-      } as AssetDetailDto & { mediaUrl: string }
+      } as AssetDetailView
     },
     staleTime: 30 * 1000
   })

@@ -31,6 +31,7 @@ export function ScheduleDialog({ open, onOpenChange, prefilledDate, onSuccess }:
     if (open && prefilledDate) {
       const today = new Date().toISOString().slice(0, 10)
       if (prefilledDate.length === 10 && prefilledDate >= today) {
+        // eslint-disable-next-line react-hooks/set-state-in-effect -- syncs the form when the dialog opens or the prefilled date changes
         setScheduleDate(`${prefilledDate}T09:00`)
       } else if (prefilledDate.length > 10) {
         setScheduleDate(prefilledDate.slice(0, 16))

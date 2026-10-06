@@ -89,7 +89,7 @@ export function AssetDetailView({ assetId }: AssetDetailViewProps) {
     setShareOpen(true)
   }
 
-  const mediaUrl = (asset as any).mediaUrl || `/api/v1/catalog/${asset.id}/media`
+  const mediaUrl = asset.mediaUrl || `/api/v1/catalog/${asset.id}/media`
   const relatedAssets =
     relatedData?.pages
       .flatMap((p) => p.items)

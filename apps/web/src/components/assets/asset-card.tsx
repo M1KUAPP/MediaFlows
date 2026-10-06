@@ -9,13 +9,13 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigge
 import { Badge } from '@/components/ui/badge'
 import { cn, formatBytes, formatRelativeTime } from '@/lib/utils'
 import { MoreHorizontal, Eye, GitBranch, Send, Trash2, FileImage, FileVideo, FileAudio, FileText } from 'lucide-react'
-import type { MediaAssetSummaryDto, AssetStatus } from '@/types/api'
+import type { MediaAssetSummaryDto } from '@/types/api'
 
-function getFileIcon(contentType: string) {
-  if (contentType.startsWith('image/')) return FileImage
-  if (contentType.startsWith('video/')) return FileVideo
-  if (contentType.startsWith('audio/')) return FileAudio
-  return FileText
+function AssetTypeIcon({ contentType, className }: { contentType: string; className?: string }) {
+  if (contentType.startsWith('image/')) return <FileImage className={className} />
+  if (contentType.startsWith('video/')) return <FileVideo className={className} />
+  if (contentType.startsWith('audio/')) return <FileAudio className={className} />
+  return <FileText className={className} />
 }
 
 function getContentTypeLabel(contentType: string): string {
@@ -35,7 +35,6 @@ interface AssetCardProps {
 }
 
 export function AssetCard({ asset, onSubmit, onDelete, selected, onSelect, anySelected }: AssetCardProps) {
-  const FileTypeIcon = getFileIcon(asset.contentType)
 
   return (
     <div className="group relative overflow-hidden rounded-lg border bg-card transition-colors hover:bg-accent/50">
@@ -63,7 +62,7 @@ export function AssetCard({ asset, onSubmit, onDelete, selected, onSelect, anySe
             />
           ) : (
             <div className="flex h-full items-center justify-center">
-              <FileTypeIcon className="h-8 w-8 text-muted-foreground" />
+              <AssetTypeIcon contentType={asset.contentType} className="h-8 w-8 text-muted-foreground" />
             </div>
           )}
           {selected && <div className="absolute inset-0 z-[5] bg-primary/30 transition-opacity" />}

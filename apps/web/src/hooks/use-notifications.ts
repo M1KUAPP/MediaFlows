@@ -1,15 +1,17 @@
 'use client'
 
-import { useEffect, useState, useCallback } from 'react'
+import { useCallback, useSyncExternalStore } from 'react'
 import { notificationStore, type AppNotification } from '@/lib/notification-store'
 
-export function useNotifications() {
-  const [notifications, setNotifications] = useState<AppNotification[]>([])
+const NO_NOTIFICATIONS: AppNotification[] = []
 
-  useEffect(() => {
-    setNotifications(notificationStore.get())
-    return notificationStore.subscribe(setNotifications)
-  }, [])
+export function useNotifications() {
+  // The server snapshot is empty; the client reads localStorage after hydration.
+  const notifications = useSyncExternalStore(
+    notificationStore.subscribe,
+    notificationStore.get,
+    () => NO_NOTIFICATIONS
+  )
 
   const unreadCount = notifications.filter((n) => !n.read).length
 
