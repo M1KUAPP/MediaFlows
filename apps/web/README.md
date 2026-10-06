@@ -39,7 +39,7 @@ cp .env.production.example .env.local
 - `src/lib/` — non-React utilities, API clients
 - `src/providers/` — React context providers
 - `src/types/` — shared TypeScript types
-- `e2e/` — Playwright test specs
+- `tests/` — Playwright test specs
 - `public/` — static assets
 
 ## Deployment
