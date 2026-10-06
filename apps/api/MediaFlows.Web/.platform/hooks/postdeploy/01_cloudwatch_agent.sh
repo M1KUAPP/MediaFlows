@@ -1,6 +1,11 @@
 #!/bin/bash
 set -euo pipefail
 
+# The agent is an Amazon Linux 2023 package; install it on first run.
+if ! rpm -q amazon-cloudwatch-agent >/dev/null 2>&1; then
+  dnf install -y amazon-cloudwatch-agent
+fi
+
 CONFIG_FILE="/opt/aws/amazon-cloudwatch-agent/etc/amazon-cloudwatch-agent.json"
 
 cat > "$CONFIG_FILE" << 'CWCONFIG'
