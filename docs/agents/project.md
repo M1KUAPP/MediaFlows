@@ -30,7 +30,7 @@ Run these from the repository root unless noted.
 - `bun install`: installs the repository tooling (editorconfig-checker, Prettier, Husky, commitlint, lint-staged) and the Git hooks.
 - `bun run check`: editorconfig-checker, Prettier, the frontend typecheck, and `dotnet test MediaFlows.slnx` when `dotnet` is on `PATH`. It needs `pnpm install` in `apps/web/` first.
 - `bun run lint`: editorconfig-checker over every tracked file, then Prettier's check. `bun run lint:fix` runs Prettier's write for the files Prettier owns.
-- `pnpm dev`, `pnpm build`, `pnpm lint` and `pnpm test:e2e`, in `apps/web/`: the Next.js dev server, the production build, ESLint and the Playwright suite against `http://localhost:3000`.
+- `pnpm dev`, `pnpm build`, `pnpm lint` and `pnpm test:e2e`, in `apps/web/`: the Next.js dev server, the production build, ESLint and the Playwright suite in `tests/` against `http://localhost:3000`.
 - `dotnet run --project apps/api/MediaFlows.Web --launch-profile http`: the API on `http://localhost:5140`.
 - `dotnet test MediaFlows.slnx`: every .NET test project.
 
