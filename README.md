@@ -6,8 +6,8 @@
 <div align="center">
   <a href="https://github.com/M1KUAPP/MediaFlows">
     <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="docs/readme/banner-dark.png">
-      <img src="docs/readme/banner-light.png" alt="MediaFlows banner">
+      <source media="(prefers-color-scheme: dark)" srcset="/docs/readme/banner-dark.png">
+      <img src="/docs/readme/banner-light.png" alt="MediaFlows banner">
     </picture>
   </a>
 
@@ -94,43 +94,43 @@ Built as coursework, where it earned an A+.
 <table>
   <tr>
     <td width="50%" valign="top" align="left">
-      <img src="docs/readme/screenshots/landing-hero.png" alt="MediaFlows landing page" width="100%">
+      <img src="/docs/readme/screenshots/landing-hero.png" alt="MediaFlows landing page" width="100%">
       <br />
       <strong>Landing Page</strong> · A cinematic entry point into the workspace.
     </td>
     <td width="50%" valign="top" align="left">
-      <img src="docs/readme/screenshots/dashboard.png" alt="User dashboard" width="100%">
+      <img src="/docs/readme/screenshots/dashboard.png" alt="User dashboard" width="100%">
       <br />
       <strong>Dashboard</strong> · Personalized greeting, role-based quick actions, and a recent-assets carousel.
     </td>
   </tr>
   <tr>
     <td width="50%" valign="top" align="left">
-      <img src="docs/readme/screenshots/catalog.png" alt="Media catalog" width="100%">
+      <img src="/docs/readme/screenshots/catalog.png" alt="Media catalog" width="100%">
       <br />
       <strong>Catalog</strong> · Browse published media with content-type filters and trending sort.
     </td>
     <td width="50%" valign="top" align="left">
-      <img src="docs/readme/screenshots/admin-monitoring.png" alt="Real-time monitoring" width="100%">
+      <img src="/docs/readme/screenshots/admin-monitoring.png" alt="Real-time monitoring" width="100%">
       <br />
       <strong>Live Monitoring</strong> · Real-time CPU, latency, error-rate, and cost metrics with streaming charts.
     </td>
   </tr>
   <tr>
     <td width="50%" valign="top" align="left">
-      <img src="docs/readme/screenshots/admin-dashboard.png" alt="Admin summary" width="100%">
+      <img src="/docs/readme/screenshots/admin-dashboard.png" alt="Admin summary" width="100%">
       <br />
       <strong>Admin Summary</strong> · Platform KPIs, upload-activity trends, storage breakdown, and CloudWatch alarms.
     </td>
     <td width="50%" valign="top" align="left">
-      <img src="docs/readme/screenshots/review-workflow-1.png" alt="Review queue" width="100%">
+      <img src="/docs/readme/screenshots/review-workflow-1.png" alt="Review queue" width="100%">
       <br />
       <strong>Review Queue</strong> · Triage submissions with status filters and batch approve / reject / schedule.
     </td>
   </tr>
   <tr>
     <td width="50%" valign="top" align="left">
-      <img src="docs/readme/screenshots/review-workflow-2.png" alt="Review and approve an asset" width="100%">
+      <img src="/docs/readme/screenshots/review-workflow-2.png" alt="Review and approve an asset" width="100%">
       <br />
       <strong>Review &amp; Decide</strong> · Inspect an asset, leave comments, and approve, schedule, or reject.
     </td>
@@ -144,35 +144,35 @@ Built as coursework, where it earned an A+.
 
 1.  **Enter the workspace.** The landing page at `/` links to sign-in. New users register at `/register`, enter the six-digit code that Cognito emails them at `/confirm`, and sign in at `/login`. A post-confirmation Lambda adds every new account to the `Viewer` group.
 
-    <img src="docs/readme/steps/1-register.png" alt="MediaFlows registration page" width="100%">
+    <img src="/docs/readme/steps/1-register.png" alt="MediaFlows registration page" width="100%">
 
 2.  **Start from the dashboard.** `/dashboard` greets you and shows a carousel of recent assets. The sidebar lists only the pages your role (`SystemAdmin`, `ContentCreator`, `Editor` or `Viewer`) can open.
 
-    <img src="docs/readme/steps/2-dashboard.png" alt="Content creator dashboard" width="100%">
+    <img src="/docs/readme/steps/2-dashboard.png" alt="Content creator dashboard" width="100%">
 
 3.  **Upload media.** Content creators drop files on `/creator/upload`. The browser sends each file straight to S3 through a presigned URL, then confirms the upload with the API. For images, Lambda functions then generate WebP thumbnails and Rekognition auto-tags in the background.
 
-    <img src="docs/readme/steps/3-upload.png" alt="Uploads in progress" width="100%">
+    <img src="/docs/readme/steps/3-upload.png" alt="Uploads in progress" width="100%">
 
 4.  **Prepare assets for review.** `/creator/assets` lists the creator's asset library. On an asset's page, creators edit tags, read comments, and open the version history to upload, compare or revert versions. They then submit one asset or a batch for review.
 
-    <img src="docs/readme/steps/4-asset-details.png" alt="Draft asset with tags and versions" width="100%">
+    <img src="/docs/readme/steps/4-asset-details.png" alt="Draft asset with tags and versions" width="100%">
 
 5.  **Review submissions.** Editors triage the queue at `/review` with status filters and batch approve, reject or schedule. On an asset's review page, they leave comments, then approve, request changes, reject or schedule it.
 
-    <img src="docs/readme/steps/5-review-queue.png" alt="Review queue with a batch selection" width="100%">
+    <img src="/docs/readme/steps/5-review-queue.png" alt="Review queue with a batch selection" width="100%">
 
 6.  **Schedule publication.** `/schedule` shows a publishing calendar for approved assets. The API publishes each scheduled asset once its time arrives.
 
-    <img src="docs/readme/steps/6-schedule.png" alt="Publishing calendar" width="100%">
+    <img src="/docs/readme/steps/6-schedule.png" alt="Publishing calendar" width="100%">
 
 7.  **Browse and share.** Every role can browse published media at `/catalog` with content-type filters and a trending sort, search with autocomplete at `/search`, and save assets to `/bookmarks`. An asset's page lets them download it or copy a share link.
 
-    <img src="docs/readme/steps/7-asset-page.png" alt="Published asset page" width="100%">
+    <img src="/docs/readme/steps/7-asset-page.png" alt="Published asset page" width="100%">
 
 8.  **Run the platform.** System admins read platform KPIs at `/admin`, manage users and their roles at `/admin/users`, filter audit logs at `/admin/audit-logs`, and watch live metrics at `/admin/monitoring`.
 
-    <img src="docs/readme/steps/8-users.png" alt="User management" width="100%">
+    <img src="/docs/readme/steps/8-users.png" alt="User management" width="100%">
 
 <p align="right"><a href="#readme-top">&uarr;</a></p>
 
@@ -195,22 +195,11 @@ Built as coursework, where it earned an A+.
 ### Architecture
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="docs/readme/architecture-dark.svg">
-  <img src="docs/readme/architecture-light.svg" alt="MediaFlows architecture">
+  <source media="(prefers-color-scheme: dark)" srcset="/docs/readme/architecture-dark.svg">
+  <img src="/docs/readme/architecture-light.svg" alt="MediaFlows architecture">
 </picture>
 
-The diagram is drawn with [archify](https://github.com/tt-a1i/archify) from [`architecture.json`](docs/readme/architecture.json).
-
-Once deployed behind a custom domain, MediaFlows serves four endpoints:
-
-| Subdomain        | Service                                |
-| ---------------- | -------------------------------------- |
-| `web.<domain>`   | Next.js frontend (AWS Amplify Hosting) |
-| `api.<domain>`   | ASP.NET Core API (Elastic Beanstalk)   |
-| `login.<domain>` | Cognito Hosted UI                      |
-| `cdn.<domain>`   | CloudFront asset delivery              |
-
-The frontend talks to the API over HTTPS and SignalR (realtime hub), assets are delivered via the CloudFront CDN, and async processing runs through the Lambda pipeline. See [`infra/README.md`](infra/README.md) for how the AWS estate is provisioned.
+Made with [Archify](https://github.com/tt-a1i/archify) from [`architecture.json`](/docs/readme/architecture.json).
 
 <p align="right"><a href="#readme-top">&uarr;</a></p>
 
@@ -230,7 +219,7 @@ The frontend talks to the API over HTTPS and SignalR (realtime hub), assets are 
 
 ## Getting Started
 
-The frontend and the backend run locally from the repository root, and the frontend needs Cognito and API values in `.env.local`. See the [frontend README](apps/web/README.md) for more.
+The frontend and the backend run locally from the repository root, and the frontend needs Cognito and API values in `.env.local`. See the [frontend README](/apps/web/README.md) for more.
 
 <p align="right"><a href="#readme-top">&uarr;</a></p>
 
@@ -276,7 +265,7 @@ The frontend and the backend run locally from the repository root, and the front
     make deploy  # see infra/README.md
     ```
 
-    The repository has no CI, and deploys are manual: `make deploy` provisions the AWS infrastructure and `make apply` applies later changes. The exception is the frontend, which Amplify Hosting builds from `main` once provisioned. No script deploys the API or Lambda code. The removed workflows are linked at their last commit for reference: [`deploy.yml`](https://github.com/M1KUAPP/MediaFlows/blob/65d991929c6fb53a1d5754ea2b733c293a067f0a/.github/workflows/deploy.yml) built and uploaded the API and Lambda code, and [`terraform-apply.yml`](https://github.com/M1KUAPP/MediaFlows/blob/65d991929c6fb53a1d5754ea2b733c293a067f0a/.github/workflows/terraform-apply.yml) ran `terraform apply`. Workload-specific instructions live in [`apps/web/README.md`](apps/web/README.md) and [`infra/README.md`](infra/README.md).
+    The repository has no CI, and deploys are manual: `make deploy` provisions the AWS infrastructure and `make apply` applies later changes. The exception is the frontend, which Amplify Hosting builds from `main` once provisioned. No script deploys the API or Lambda code. The removed workflows are linked at their last commit for reference: [`deploy.yml`](https://github.com/M1KUAPP/MediaFlows/blob/65d991929c6fb53a1d5754ea2b733c293a067f0a/.github/workflows/deploy.yml) built and uploaded the API and Lambda code, and [`terraform-apply.yml`](https://github.com/M1KUAPP/MediaFlows/blob/65d991929c6fb53a1d5754ea2b733c293a067f0a/.github/workflows/terraform-apply.yml) ran `terraform apply`. Workload-specific instructions live in [`apps/web/README.md`](/apps/web/README.md) and [`infra/README.md`](/infra/README.md).
 
 5.  **Run the checks.** From the repository root, run `bun install` once for the root tooling and Git hooks. `bun run check` runs editorconfig-checker, Prettier, the frontend typecheck, and `dotnet test MediaFlows.slnx` when `dotnet` is installed. ESLint (`pnpm lint`) and the Playwright suite (`pnpm test:e2e`, against `http://localhost:3000`) run separately in `apps/web/`.
 
@@ -299,7 +288,7 @@ See [open issues](https://github.com/M1KUAPP/MediaFlows/issues) for a full list 
 ## Team
 
 <a href="https://github.com/M1KUAPP/MediaFlows/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=M1KUAPP/MediaFlows" alt="Team" />
+  <img src="https://contrib.rocks/image?repo=M1KUAPP/MediaFlows" alt="MediaFlows team" />
 </a>
 
 Made with [contrib.rocks](https://contrib.rocks).
@@ -310,7 +299,7 @@ Made with [contrib.rocks](https://contrib.rocks).
 
 ## License
 
-See [LICENSE](LICENSE) for more information.
+See [LICENSE](/LICENSE) for more information.
 
 <p align="right"><a href="#readme-top">&uarr;</a></p>
 
@@ -321,9 +310,9 @@ See [LICENSE](LICENSE) for more information.
 - [shadcn/ui](https://ui.shadcn.com) — UI components.
 - [Lucide](https://lucide.dev) — icons.
 - [Geist](https://vercel.com/font) — typefaces.
-- [archify](https://github.com/tt-a1i/archify) — architecture diagrams.
-- [Shields.io](https://shields.io)
+- [Archify](https://github.com/tt-a1i/archify)
 - [contrib.rocks](https://contrib.rocks)
+- [Shields.io](https://shields.io)
 
 <p align="right"><a href="#readme-top">&uarr;</a></p>
 
